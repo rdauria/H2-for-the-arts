@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Opening GUI applications on linux &mdash; H2-for-the-Arts 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> H2-for-the-Arts
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using the Hoffman2 cluster:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Connecting.html">Connecting/Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Unix-command-line.html">Unix command line 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Computing.html">Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data-transfer.html">Data transfer</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">H2-for-the-Arts</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Opening GUI applications on linux</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Opening-GUI.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="opening-gui-applications-on-linux">
+<h1>Opening GUI applications on linux<a class="headerlink" href="#opening-gui-applications-on-linux" title="Permalink to this headline">¶</a></h1>
+<p>On UNIX-like systems, an X Window System server is generally available and running with the default installation (or can be readily installed via the OS package manager). You can enable X11 Forwarding (that is the ability to visualize, on your local computer, GUI applications running remotely on the cluster) by adding the -X flag to the ssh command you use to connect to the cluster.
+To do so, type into your terminal window:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">X</span> <span class="n">login_id</span><span class="nd">@hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">login_id</span></code> is replaced by your cluster user name.</p>
+<p>Alternatively, you can override the ssh default for all your sessions on the Hoffman2 cluster by creating (or adding to) a file named <code class="docutils literal notranslate"><span class="pre">config</span></code> in the <cite>$HOME/.ssh`</cite> local directory on your computer.
+Add the option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span> <span class="n">hoffman2</span>
+<span class="n">Hostname</span><span class="o">=</span><span class="n">hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+<span class="n">User</span><span class="o">=</span><span class="n">login_id</span>
+<span class="n">ForwardX11</span> <span class="n">yes</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">login_id</span></code> is replaced by your cluster user name.
+You can then login on the cluster as user <code class="docutils literal notranslate"><span class="pre">login_id</span></code> simply issuing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">hoffman2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="opening-gui-applications-on-a-mac">
+<h1>Opening GUI applications on a mac<a class="headerlink" href="#opening-gui-applications-on-a-mac" title="Permalink to this headline">¶</a></h1>
+<p>On Mac OS X, the X windows system is called XQuartz. Mac OS X 10.5 10.6 and 10.7 installed it by default, but as of 10.8 Apple has dropped dedicated support and directs users to the open source XQuartz page. You can install XQuartz from the OS distribution media or download it from <a class="reference external" href="https://www.xquartz.org/">XQuartz page</a>.</p>
+<p>The MacOS terminal application can be used to connect to the cluster. Specify -Y, not -X, in the ssh command to enable X11 Forwarding (as by default, a mac assumes that an -X connection is untrusted).
+Type into your terminal window:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">Y</span> <span class="n">login_id</span><span class="nd">@hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">login_id</span></code> is replaced by your cluster user name. Alternatively, you can override the ssh default for your Hoffman2 session creating a <code class="docutils literal notranslate"><span class="pre">$HOME/ssh/config</span></code> file similar to the one shown for linux logins.</p>
+<p><em>Notes for XQuartz users: Indirect GLX was disabled by default in Xorg 1.17, starting from XQuartz version 2.7.9.</em></p>
+<p>To enable indirect GLX and to allow remote visualization on the cluster, you will have to issue at the terminal command prompt of your mac (before logging into Hoffman2):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">defaults</span> <span class="n">write</span> <span class="n">org</span><span class="o">.</span><span class="n">macosforge</span><span class="o">.</span><span class="n">xquartz</span><span class="o">.</span><span class="n">X11</span> <span class="n">enable_iglx</span> <span class="o">-</span><span class="nb">bool</span> <span class="n">true</span>
+</pre></div>
+</div>
+<p><em>Note: You will need to reboot your machine before being able to open GUI applications on Hoffman2.</em></p>
+<p>For more information about X11 for Mac and OS X Mountain Lion, click <a class="reference external" href="http://support.apple.com/kb/HT5293">here</a>. For Mac OS X 10.4 (Tiger), X11 should be installed from the OS media and manually started.</p>
+</div>
+<div class="section" id="opening-gui-applications-on-windows">
+<h1>Opening GUI applications on Windows<a class="headerlink" href="#opening-gui-applications-on-windows" title="Permalink to this headline">¶</a></h1>
+<p>On Windows, third-party software needs to be installed. Here is a list of possible choices:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://mobaxterm.mobatek.net/">MobaXterm</a>: MobaXterm is a free, enhanced terminal for Windows with X11 server, SSH client, network tools, and much more.</li>
+<li><a class="reference external" href="http://sourceforge.net/projects/xming/">XMing</a> and <a class="reference external" href="http://sourceforge.net/projects/xming/files/Xming-fonts/">Xming fonts</a>: XMing and XMing fonts are a no-cost X Window System Server for Microsoft.</li>
+<li><a class="reference external" href="http://www.cygwin.com/">Cygwin</a>: Cygwin is a free Linux-like environment for Windows. To add Cygwin/X server, select the <code class="docutils literal notranslate"><span class="pre">xinit</span></code> package from the X11 category.</li>
+<li><a class="reference external" href="www.netsarang.com">Xshell</a>: Xshell is a commercial option.</li>
+</ul>
+<div class="section" id="notes-for-mobaxterm-users">
+<h2>Notes for MobaXterm users:<a class="headerlink" href="#notes-for-mobaxterm-users" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Download <a class="reference external" href="http://mobaxterm.mobatek.net/download-home-edition.html">MobaXterm Home Edition</a> (installer edition).</li>
+<li>Double click on the installer and follow directions to install the package and start mobaxterm.</li>
+<li>Click on the <code class="docutils literal notranslate"><span class="pre">Settings</span></code> tab. When a window pops up, select the <code class="docutils literal notranslate"><span class="pre">SSH</span></code> tab. Next, click on the <code class="docutils literal notranslate"><span class="pre">SSH</span> <span class="pre">keepalive</span></code> box, and then select “OK”.</li>
+<li>Select the <code class="docutils literal notranslate"><span class="pre">Session</span></code> tab, a window will pop up, select <code class="docutils literal notranslate"><span class="pre">SSH</span></code>.</li>
+<li>Under <code class="docutils literal notranslate"><span class="pre">Remote</span> <span class="pre">Host</span></code> enter <code class="docutils literal notranslate"><span class="pre">hoffman2.idre.ucla.edu</span></code>. You can also add your username, and then click OK. You will be prompted to log on the cluster.</li>
+</ul>
+</div>
+<div class="section" id="notes-for-xming-users">
+<h2>Notes for Xming users:<a class="headerlink" href="#notes-for-xming-users" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Install and launch PuTTY.</li>
+<li>Enter <code class="docutils literal notranslate"><span class="pre">hoffman2.idre.ucla.edu</span></code> in the “Host Name (or OP address)” field.</li>
+<li>Enter <code class="docutils literal notranslate"><span class="pre">hoffman2</span></code> in the “Saved Sessions” field.</li>
+<li>Expand the “SSH” menu under the “Category” field (press + sing), select X11, and click the “Enable X11 forwarding” field.</li>
+<li>Select <code class="docutils literal notranslate"><span class="pre">Session</span></code> in the “Category” field and click the “Save” button.</li>
+<li>Double click on the Xming icon.</li>
+<li>Start PuTTy, select the saved session, and login using your username and password.</li>
+</ul>
+</div>
+<div class="section" id="notes-for-cygwin-users">
+<h2>Notes for Cygwin users:<a class="headerlink" href="#notes-for-cygwin-users" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Install Cygwin (including the X11 packages) on your Windows system.</li>
+<li>Open a Cygwin terminal.</li>
+<li>Enter the command: <code class="docutils literal notranslate"><span class="pre">startxwin</span></code>. This starts the X11 server on your Windows computer.</li>
+<li>In the (graphical) window that pops up, use the command <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-X</span> <span class="pre">login_id&#64;hoffman2.idre.ucla.edu</span></code> where <code class="docutils literal notranslate"><span class="pre">login_id</span></code> is replaced by your cluster user name.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Raffaella D&#39;Auria
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

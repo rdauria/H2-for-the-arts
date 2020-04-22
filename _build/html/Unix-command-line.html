@@ -1,0 +1,461 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Unix command line 101 &mdash; H2-for-the-Arts 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Computing" href="Computing.html" />
+    <link rel="prev" title="Connecting/Logging in" href="Connecting.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> H2-for-the-Arts
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using the Hoffman2 cluster:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Connecting.html">Connecting/Logging in</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Unix command line 101</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#navigation">Navigation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#listing-files">Listing files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files-and-directories-management">Files and directories management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copying-moving-removing-files">Copying, moving,removing files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#changing-directory">Changing directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-removing-directories">Creating/removing directories</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#environmental-variables">Environmental variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-files">Working with files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#editors-that-do-not-require-x11-forwarding">Editors that do not require X11 Forwarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editors-that-require-x11-forwarding">Editors that require X11 Forwarding</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#miscellaneous-commands">Miscellaneous commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Computing.html">Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data-transfer.html">Data transfer</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">H2-for-the-Arts</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Unix command line 101</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Unix-command-line.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="unix-command-line-101">
+<span id="id1"></span><h1>Unix command line 101<a class="headerlink" href="#unix-command-line-101" title="Permalink to this headline">¶</a></h1>
+<p>The Hoffman2 Cluster is a Linux-based computing platform. One of the
+most powerful ways to interact with the Hoffman2 Cluster is via the
+Unix-command line. You can access the Hoffman2 command line by logging
+into the system either via a terminal application (see:
+<span class="xref std std-ref">Connecting-via-SSH</span>) or by opening a remote desktop on Hoffman2
+(see: <a class="reference internal" href="Connecting.html#connecting-via-nx-clients"><span class="std std-ref">Connecting via NX clients</span></a>) and opening a terminal
+window. Any of these methods will open a command-line interpreter or
+unix shell (or most simply shell). This page presents a review of
+common tasks you may need to execute or script in your shell.</p>
+<div class="section" id="navigation">
+<span id="id2"></span><h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="listing-files">
+<span id="id3"></span><h3>Listing files<a class="headerlink" href="#listing-files" title="Permalink to this headline">¶</a></h3>
+<p>To list what files are present in the current directory type at the Hoffman2 command prompt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+<p>to list hidden files or folders:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+<p>to get extra information on the files or folders in the current working directory use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">la</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">-l</span></code> adds a long listing format with a total of nine fields, a typical line of output from <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span></code> could look, for example, as the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">rwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">--</span>   <span class="mi">1</span> <span class="n">joebruin</span> <span class="n">gobruins</span> <span class="mi">3974052</span> <span class="n">Apr</span> <span class="mi">17</span> <span class="mi">12</span><span class="p">:</span><span class="mi">53</span> <span class="n">myexecutable</span>
+</pre></div>
+</div>
+<p>where: the first character of the first field indicates the file type
+(<code class="docutils literal notranslate"><span class="pre">-</span></code>, for a regular file, <code class="docutils literal notranslate"><span class="pre">d</span></code> for a directory, <code class="docutils literal notranslate"><span class="pre">l</span></code>, for a link,
+etc.); the remiaining 9 characters of the first field indicate the
+file permissions (for example: <code class="docutils literal notranslate"><span class="pre">rwxr-xr--</span></code> means that the file can
+be read, written and executed by its owner, as denoted by the first
+three fields <code class="docutils literal notranslate"><span class="pre">rwx</span></code>; read and exectuted by the owner’s group:
+<code class="docutils literal notranslate"><span class="pre">r-x</span></code> - if the path to the current directory is also accessible by
+the group; and read by any other user on the system: <code class="docutils literal notranslate"><span class="pre">r--</span></code> - again
+assuming that the path to the current directory is also accessible by
+any user on the system)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">By default on the Hoffman2 Cluster <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> directories are accessible only by the owner and therefore no file or folder within them, despite their permissions, can be accessed by any other user.</p>
+</div>
+<p>the second field indicates the number of hard links to the file; the
+third field indicates the file owner (for example <code class="docutils literal notranslate"><span class="pre">joebruin</span></code>); the
+fourth file indicates the file group (<code class="docutils literal notranslate"><span class="pre">gobruins</span></code> in the example
+above); the first field indicates the file size - in blocks; the
+sixth, seventh and eight fields indicate the data and time of last
+modification; and ninth and last field shows the file name
+(<code class="docutils literal notranslate"><span class="pre">myexecutable</span></code> in the example above).</p>
+<p>to display the size of the files in units of bytes, MB or GB:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">lah</span>
+</pre></div>
+</div>
+<p>for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">rwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">--</span>   <span class="mi">1</span> <span class="n">joebruin</span> <span class="n">gobruins</span> <span class="mf">3.8</span><span class="n">M</span> <span class="n">Apr</span> <span class="mi">17</span> <span class="mi">12</span><span class="p">:</span><span class="mi">53</span> <span class="n">myexecutable</span>
+</pre></div>
+</div>
+<p>to order the list of files by time (newest on top):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">laht</span>
+</pre></div>
+</div>
+<p>to order the list of files by time oldest on top):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">lahtr</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="files-and-directories-management">
+<span id="id4"></span><h3>Files and directories management<a class="headerlink" href="#files-and-directories-management" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="copying-moving-removing-files">
+<span id="id5"></span><h3>Copying, moving,removing files<a class="headerlink" href="#copying-moving-removing-files" title="Permalink to this headline">¶</a></h3>
+<p>To copy a file from a location to another:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="n">myfile</span><span class="o">.</span><span class="n">txt</span> <span class="n">myfile1</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>to move a file from a location to another:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mv</span> <span class="n">myfile</span><span class="o">.</span><span class="n">txt</span> <span class="n">myfile1</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>to remove a file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="n">myfile</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<div class="section" id="changing-directory">
+<span id="id6"></span><h4>Changing directory<a class="headerlink" href="#changing-directory" title="Permalink to this headline">¶</a></h4>
+<p>Upon logging onto the Hoffman2 cluster you land in your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code>
+directory which is a space with up to 20 GB of capacity fully
+backed-up (see: <span class="xref std std-ref">Your-home-directory</span>). To navigate to your
+temporary storage directory (see: <span class="xref std std-ref">File-system-for-temporary-use</span>) issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $SCRATCH
+</pre></div>
+</div>
+<p>to check in which directory you currently are issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pwd</span>
+</pre></div>
+</div>
+<p>user <code class="docutils literal notranslate"><span class="pre">joebruin</span></code> would get:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">u</span><span class="o">/</span><span class="n">scratch</span><span class="o">/</span><span class="n">j</span><span class="o">/</span><span class="n">joebruin</span>
+</pre></div>
+</div>
+<p>to move up two directories:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">../..</span>
+</pre></div>
+</div>
+<p>to move back to the <code class="docutils literal notranslate"><span class="pre">`$HOME</span></code> directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-removing-directories">
+<span id="id7"></span><h4>Creating/removing directories<a class="headerlink" href="#creating-removing-directories" title="Permalink to this headline">¶</a></h4>
+<p>To create the directory <code class="docutils literal notranslate"><span class="pre">test</span></code> in your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> directory issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mkdir $HOME/test
+</pre></div>
+</div>
+<p>to navigate to this newly created directory issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $HOME/test
+</pre></div>
+</div>
+<p>you check the location of this new directory, issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pwd</span>
+</pre></div>
+</div>
+<p>user <code class="docutils literal notranslate"><span class="pre">joebruin</span></code> would get:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">u</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">j</span><span class="o">/</span><span class="n">joebruin</span><span class="o">/</span><span class="n">test</span>
+</pre></div>
+</div>
+<p>To remove an empty directory, issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmdir</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p>to force removal of a file or a directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">test</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="environmental-variables">
+<span id="id8"></span><h2>Environmental variables<a class="headerlink" href="#environmental-variables" title="Permalink to this headline">¶</a></h2>
+<p>On a unix-like system any string that is preceded by a <code class="docutils literal notranslate"><span class="pre">$</span></code> is a
+variable, which means that the operating system will interpret the
+string according to what it has been set to. Environmental variables
+are a set of variables that influences the behavior of the
+command-line or shell interpreter in use (typically <a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/What-is-Bash_003f.html">Bash</a>). Example
+of environmental variables that are set for you are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$HOME
+$SCRATCH
+$PATH
+$LD_LIBRARY_PATH
+</pre></div>
+</div>
+<p>to check the content of a variable, for example $HOME, issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo $HOME
+</pre></div>
+</div>
+<p>the content of your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> and <code class="docutils literal notranslate"><span class="pre">$LD_LIBRARAY_PATH</span></code> influences the kind of executables and libraries that you can access at the command line (without specifying their full path).</p>
+</div>
+<div class="section" id="working-with-files">
+<span id="id9"></span><h2>Working with files<a class="headerlink" href="#working-with-files" title="Permalink to this headline">¶</a></h2>
+<p>Unix-like systems have more than one way to display the content of a
+file, or selecgted snippet of it, on your unix shell. Among some of
+the most usefule commands are: cut, less, more, head and tail. To see
+how they work, issue at Hoffman2 command promt, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cut $HOME/.bashrc
+less $HOME/.bashrc
+more $HOME/.bashrc
+</pre></div>
+</div>
+<p>to exit from displaying a file with <code class="docutils literal notranslate"><span class="pre">more</span></code> or <code class="docutils literal notranslate"><span class="pre">less</span></code> issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">q</span>
+</pre></div>
+</div>
+<p>To see just the first few lines of a file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>head $HOME/.bashrc
+</pre></div>
+</div>
+<p>or, for the first two lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>head -n 2 $HOME/.bashrc
+</pre></div>
+</div>
+<p>to see the last few lines of a file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>tail $HOME/.bashrc
+</pre></div>
+</div>
+<p>or, for the last two lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>tail -n 2 $HOME/.bashrc
+</pre></div>
+</div>
+<p>to look at the last few lines of a file that is being written on the fly:</p>
+<blockquote>
+<div>tail -f /u/local/licenses/LOGS/logit.matlab</div></blockquote>
+<p>use:</p>
+<blockquote>
+<div>Control-C (to exit)</div></blockquote>
+<p>Unix-like system have very powerful editors packed with shortcuts that
+largely simplify the editing task. The learning curve on some of these
+editors, such as <code class="docutils literal notranslate"><span class="pre">vi</span></code>, can be pretty steep. However, there are
+several simpler, if less powerful, alternatives.</p>
+<div class="section" id="editors-that-do-not-require-x11-forwarding">
+<span id="id10"></span><h3>Editors that do not require X11 Forwarding<a class="headerlink" href="#editors-that-do-not-require-x11-forwarding" title="Permalink to this headline">¶</a></h3>
+<p>Here are some of the file editors available on the Hoffman2 Cluster
+presented in order of the complexity of their use, from less to more complex:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nano</span>
+<span class="n">emacs</span>
+<span class="n">vi</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="editors-that-require-x11-forwarding">
+<span id="id11"></span><h3>Editors that require X11 Forwarding<a class="headerlink" href="#editors-that-require-x11-forwarding" title="Permalink to this headline">¶</a></h3>
+<p>Here are some of the file editors available on the Hoffman2 Cluster
+when X11 Forwarding is enabled (see: <a class="reference internal" href="Connecting.html#opening-gui-applications"><span class="std std-ref">Connecting via NX clients</span></a>)
+presented in order of the complexity of their use, from less to more
+complex:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nano</span>
+<span class="n">gedit</span> <span class="o">&amp;</span>
+<span class="n">emacs</span> <span class="o">&amp;</span>
+<span class="n">vi</span>
+<span class="n">gvim</span> <span class="o">&amp;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="miscellaneous-commands">
+<span id="miscellaneus-commands"></span><h2>Miscellaneous commands<a class="headerlink" href="#miscellaneous-commands" title="Permalink to this headline">¶</a></h2>
+<p>Most unix commands have manual pages that can be accessed via the <code class="docutils literal notranslate"><span class="pre">man</span></code> command, for example to learn more about the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command, issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">man</span> <span class="n">ls</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">man</span> <span class="n">vi</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Computing.html" class="btn btn-neutral float-right" title="Computing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Connecting.html" class="btn btn-neutral float-left" title="Connecting/Logging in" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Raffaella D&#39;Auria
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Connecting/Logging in &mdash; H2-for-the-Arts 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Unix command line 101" href="Unix-command-line.html" />
+    <link rel="prev" title="Welcome to H2-for-the-Arts’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> H2-for-the-Arts
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using the Hoffman2 cluster:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Connecting/Logging in</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#connecting-via-a-terminal">Connecting via a terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#connectiong-from-linux">Connectiong from Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-from-a-macos">Connecting from a MacOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-from-windows">Connecting from Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#instructions-for-mobaxterm">Instructions for MobaXterm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#instructions-for-xming-and-gitbash">Instructions for XMing and GitBash</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#connecting-via-nx-clients">Connecting via NX clients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nomachine-client">NoMachine client</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#download-nomachine-client-for-your-operating-system">Download NoMachine Client for your operating system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure">Configure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run">Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-terminate-your-nx-session">How to terminate your NX session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-suspend-an-nx-session">How to suspend an NX session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-reconnect-to-a-suspended-nx-session">How to reconnect to a suspended NX session</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#x2go-client">X2Go client</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-x2go-client">Install X2Go client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-the-x2go-client-to-connect-to-hoffman2">Configure the X2Go client to connect to Hoffman2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-new-session">Create a new session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#start-the-x2go-client">Start the X2Go client</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Unix-command-line.html">Unix command line 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Computing.html">Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data-transfer.html">Data transfer</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">H2-for-the-Arts</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Connecting/Logging in</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Connecting.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="connecting-logging-in">
+<span id="connecting"></span><h1>Connecting/Logging in<a class="headerlink" href="#connecting-logging-in" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="connecting-via-a-terminal">
+<span id="id1"></span><h2>Connecting via a terminal<a class="headerlink" href="#connecting-via-a-terminal" title="Permalink to this headline">¶</a></h2>
+<p>In order to be able to connect to the Hoffman2 Cluster and open
+graphical user interfaces such as Maya you need to have an SSH-client
+and an X Window System installed on your computer. Step by step
+instructions on how to acquire and use these tools are given below for
+Linux, Mac and Windows operating systems.</p>
+<p>All the connections to the cluster are based on the SSH secure
+protocol that requires authentication. Depending on the
+operating system that your computer is running, you have several
+choices for which command line application to use when connecting with
+the cluster.</p>
+<div class="section" id="connectiong-from-linux">
+<span id="connecting-from-linux"></span><h3>Connectiong from Linux<a class="headerlink" href="#connectiong-from-linux" title="Permalink to this headline">¶</a></h3>
+<p>An X Window System server is generally available and running with the
+default installation (or can be readily installed via the OS package
+manager). If you are connecting from a Linux box, you can use the
+standard SSH-client generally installed with the OS and available via
+any terminal application. Open a terminal window and type the
+following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">X</span> <span class="n">login_id</span><span class="nd">@hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">login_id</span></code> is replaced by your cluster user name.</p>
+</div>
+<div class="section" id="connecting-from-a-macos">
+<span id="connecting-from-macos"></span><h3>Connecting from a MacOS<a class="headerlink" href="#connecting-from-a-macos" title="Permalink to this headline">¶</a></h3>
+<p>On Mac OS X, the X windows system is called XQuartz. Mac OS X 10.5
+10.6 and 10.7 installed it by default, but as of 10.8 Apple has
+dropped dedicated support and directs users to the open source XQuartz
+page. You can install XQuartz from the OS distribution media or
+download it from <a class="reference external" href="https://www.xquartz.org/">XQuartz page</a>.</p>
+<p>MacOS, the operating system running on a Mac computer, comes equipped
+with a fully functional <a class="reference external" href="https://support.apple.com/guide/terminal/welcome/mac">Termainal application</a> and an
+SSH-client. The Terminal application can be located using the
+<a class="reference external" href="https://support.apple.com/guide/mac-help/spotlight-mchlp1008/mac">Spotlight Search</a>
+or searching the Applications folder in <a class="reference external" href="https://support.apple.com/guide/mac-help/finder-mchlp2605/mac">Finder</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>To enable indirect GLX and to allow remote visualization on the Hoffman2 Cluster, open the MacOS Termianl application and issue at its command prompt:</p>
+<p class="last">defaults write org.macosforge.xquartz.X11 enable_iglx -bool true</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">You will need to reboot your machine before being able to open GUI applications on Hoffman2.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You will need to perform the operation above only once</p>
+</div>
+<p>To connect to the Hoffman2 Cluster, open the MacOS Terminal
+application and issue at its command prompt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">Y</span> <span class="n">login_id</span><span class="nd">@hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">login_id</span></code> is replaced by your cluster user name.</p>
+</div>
+<div class="section" id="connecting-from-windows">
+<span id="id2"></span><h3>Connecting from Windows<a class="headerlink" href="#connecting-from-windows" title="Permalink to this headline">¶</a></h3>
+<p>To connect to the Hoffman2 Cluster from your Windows computer Install <strong>one</strong> of any of the following free ssh client programs.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Only one of the following options is needed to connect to the cluster via SSH.</p>
+</div>
+<ul class="simple">
+<li><a class="reference external" href="http://mobaxterm.mobatek.net/">MobaXterm</a> a free X server for Windows with SSH terminal, SFTP and more.</li>
+<li><a class="reference external" href="http://sourceforge.net/projects/xming/">XMing</a> and <a class="reference external" href="http://sourceforge.net/projects/xming/files/Xming-fonts/">Xming fonts</a> provides a X Window System Server for Microsoft to be used in conjunction with <a class="reference external" href="https://gitforwindows.org/">GitBash</a> an emulation shell for Windows.</li>
+<li><a class="reference external" href="http://www.cygwin.com/">Cygwin</a> a free Linux-like environment for Windows. To add Cygwin/X server, select the <code class="docutils literal notranslate"><span class="pre">xinit</span></code> package from the X11 category.</li>
+<li><a class="reference external" href="https://www.netsarang.com/en/xshell/">Xshell</a> a commercial option.</li>
+</ul>
+<p>Instructions are given for the first two of the options described above.</p>
+<div class="section" id="instructions-for-mobaxterm">
+<span id="id3"></span><h4>Instructions for MobaXterm<a class="headerlink" href="#instructions-for-mobaxterm" title="Permalink to this headline">¶</a></h4>
+<p>Download and install the <a class="reference external" href="https://mobaxterm.mobatek.net/download-home-edition.html">MobaXterm Home Edition</a>, either the Portable or Installer edition will work. To log into the Hoffman2 Cluster open MobaXterm and click on the Session button (the Sessions button is circled in green in <a class="reference internal" href="#mobaxterm-w-green-sessions"><span class="std std-ref">MobaXterm application with the Sessions button circled in green.</span></a>).</p>
+<div class="figure" id="id9">
+<span id="mobaxterm-w-green-sessions"></span><a class="reference internal image-reference" href="_images/moba.png"><img alt="Image showing the MobaXterm application open with the Sessions button in the upper left corner circled in green" src="_images/moba.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">MobaXterm application with the Sessions button circled in green.</span></p>
+</div>
+<p>A new window will pop-up to allow you to choose a type of session. Choose SSH by clicking on the SSH button (upper left corner) and fill the <code class="docutils literal notranslate"><span class="pre">Remote</span> <span class="pre">host</span></code> field with the Hoffman2 Cluster address, that is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>save the session by pressing the OK button.</p>
+<div class="figure" id="id10">
+<span id="mobaxterm-w-ssh"></span><a class="reference internal image-reference" href="_images/moba-ssh.png"><img alt="Image showing the MobaXterm application open with the SSH Sessions in which the Remote host field has been filled with the Hoffman2 Cluster address (hoffman2.idre.ucla.edu). The OK button in the center bottom is circled in green" src="_images/moba-ssh.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">MobaXterm application with the SSH session set for Hoffman2.</span></p>
+</div>
+<p>You can also create a new session type which you will use to transfer
+files back and from the cluster to your local machine, by selecting
+the Sessions button again and choosing SFTP as the session type and fill the <code class="docutils literal notranslate"><span class="pre">Remote</span> <span class="pre">host</span></code> field with the Hoffman2 Cluster data transfer node address, that is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dtn1</span><span class="o">.</span><span class="n">hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>save the session by pressing the OK button.</p>
+<p>To access the cluster double click on the save SSH session.</p>
+</div>
+<div class="section" id="instructions-for-xming-and-gitbash">
+<span id="id4"></span><h4>Instructions for XMing and GitBash<a class="headerlink" href="#instructions-for-xming-and-gitbash" title="Permalink to this headline">¶</a></h4>
+<p>Download and install <a class="reference external" href="http://sourceforge.net/projects/xming/">XMing</a> and <a class="reference external" href="http://sourceforge.net/projects/xming/files/Xming-fonts/">Xming fonts</a> following the installer instructions. Download and install <a class="reference external" href="https://gitforwindows.org/">GitBash</a> following the installer instructions.</p>
+<p>Start Xming from the programs, open GibBAsh from the Start Menu, at its command promopt issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">DISPLAY</span><span class="o">-</span><span class="n">localhost</span><span class="p">:</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>Connect to the Hoffman2 Cluster by typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">XY</span> <span class="n">login_id</span><span class="nd">@hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">login_id</span></code> is replaced by your cluster user name.</p>
+</div>
+</div>
+</div>
+<div class="section" id="connecting-via-nx-clients">
+<span id="opening-gui-applications"></span><span id="id8"></span><h2>Connecting via NX clients<a class="headerlink" href="#connecting-via-nx-clients" title="Permalink to this headline">¶</a></h2>
+<p>NX is a free, secure, compressed protocol for remote X Window System connections for Windows, Linux, Mac OSX, and Solaris. We currently support connecting to the Hoffman2 cluster via the NoMachine client as well as the X2Go client.</p>
+<div class="section" id="nomachine-client">
+<h3>NoMachine client<a class="headerlink" href="#nomachine-client" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="download-nomachine-client-for-your-operating-system">
+<h4>Download NoMachine Client for your operating system<a class="headerlink" href="#download-nomachine-client-for-your-operating-system" title="Permalink to this headline">¶</a></h4>
+<p>A free NoMachine client is available from NoMachine for Windows, Mac OSX, and most Linux distributions.</p>
+<ul class="simple">
+<li>Download NoMachine from the <a class="reference external" href="https://www.nomachine.com/download">website</a>.</li>
+<li>Use the download link for your operating system (Windows, Mac OSX, or Linux Distributions).</li>
+</ul>
+</div>
+<div class="section" id="install">
+<h4>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Once downloaded, double click on the downloaded package file.</li>
+<li>Click the <code class="docutils literal notranslate"><span class="pre">Run/Install</span></code> button.</li>
+<li>When the NoMachine Client Setup Wizard starts, accept all the setup defaults.</li>
+</ul>
+</div>
+<div class="section" id="configure">
+<h4>Configure<a class="headerlink" href="#configure" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Open the NoMachine client and continue to the connection page.</li>
+<li>Click on the <code class="docutils literal notranslate"><span class="pre">New</span></code> link to create a connection to the Hoffman2 Cluster.</li>
+<li>Specify the protocol as <code class="docutils literal notranslate"><span class="pre">SSH</span></code> and press <code class="docutils literal notranslate"><span class="pre">Continue</span></code>.</li>
+<li>Provide the host name (<em>nx.hoffman2.idre.ucla.edu</em>).</li>
+<li>Leave the port field set to 22 and press the <code class="docutils literal notranslate"><span class="pre">Continue</span></code> button.</li>
+<li>Select <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">the</span> <span class="pre">system</span> <span class="pre">login</span></code> and press the <code class="docutils literal notranslate"><span class="pre">Continue</span></code> button.</li>
+<li>Select <code class="docutils literal notranslate"><span class="pre">Password</span></code> and press the <code class="docutils literal notranslate"><span class="pre">Continue</span></code> button.</li>
+<li>Select <code class="docutils literal notranslate"><span class="pre">Don’t</span> <span class="pre">use</span> <span class="pre">a</span> <span class="pre">proxy</span></code> and press the <code class="docutils literal notranslate"><span class="pre">Continue</span></code> button.</li>
+<li>Name your connection and press the <code class="docutils literal notranslate"><span class="pre">Done</span></code> button.</li>
+</ul>
+<p>Please notice that if you are planning to suspend and reconnect to an NX session, you will need to repeat the configuration steps described above for the hosts:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nx1</span><span class="o">.</span><span class="n">hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+<span class="n">nx2</span><span class="o">.</span><span class="n">hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="run">
+<h4>Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Open the NoMachine client and continue to the connection page.</li>
+<li>Click on the saved connection that you previously configured.</li>
+<li>Enter your username and password and your NX session with a virtual desktop on the cluster will start.</li>
+</ul>
+<div class="section" id="how-to-get-a-terminal-window">
+<h5>How to get a terminal window<a class="headerlink" href="#how-to-get-a-terminal-window" title="Permalink to this headline">¶</a></h5>
+<p>After you have logged into the Hoffman2 remote desktop, click on the <code class="docutils literal notranslate"><span class="pre">Applications</span></code> menu. Then select <code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">Tools</span></code> and <code class="docutils literal notranslate"><span class="pre">Terminal</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To pin the terminal to the panel, right click on the <code class="docutils literal notranslate"><span class="pre">Terminal</span></code> menu item and select <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">this</span> <span class="pre">launcher</span> <span class="pre">to</span> <span class="pre">panel</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-terminate-your-nx-session">
+<h4>How to terminate your NX session<a class="headerlink" href="#how-to-terminate-your-nx-session" title="Permalink to this headline">¶</a></h4>
+<p>From the gnome desktop, select:</p>
+<p>System -&gt; Log Out login_id …</p>
+<p>A small window will open. Click the <code class="docutils literal notranslate"><span class="pre">Log</span> <span class="pre">Out</span></code> button.</p>
+</div>
+<div class="section" id="how-to-suspend-an-nx-session">
+<h4>How to suspend an NX session<a class="headerlink" href="#how-to-suspend-an-nx-session" title="Permalink to this headline">¶</a></h4>
+<p>Make note of the actual NX node where your session is running (typically NX1 or NX2) to allow for future reconnections. To terminate the NX client on your computer, close the application or close the virtual desktop window.</p>
+</div>
+<div class="section" id="how-to-reconnect-to-a-suspended-nx-session">
+<h4>How to reconnect to a suspended NX session<a class="headerlink" href="#how-to-reconnect-to-a-suspended-nx-session" title="Permalink to this headline">¶</a></h4>
+<p>If you are planning to reconnect to a session, make note of the actual NX node where your session is running (typically NX1 or NX2). Make sure to configure your NX client for the NX node where your session is running. You will need to create a configuration using either nx1.hoffman2.idre.ucla.edu or nx2.hoffman2.idre.ucla.edu. See the Configuration section for more detailed instructions.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Reconnecting to a suspended NX session is not always possible. Lengthy computations should be run as batch jobs. We recommend terminating NX sessions (logout) instead of suspending them.</p>
+</div>
+<p>On fast networks, a preferred alternative to NX is to run an X server on your platform (e.g., X11 packages for linux platforms, XQuartz for mac OSX, XMing and Xming fonts for Windows), and connect to the cluster via a terminal (or via PuTTY on Windows platforms) by setting up X11 forwarding.</p>
+</div>
+</div>
+<div class="section" id="x2go-client">
+<h3>X2Go client<a class="headerlink" href="#x2go-client" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="install-x2go-client">
+<h4>Install X2Go client<a class="headerlink" href="#install-x2go-client" title="Permalink to this headline">¶</a></h4>
+<p>Follow the installation guide at <a class="reference external" href="https://wiki.x2go.org/doku.php/doc:installation:x2goclient">X2Go site</a>.
+Download the X2Go client, select the appropriate client for your operating system (Windows, Mac OS, Linux) and the correct version onto your computer.</p>
+<p>Double click on the downloaded package, accept the licensing terms, and follow the instruction on the screen.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">MacOS users will need to install the XQuartz dependency prior to installing X2Go.  It may be obtained on the <a class="reference external" href="https://www.xquartz.org/">XQuartz website</a>. You may also encounter a security warning that “x2goclient.app” is from an unidentified developer.  Simply right click on the app again and select Open.</p>
+</div>
+</div>
+<div class="section" id="configure-the-x2go-client-to-connect-to-hoffman2">
+<h4>Configure the X2Go client to connect to Hoffman2<a class="headerlink" href="#configure-the-x2go-client-to-connect-to-hoffman2" title="Permalink to this headline">¶</a></h4>
+<p>Launch the application by double clicking on the X2Go Client desktop icon, if one was created, or by searching for the application in your App folder and double clicking on the application file. If prompted by the Windows Firewall, select <code class="docutils literal notranslate"><span class="pre">Allow</span> <span class="pre">access</span></code> so that <code class="docutils literal notranslate"><span class="pre">sshd.exe</span></code> and other X2Go related programs will be able to run.</p>
+</div>
+<div class="section" id="create-a-new-session">
+<h4>Create a new session<a class="headerlink" href="#create-a-new-session" title="Permalink to this headline">¶</a></h4>
+<p>From the <code class="docutils literal notranslate"><span class="pre">Session</span></code> tab in the X2Go client select <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">session</span></code>. You can name your session with any name (e.g., <a class="reference external" href="mailto:x2go&#37;&#52;&#48;hoffman2">x2go<span>&#64;</span>hoffman2</a>). Leave the <code class="docutils literal notranslate"><span class="pre">Path</span></code> field unchanged and in the <code class="docutils literal notranslate"><span class="pre">Host</span></code> field enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x2go</span><span class="o">.</span><span class="n">hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>Leave the other fields unchanged and choose the <code class="docutils literal notranslate"><span class="pre">Session</span> <span class="pre">type</span></code> to be either the default <code class="docutils literal notranslate"><span class="pre">KDE</span></code> or <code class="docutils literal notranslate"><span class="pre">GNOME</span></code>. Save the new session by pressing the <code class="docutils literal notranslate"><span class="pre">OK</span></code> button.</p>
+<p>You can also create sessions for the specific nodes <code class="docutils literal notranslate"><span class="pre">x2go1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2go2</span></code> if you will need to reconnect to a suspended session. However, we strongly suggest you start new sessions by using the session associated with the <code class="docutils literal notranslate"><span class="pre">x2go.hoffman2.idre.ucla.edu</span></code> address. Sessions on the <code class="docutils literal notranslate"><span class="pre">x2go1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2go2</span></code> nodes can be created by using in the “Host” field respectively:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x2go1</span><span class="o">.</span><span class="n">hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+<span class="n">x2go2</span><span class="o">.</span><span class="n">hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>Name the sessions accordingly (for example: <em>x2go1&#64;hoffman2</em>, <em>x2go2&#64;hoffman2</em>).</p>
+</div>
+<div class="section" id="start-the-x2go-client">
+<h4>Start the X2Go client<a class="headerlink" href="#start-the-x2go-client" title="Permalink to this headline">¶</a></h4>
+<p>To connect to the Hoffman2 cluster open the X2Go client, double click on an already created session, and enter your Hoffman2 username and password. The first time you connect, you will be prompted to trust the host key. Do so by pressing the <code class="docutils literal notranslate"><span class="pre">Yes</span></code> button. On Windows, a few more firewalls will pop up and you will have to allow access to the X2Go Client and associated programs.</p>
+<p>You should now be connected to a remote desktop on the Hoffman2 cluster.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Unix-command-line.html" class="btn btn-neutral float-right" title="Unix command line 101" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to H2-for-the-Arts’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Raffaella D&#39;Auria
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1466 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data transfer &mdash; H2-for-the-Arts 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Renderin" href="Rendering.html" />
+    <link rel="prev" title="Unix command line 101" href="Unix-command-line.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> H2-for-the-Arts
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using the Hoffman2 cluster:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Connecting.html">Connecting/Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Unix-command-line.html">Unix command line 101</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data transfer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-transfer-nodes">Data transfer nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#graphical-utilities">Graphical utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-utilities">Command-line utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cloud-storage-services">Cloud storage services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#box">Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#google-drive">Google Drive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dropbox">Dropbox</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#globus">Globus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id17">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">macOS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-globus">Using Globus</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rclone">rclone</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id21">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#set-up-rclone-to-sync-with-box">Set-up rclone to sync with Box</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-up-rclone-to-sync-with-google-drive">Set-up rclone to sync with Google Drive</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-rclone">Using rclone</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rclone-command-list">rclone command list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rclone-flag-list">rclone flag list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id28">rclone copy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scp">scp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sftp">sftp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsync">rsync</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Rendering.html">Renderin</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">H2-for-the-Arts</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Data transfer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Data-transfer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-transfer">
+<span id="id1"></span><h1>Data transfer<a class="headerlink" href="#data-transfer" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Personal information and other sensitive data, including statutory, regulatory, and contractually protected data — for example, human subjects research, restricted research, student and educational data, and PHI — are <strong>prohibited</strong> on Hoffman2.</p>
+</div>
+<div class="section" id="data-transfer-nodes">
+<span id="id2"></span><h2>Data transfer nodes<a class="headerlink" href="#data-transfer-nodes" title="Permalink to this headline">¶</a></h2>
+<p>Hoffman2 has two dedicated and performance tuned data transfer nodes with advanced parallel transfer tools <a class="footnote-reference" href="#fn1" id="id3">[1]</a> to support your research workflows.  For transferring large files and/or large datasets, you will need to use the DTN nodes. <a class="footnote-reference" href="#fn2" id="id4">[2]</a></p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>dtn1.hoffman2.idre.ucla.edu
+dtn2.hoffman2.idre.ucla.edu
+</pre></div>
+</div>
+<p>DTN SSH key fingerprints</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>MD5:3c:9c:67:d8:c5:a4:ae:77:07:5f:10:2f:20:4a:75:0f
+
+SHA256:kah9BJwSzrlFnVp9Tg+El2IdcCN7JgN5+Ur2RyIdvwM
+</pre></div>
+</div>
+<table class="docutils footnote" frame="void" id="fn1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[1]</a></td><td>If your research group requires additional transfer tools, please submit a request via our <a class="reference external" href="https://support.idre.ucla.edu/helpdesk">helpdesk</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="fn2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td>See <span class="xref std std-ref">Role-of-the-login-nodes</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tools">
+<span id="id5"></span><h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+<p>There are several methods to transfer data between a local computer and Hoffman2 and we will cover some on this page.</p>
+<p>Depending on your network connection and the amount of data to transfer between your local computer and Hoffman2, you have options under graphical or command-line interace utilities.</p>
+<p>To move large files and/or large datasets, we recommend using other parallel transfer tools, e.g. <a href="#id37"><span class="problematic" id="id38">Globus_</span></a>, <a class="reference internal" href="#rclone">rclone</a>, Aspera. Possibly, combine files into archive…</p>
+<p>Cloud resources….</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Allowed Transfer Protocols
+This is a note.</p>
+</div>
+<div class="section" id="graphical-utilities">
+<span id="id6"></span><h3>Graphical utilities<a class="headerlink" href="#graphical-utilities" title="Permalink to this headline">¶</a></h3>
+<p>Many of the graphical utilities support a file manager with “drag and drop” functionality between your local and remote computers.  You may use whichever tool you prefer…</p>
+<table border="1" class="colwidths-given docutils" id="id33">
+<caption><span class="caption-text">Graphical Transfer Utilities</span><a class="headerlink" href="#id33" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="38%" />
+<col width="50%" />
+<col width="13%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Application</th>
+<th class="head">Transfer Protocols</th>
+<th class="head">Platform</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CyberDuck</td>
+<td>SFTP</td>
+<td>Windows and MacOS</td>
+</tr>
+<tr class="row-odd"><td>FileZilla</td>
+<td>SFTP</td>
+<td>Windows, MacOS, Linux</td>
+</tr>
+<tr class="row-even"><td>MobaXterm</td>
+<td>SFTP</td>
+<td>Windows</td>
+</tr>
+<tr class="row-odd"><td>WinSCP</td>
+<td>SFTP</td>
+<td>Windows</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="command-line-utilities">
+<span id="id7"></span><h3>Command-line utilities<a class="headerlink" href="#command-line-utilities" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="colwidths-given docutils" id="id34">
+<caption><span class="caption-text">Command-line interface Transfer Utilities</span><a class="headerlink" href="#id34" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Application</th>
+<th class="head">Platform</th>
+<th class="head">Features</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="#scp">scp</a></td>
+<td>MacOS, Linux, Windows <a class="footnote-reference" href="#fn3" id="id8">[3]</a></td>
+<td>secure copy</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#sftp">sftp</a></td>
+<td>MacOS, Linux, Windows <a class="footnote-reference" href="#fn3" id="id9">[3]</a></td>
+<td>secure file transfer</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#rsync">rsync</a></td>
+<td>MacOS and Linux</td>
+<td>sync files to and from</td>
+</tr>
+<tr class="row-odd"><td>curl</td>
+<td>MacOS and Linux</td>
+<td>xfr data using various protocols</td>
+</tr>
+<tr class="row-even"><td>wget</td>
+<td>MacOS and Linux</td>
+<td>download via HTTP/HTTPS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#rclone">rclone</a></td>
+<td>Windows, MacOS, Linux</td>
+<td>rsync for cloud storage</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="fn3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id8">1</a>, <a class="fn-backref" href="#id9">2</a>)</em> Git for Windows provides a BASH emulation with SSH/SCP/SFTP clients. <a class="reference external" href="https://gitforwindows.org">Git for Windows</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="cloud-storage-services">
+<span id="id10"></span><h2>Cloud storage services<a class="headerlink" href="#cloud-storage-services" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Please review <a class="reference external" href="https://godigital.ucla.edu/sites/default/files/box-data-use-agreement.pdf">UCLA Allowable Data Use</a> - Cloud Storage Services</p>
+</div>
+<div class="topic">
+<p class="topic-title first">If you have data use questions, please contact IT Services Client Support</p>
+<p>Email: <a class="reference external" href="mailto:clientsupport&#37;&#52;&#48;it&#46;ucla&#46;edu">clientsupport<span>&#64;</span>it<span>&#46;</span>ucla<span>&#46;</span>edu</a></p>
+</div>
+<p>Faculty and staff use of cloud storage services must comply with applicable University policies, notably policies relating to the protection of University data and the UC Electronic Communications Policy. This includes the data use requirements in the table below [<a class="reference external" href="https://godigital.ucla.edu/sites/default/files/box-data-use-agreement.pdf">see here</a>], which are based on University-negotiated agreements established to help safeguard information about individuals and other confidential information for which the campus is a steward.</p>
+<p>Always employ due care when processing, transmitting, or storing sensitive information. Violation of these data use requirements or other campus policies may result in disciplinary action up to and including termination.</p>
+<div class="section" id="box">
+<span id="id11"></span><h3>Box<a class="headerlink" href="#box" title="Permalink to this headline">¶</a></h3>
+<p>Box is an online cloud storage and collaboration tool that provides users with the ability to easily store, access, and share files and folders anywhere on any device.</p>
+<p>UCLA provides a free enterprise <a class="reference external" href="https://www.it.ucla.edu/services/email-calendaring-collaboration/box/individual-box-accounts">Box</a> account to all faculty, staff and students. Currently, a UCLA enterprise Box account comes with unlimited storage space for faculty, staff and students. All accounts offer a 15 gigabyte per file upload limit and other enterprise features such as version history.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">NOTE:</th><td class="field-body">If you need assistance with your Box account, please contact the IT Support Center at <a class="reference external" href="mailto:help&#37;&#52;&#48;it&#46;ucla&#46;edu">help<span>&#64;</span>it<span>&#46;</span>ucla<span>&#46;</span>edu</a> or by phone at (310) 267-HELP (4357).</td>
+</tr>
+</tbody>
+</table>
+<p>** To transfer data between Hoffman2 and your Box account, please use the <a class="reference internal" href="#rclone"><span class="std std-ref">rclone</span></a> application on our DTN nodes. **</p>
+</div>
+<div class="section" id="google-drive">
+<span id="id13"></span><h3>Google Drive<a class="headerlink" href="#google-drive" title="Permalink to this headline">¶</a></h3>
+<p>Google Drive is a file storage and synchronization service developed by Google.  Google Drive allows users to store files on their servers, synchronize files across devices, and share files.  <a class="reference external" href="https://www.it.ucla.edu/services/email-calendaring-collaboration/google-apps">Google Apps</a> is made available to UCLA as part of the UC Office of the President agreement. Google Apps is not appropriate for storing or sharing any sensitive data, including but not limited to: HIPAA regulated data, credit card information, social security numbers, and driver’s license numbers.</p>
+<p>** To transfer data between Hoffman2 and your Google Drive account, please use the <a class="reference internal" href="#rclone"><span class="std std-ref">rclone</span></a> application on our DTN nodes. **</p>
+</div>
+<div class="section" id="dropbox">
+<span id="id14"></span><h3>Dropbox<a class="headerlink" href="#dropbox" title="Permalink to this headline">¶</a></h3>
+<p>Not permitted, all data use prohibited.</p>
+</div>
+</div>
+<div class="section" id="globus">
+<span id="id15"></span><h2>Globus<a class="headerlink" href="#globus" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For more information about <a class="reference external" href="https://www.globus.org/what-we-do">Globus</a> please refer to their website.</p>
+</div>
+<p>Globus is a software tool to transfer files (from kilobytes to petabytes) across the web in a reliable, high-performance and secure way. It provides fault-tolerant, fire-and-forget data transfer using simple web or command line interfaces. It is approriate for transferring very large files either between your desktop machine and a remote machine like the Hoffman2 Cluster, or between two remote machines on which you have accounts; both remote machines need to be part of the Globus project. All XSEDE resources are configured as Globus endpoints.</p>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>If you want to transfer files to or from your personal computer, you will need to download and install the <a class="reference external" href="https://www.globus.org/globus-connect-personal">Globus Connect Personal software</a>.</p>
+<p>In order to download the Globus Connect Personal software, you will need to create a Globus Connect Personal <strong>endpoint</strong>.  The term <em>endpoint</em> describes the different locations where data can be moved to or from using the Globus transfer, sync and sharing service.  <em>Endpoints</em> can either be personal (on a user’s personal computer) or multiuser (located on a server, for use by multiple people.</p>
+<dl class="docutils">
+<dt><strong>Globus Connect Personal is available,</strong></dt>
+<dd><ul class="first last simple">
+<li>for Mac OS 10.7 or higher (Intel only)</li>
+<li>for common x86-based Linux distributions</li>
+<li>for Windows 7, Windows 8, and Windows 10</li>
+</ul>
+</dd>
+</dl>
+<ol class="arabic simple">
+<li>Open your web browser and click on one of the detailed installation instruction links for the platform running on your personal computer - <a class="reference external" href="https://docs.globus.org/how-to/globus-connect-personal-mac/">macOS</a>, <a class="reference external" href="https://docs.globus.org/how-to/globus-connect-personal-linux/">Linux</a>, <a class="reference external" href="https://docs.globus.org/how-to/globus-connect-personal-windows/">Windows</a>.</li>
+<li>The next step will ask you to create a personal endpoint using the Globus web app.  This will require your login to the <a class="reference external" href="https://app.globus.org/">Globus web app</a> and you can do so using your UCLA Login ID.  From the pull-down list of organizations, please select “Univeristy of California-Los Angeles”.</li>
+<li>On the left-side of the page, you can see the navigation menu, click on <code class="docutils literal notranslate"><span class="pre">endpoints</span></code></li>
+<li>At the top of the page, click on <code class="docutils literal notranslate"><span class="pre">create</span> <span class="pre">a</span> <span class="pre">personal</span> <span class="pre">endpoint</span></code></li>
+<li>You will be asked to name your endpoint</li>
+<li>Click, “Generate a setup key” and copy it to your paste buffer/clipboard (you will be asked for this unique setup key when you install the software on your personal computer)</li>
+<li>Download and Install Globus Connect Personal for the running platform (macOS, Linux, Windows) on your personal computer</li>
+</ol>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>Windows users:  To run the installation with administrator permissions, Hold CTRL + SHIFT and click on the Globus Connect Personal installer.</p>
+<p class="last">Installing as non-administrator: By default, Globus Connect Personal prompts to be installed in C:Program Files. Regular users can not write to this folder. Instead, browse to a place you have write access to (e.g. your Desktop folder).</p>
+</div>
+</div>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h4>Windows<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Right-click the Globus Connect Personal icon in the taskbar and select, <strong>Options…</strong> to configure Globus Connect Personal.</li>
+</ol>
+<p>Configuration options are divided into four groups; the most important (and commonly used) are the <em>Access</em> and <em>General</em> options.</p>
+<p>The <em>Access</em> tab lists folders that will be accessible via Globus for file transfer and sharing.  You can add folders by clicking the “+” sign and selecting the folder you wish to make accessible.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">By default, the only folder listed is your home directory</p>
+</div>
+<p>To share a folder, add it to the accessible list and check the “Shareable” box.  <strong>Note: You must be a Globus Plus user to share files and folders.</strong>  UCLA does not have an active subscription and therefore is unable to offer sharing on the Hoffman2 Globus multiuser endpoints - <a class="reference internal" href="#data-transfer-nodes"><span class="std std-ref">Data transfer nodes</span></a>.</p>
+<p>The <em>General</em> tab allows you to specify whether you want Globus Connect Personal to run when Windows starts and whether the software should automatically check for updates.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Drive Mapping: Globus Connect Personal on Windows will translate a path beginning with <code class="docutils literal notranslate"><span class="pre">/~/</span></code> into your home directory, e.g. <code class="docutils literal notranslate"><span class="pre">C:\Users\'login_id'\</span></code>. To access paths and drives outside of your home directory, use the syntax <code class="docutils literal notranslate"><span class="pre">/drive_letter/path</span></code>, for example <code class="docutils literal notranslate"><span class="pre">/C/xinfo</span></code> lists the <code class="docutils literal notranslate"><span class="pre">C:\xinfo</span></code> directory. Also, as discussed above, it would be necessary for the <code class="docutils literal notranslate"><span class="pre">C:\xinfo</span></code> directory to be permitted in the Accessible Folders configuration as well. If the <code class="docutils literal notranslate"><span class="pre">C:\xinfo</span></code> directory is not permitted in the Accessible Folders configuration, then that folder will not be accessible via your endpoint.</p>
+</div>
+</div>
+<div class="section" id="id18">
+<h4>macOS<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Click the Globus Connect Personal icon in the main menu bar and select <strong>Preferences…</strong> to configure Globus Connect Personal.</li>
+</ol>
+<p>The <em>Access</em> preferences tab lists accessible directories for file transfer and sharing and provides more control over what information is accessible on your Globus Connect Personal endpoint. By default, your home directory (e.g.: <code class="docutils literal notranslate"><span class="pre">/Users/'login_id'</span></code>) is read/write accessible. The check box <strong>Deny access to hidden (e.g. security) files in your home directory</strong> option controls whether or not you can access hidden files (i.e. filenames beginning with “.””) in your home directory. By default, Globus Connect Personal does not allow access to files like: <code class="docutils literal notranslate"><span class="pre">~/.globusonline</span></code> and <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code>.</p>
+<p>Click the “+” icon and select a folder to make it accessible for transfers. To allow a folder to be shared with others, add it to the accessible list and check the “Sharable” box.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you remove everything from the access list, no files will be accessible on your Globus Connect Personal endpoint and you will be prompted to add accessible paths. You can either click “+” and add directories and files, or click “Reset to Defaults”.</p>
+<p class="last">You must be a <a class="reference external" href="https://www.globus.org/subscriptions">Globus Plus</a> user to share files and folders. If you are not a Globus Plus user, click the “Enable sharing” icon and follow the instructions. UCLA does not have an active subscription and therefore is unable to offer sharing on the Hoffman2 Globus multiuser endpoints - <a class="reference internal" href="#data-transfer-nodes"><span class="std std-ref">Data transfer nodes</span></a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="using-globus">
+<h3>Using Globus<a class="headerlink" href="#using-globus" title="Permalink to this headline">¶</a></h3>
+<p>This section describes using the Globus web app to transfer files to or from a personal computer and the Hoffman2 Globus endpoints - <a class="reference internal" href="#data-transfer-nodes"><span class="std std-ref">Data transfer nodes</span></a>.</p>
+<ol class="arabic simple">
+<li>Be sure the Globus Connect Personal application is running on your personal computer</li>
+<li>Open your web browser and connect to the <a class="reference external" href="https://app.globus.org/">Globus web app</a></li>
+<li>Login to the Globus web app with your UCLA Login ID credentials.  To do so, from the pull-down list of organizations, please select “Univeristy of California-Los Angeles”</li>
+<li>On the left-side of the page, you can see the navigation menu, click on “File manager”</li>
+<li>Click on the text field, “Collection” and begin to type the name for your personal endpoint and click on it to select the endpoint</li>
+<li>You should see a directory listing for the path, <code class="docutils literal notranslate"><span class="pre">/~/</span></code> (which should list the contents of your home directory)</li>
+<li>On the right-side of the page, there are some options - click “Transfer or Sync to…”</li>
+<li>The page should now be divided with your personal endpoint on the left and now click on “Collection” text field in the right pane and search, “Official UCLA Hoffman2 Data Transfer Node 1” or “Official UCLA Hoffman2 Data Transfer Node 2”</li>
+<li>When you select a Hoffman2 Cluster endpoint, you will be prompted to enter your username and password. <strong>Enter your Hoffman2 username and password.</strong>  Your Hoffman2 Cluster home directory and its contents will display.</li>
+<li>To transfer a file or directory, select it and near the bottom of the window pane, click the “Start” button</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You will receive an email from Globus Notification (<a class="reference external" href="mailto:no-reply&#37;&#52;&#48;globus&#46;org">no-reply<span>&#64;</span>globus<span>&#46;</span>org</a>) when the file transfer has completed. To have Globus show you the status and history of your file transfers, click “Manage Data” from the menu and select “Activity”.</p>
+</div>
+</div>
+</div>
+<div class="section" id="rclone">
+<span id="id20"></span><h2>rclone<a class="headerlink" href="#rclone" title="Permalink to this headline">¶</a></h2>
+<p><strong>What is it?</strong> rclone is a command line program to sync files and directories to and from cloud storage - <a class="reference external" href="https://rclone.org">https://rclone.org</a></p>
+<div class="section" id="id21">
+<h3>Installation<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>SSH to one of our data transfer nodes, either dtn1 or dtn2, e.g</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ssh -Y <span class="sb">`</span>login_id<span class="sb">`</span>@dtn1.hoffman2.idre.ucla.edu
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">login_id</span></code> is replace by your cluster user name. The flag, <code class="docutils literal notranslate"><span class="pre">-Y</span></code> is to enable trusted X11 forwarding</p>
+<ol class="arabic simple" start="2">
+<li>Download and unzip the most recent version of rclone</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ wget https://downloads.rclone.org/rclone-current-linux-amd64.zip
+$ unzip rclone-current-linux-amd64.zip
+</pre></div>
+</div>
+<p>At the time of this document, rclone-v1.51.0 was the current version.  Please replace the version number below with the version you downloaded…</p>
+<ol class="arabic simple" start="3">
+<li>You can now copy the rclone executable to your $HOME/bin directory.  If the copy fails, you need to create $HOME/bin subdirectory, e.g. “mkdir $HOME/bin”</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cp rclone-v1.51.0-linux-amd64/rclone <span class="nv">$HOME</span>/bin/.
+</pre></div>
+</div>
+<p>To run the software, type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rclone
+</pre></div>
+</div>
+</div>
+<div class="section" id="id22">
+<h3>Configuration<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="set-up-rclone-to-sync-with-box">
+<h4>Set-up rclone to sync with Box<a class="headerlink" href="#set-up-rclone-to-sync-with-box" title="Permalink to this headline">¶</a></h4>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">More detailed instructions can be found on <a class="reference external" href="https://rclone.org/box/">rclone’s website</a></p>
+</div>
+<ol class="arabic simple">
+<li>Connect to our DTN nodes, either dtn1 or dtn2 and enable trusted X11 forwarding, e.g.</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ssh -Y <span class="sb">`</span>login_id<span class="sb">`</span>@dtn1.hoffman2.idre.ucla.edu
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">login_id</span></code> is replaced by your cluster user name</p>
+<ol class="arabic simple" start="2">
+<li>Type, rclone config</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rclone config
+No remotes found - make a new one
+n<span class="o">)</span> New remote
+s<span class="o">)</span> Set configuration password
+q<span class="o">)</span> Quit config
+n/s/q&gt;
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Type, “n” for new remote [connection]</li>
+<li>Enter a name for this connection, e.g. “box”</li>
+<li>Enter the type of storage from the menu - Box. Type, “box”</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Type of storage to configure.
+Enter a string value. Press Enter <span class="k">for</span> the default <span class="o">(</span><span class="s2">&quot;&quot;</span><span class="o">)</span>.
+Choose a number from below, or <span class="nb">type</span> in your own value
+<span class="m">1</span> / 1Fichier
+  <span class="se">\ </span><span class="s2">&quot;fichier&quot;</span>
+<span class="m">2</span> / Alias <span class="k">for</span> an existing remote
+  <span class="se">\ </span><span class="s2">&quot;alias&quot;</span>
+<span class="m">3</span> / Amazon Drive
+  <span class="se">\ </span><span class="s2">&quot;amazon cloud drive&quot;</span>
+<span class="m">4</span> / Amazon S3 Compliant Storage Provider <span class="o">(</span>AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc<span class="o">)</span>
+  <span class="se">\ </span><span class="s2">&quot;s3&quot;</span>
+<span class="m">5</span> / Backblaze B2
+  <span class="se">\ </span><span class="s2">&quot;b2&quot;</span>
+<span class="m">6</span> / Box
+  <span class="se">\ </span><span class="s2">&quot;box&quot;</span>
+<span class="m">7</span> / Cache a remote
+  <span class="se">\ </span><span class="s2">&quot;cache&quot;</span>
+<span class="m">8</span> / Citrix Sharefile
+  <span class="se">\ </span><span class="s2">&quot;sharefile&quot;</span>
+<span class="m">9</span> / Dropbox
+  <span class="se">\ </span><span class="s2">&quot;dropbox&quot;</span>
+<span class="m">10</span> / Encrypt/Decrypt a remote
+   <span class="se">\ </span><span class="s2">&quot;crypt&quot;</span>
+<span class="m">11</span> / FTP Connection
+   <span class="se">\ </span><span class="s2">&quot;ftp&quot;</span>
+<span class="m">12</span> / Google Cloud Storage <span class="o">(</span>this is not Google Drive<span class="o">)</span>
+   <span class="se">\ </span><span class="s2">&quot;google cloud storage&quot;</span>
+<span class="m">13</span> / Google Drive
+   <span class="se">\ </span><span class="s2">&quot;drive&quot;</span>
+<span class="m">14</span> / Google Photos
+   <span class="se">\ </span><span class="s2">&quot;google photos&quot;</span>
+<span class="m">15</span> / Hubic
+  <span class="se">\ </span><span class="s2">&quot;hubic&quot;</span>
+<span class="m">16</span> / In memory object storage system.
+   <span class="se">\ </span><span class="s2">&quot;memory&quot;</span>
+<span class="m">17</span> / JottaCloud
+   <span class="se">\ </span><span class="s2">&quot;jottacloud&quot;</span>
+<span class="m">18</span> / Koofr
+   <span class="se">\ </span><span class="s2">&quot;koofr&quot;</span>
+<span class="m">19</span> / Local Disk
+   <span class="se">\ </span><span class="s2">&quot;local&quot;</span>
+<span class="m">20</span> / Mail.ru Cloud
+   <span class="se">\ </span><span class="s2">&quot;mailru&quot;</span>
+<span class="m">21</span> / Mega
+   <span class="se">\ </span><span class="s2">&quot;mega&quot;</span>
+<span class="m">22</span> / Microsoft Azure Blob Storage
+   <span class="se">\ </span><span class="s2">&quot;azureblob&quot;</span>
+<span class="m">23</span> / Microsoft OneDrive
+   <span class="se">\ </span><span class="s2">&quot;onedrive&quot;</span>
+<span class="m">24</span> / OpenDrive
+   <span class="se">\ </span><span class="s2">&quot;opendrive&quot;</span>
+<span class="m">25</span> / Openstack Swift <span class="o">(</span>Rackspace Cloud Files, Memset Memstore, OVH<span class="o">)</span>
+   <span class="se">\ </span><span class="s2">&quot;swift&quot;</span>
+<span class="m">26</span> / Pcloud
+   <span class="se">\ </span><span class="s2">&quot;pcloud&quot;</span>
+<span class="m">27</span> / Put.io
+   <span class="se">\ </span><span class="s2">&quot;putio&quot;</span>
+<span class="m">28</span> / QingCloud Object Storage
+   <span class="se">\ </span><span class="s2">&quot;qingstor&quot;</span>
+<span class="m">29</span> / SSH/SFTP Connection
+   <span class="se">\ </span><span class="s2">&quot;sftp&quot;</span>
+<span class="m">30</span> / Sugarsync
+   <span class="se">\ </span><span class="s2">&quot;sugarsync&quot;</span>
+<span class="m">31</span> / Transparently chunk/split large files
+   <span class="se">\ </span><span class="s2">&quot;chunker&quot;</span>
+<span class="m">32</span> / Union merges the contents of several remotes
+   <span class="se">\ </span><span class="s2">&quot;union&quot;</span>
+<span class="m">33</span> / Webdav
+   <span class="se">\ </span><span class="s2">&quot;webdav&quot;</span>
+<span class="m">34</span> / Yandex Disk
+   <span class="se">\ </span><span class="s2">&quot;yandex&quot;</span>
+<span class="m">35</span> / http Connection
+   <span class="se">\ </span><span class="s2">&quot;http&quot;</span>
+<span class="m">36</span> / premiumize.me
+   <span class="se">\ </span><span class="s2">&quot;premiumizeme&quot;</span>
+Storage&gt;
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li>At the prompt for a “Box App Client Id”, just hit “Enter” to accept the default</li>
+</ol>
+<ol class="arabic simple" start="7">
+<li>At the prompt for a “Box App Client Secret”, just hit “Enter” to accept the default</li>
+</ol>
+<ol class="arabic simple" start="8">
+<li>At the prompt for a “Box App config.json location”, just hit “Enter” to accept the default</li>
+</ol>
+<ol class="arabic simple" start="9">
+<li>Type, “1” for the box_sub_type;  Rclone should act on behalf of a user</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Enter a string value. Press Enter <span class="k">for</span> the default <span class="o">(</span><span class="s2">&quot;user&quot;</span><span class="o">)</span>.
+ Choose a number from below, or <span class="nb">type</span> in your own value
+<span class="m">1</span> / Rclone should act on behalf of a user
+  <span class="se">\ </span><span class="s2">&quot;user&quot;</span>
+<span class="m">2</span> / Rclone should act on behalf of a service account
+  <span class="se">\ </span><span class="s2">&quot;enterprise&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="10">
+<li>Edit Advanced Config?  Up to you; In this example I said, “No”</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Edit advanced config? <span class="o">(</span>y/n<span class="o">)</span>
+y<span class="o">)</span> Yes
+n<span class="o">)</span> No <span class="o">(</span>default<span class="o">)</span>
+y/n&gt; n
+</pre></div>
+</div>
+<ol class="arabic simple" start="11">
+<li>Use Auto Config?  Say ‘Yes’ and wait for firefox to launch. You will need to authenticate with your box password and UCLA Shibboleth to authorize the application rclone’s access to your UCLA Box account</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>YourMagicTokenHerYourMagicTokenHere
+your browser doesn&#39;t open automatically go to the following link: http://[FollowTheLinkInYourTerminal
+Log in and authorize rclone for access
+Waiting for code...
+Got code
+--------------------
+[box]
+type = box
+box_sub_type = user
+token = YourMagicTokenHere
+--------------------
+</pre></div>
+</div>
+<ol class="arabic simple" start="12">
+<li>Type, “Y” to accept the new settings and save the configuration</li>
+</ol>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">At this point you’re done, unless you want to password protect your rclone configuration (recommended).  If you want to password protect your configuration, hit ‘p’; then ‘q’ to quit.</p>
+</div>
+</div>
+<div class="section" id="set-up-rclone-to-sync-with-google-drive">
+<h4>Set-up rclone to sync with Google Drive<a class="headerlink" href="#set-up-rclone-to-sync-with-google-drive" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>In the following example we will:</dt>
+<dd><ul class="first last simple">
+<li>configure rclone for a remote connection to your UCLA Google Drive</li>
+<li>copy a file from Hoffman2 to a new folder on Google Drive</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="step-1-create-a-folder-on-google-drive">
+<h5>STEP 1: Create a folder on Google Drive<a class="headerlink" href="#step-1-create-a-folder-on-google-drive" title="Permalink to this headline">¶</a></h5>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We will be creating a new folder on your UCLA Google Drive to test a transfer later…</p>
+</div>
+<ol class="arabic simple">
+<li>Connect your web browser to <a class="reference external" href="https://drive.google.com">Google Drive</a></li>
+<li>Authenticate with your &#64;ucla mailbox, e.g. <cite>login_id`&#64;g.ucla.edu; where ``login_id`</cite> is replaced by your UCLA Logon ID</li>
+<li>Click on NEW and select FOLDER and give it a name, e.g. “h2xfr”</li>
+</ol>
+</div>
+<div class="section" id="step-2-configuring-an-rclone-connection-to-your-google-drive">
+<h5>STEP 2: Configuring an rclone connection to your Google Drive<a class="headerlink" href="#step-2-configuring-an-rclone-connection-to-your-google-drive" title="Permalink to this headline">¶</a></h5>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">More detailed instructions can be found on <a class="reference external" href="https://rclone.org/drive/">rclone’s website</a></p>
+</div>
+<ol class="arabic simple">
+<li>Connect to our DTN nodes, either dtn1 or dtn2 and enable trusted X11 forwarding, e.g.</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ssh -Y <span class="sb">`</span>login_id<span class="sb">`</span>@dtn1.hoffman2.idre.ucla.edu
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">login_id</span></code> is replaced by your cluster user name</p>
+<ol class="arabic simple" start="2">
+<li>Type, rclone config</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rclone config
+No remotes found - make a new one
+n<span class="o">)</span> New remote
+s<span class="o">)</span> Set configuration password
+q<span class="o">)</span> Quit config
+n/s/q&gt;
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Type, “n” for new remote [connection]</li>
+<li>Enter a name for this connection, e.g. “gdrive”</li>
+<li>Enter the type of storage from the menu - Google Drive. Type, “drive”</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Type of storage to configure.
+Enter a string value. Press Enter <span class="k">for</span> the default <span class="o">(</span><span class="s2">&quot;&quot;</span><span class="o">)</span>.
+Choose a number from below, or <span class="nb">type</span> in your own value
+<span class="m">1</span> / 1Fichier
+  <span class="se">\ </span><span class="s2">&quot;fichier&quot;</span>
+<span class="m">2</span> / Alias <span class="k">for</span> an existing remote
+  <span class="se">\ </span><span class="s2">&quot;alias&quot;</span>
+<span class="m">3</span> / Amazon Drive
+  <span class="se">\ </span><span class="s2">&quot;amazon cloud drive&quot;</span>
+<span class="m">4</span> / Amazon S3 Compliant Storage Provider <span class="o">(</span>AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc<span class="o">)</span>
+  <span class="se">\ </span><span class="s2">&quot;s3&quot;</span>
+<span class="m">5</span> / Backblaze B2
+  <span class="se">\ </span><span class="s2">&quot;b2&quot;</span>
+<span class="m">6</span> / Box
+  <span class="se">\ </span><span class="s2">&quot;box&quot;</span>
+<span class="m">7</span> / Cache a remote
+  <span class="se">\ </span><span class="s2">&quot;cache&quot;</span>
+<span class="m">8</span> / Citrix Sharefile
+  <span class="se">\ </span><span class="s2">&quot;sharefile&quot;</span>
+<span class="m">9</span> / Dropbox
+  <span class="se">\ </span><span class="s2">&quot;dropbox&quot;</span>
+<span class="m">10</span> / Encrypt/Decrypt a remote
+   <span class="se">\ </span><span class="s2">&quot;crypt&quot;</span>
+<span class="m">11</span> / FTP Connection
+   <span class="se">\ </span><span class="s2">&quot;ftp&quot;</span>
+<span class="m">12</span> / Google Cloud Storage <span class="o">(</span>this is not Google Drive<span class="o">)</span>
+   <span class="se">\ </span><span class="s2">&quot;google cloud storage&quot;</span>
+<span class="m">13</span> / Google Drive
+   <span class="se">\ </span><span class="s2">&quot;drive&quot;</span>
+<span class="m">14</span> / Google Photos
+   <span class="se">\ </span><span class="s2">&quot;google photos&quot;</span>
+<span class="m">15</span> / Hubic
+  <span class="se">\ </span><span class="s2">&quot;hubic&quot;</span>
+<span class="m">16</span> / In memory object storage system.
+   <span class="se">\ </span><span class="s2">&quot;memory&quot;</span>
+<span class="m">17</span> / JottaCloud
+   <span class="se">\ </span><span class="s2">&quot;jottacloud&quot;</span>
+<span class="m">18</span> / Koofr
+   <span class="se">\ </span><span class="s2">&quot;koofr&quot;</span>
+<span class="m">19</span> / Local Disk
+   <span class="se">\ </span><span class="s2">&quot;local&quot;</span>
+<span class="m">20</span> / Mail.ru Cloud
+   <span class="se">\ </span><span class="s2">&quot;mailru&quot;</span>
+<span class="m">21</span> / Mega
+   <span class="se">\ </span><span class="s2">&quot;mega&quot;</span>
+<span class="m">22</span> / Microsoft Azure Blob Storage
+   <span class="se">\ </span><span class="s2">&quot;azureblob&quot;</span>
+<span class="m">23</span> / Microsoft OneDrive
+   <span class="se">\ </span><span class="s2">&quot;onedrive&quot;</span>
+<span class="m">24</span> / OpenDrive
+   <span class="se">\ </span><span class="s2">&quot;opendrive&quot;</span>
+<span class="m">25</span> / Openstack Swift <span class="o">(</span>Rackspace Cloud Files, Memset Memstore, OVH<span class="o">)</span>
+   <span class="se">\ </span><span class="s2">&quot;swift&quot;</span>
+<span class="m">26</span> / Pcloud
+   <span class="se">\ </span><span class="s2">&quot;pcloud&quot;</span>
+<span class="m">27</span> / Put.io
+   <span class="se">\ </span><span class="s2">&quot;putio&quot;</span>
+<span class="m">28</span> / QingCloud Object Storage
+   <span class="se">\ </span><span class="s2">&quot;qingstor&quot;</span>
+<span class="m">29</span> / SSH/SFTP Connection
+   <span class="se">\ </span><span class="s2">&quot;sftp&quot;</span>
+<span class="m">30</span> / Sugarsync
+   <span class="se">\ </span><span class="s2">&quot;sugarsync&quot;</span>
+<span class="m">31</span> / Transparently chunk/split large files
+   <span class="se">\ </span><span class="s2">&quot;chunker&quot;</span>
+<span class="m">32</span> / Union merges the contents of several remotes
+   <span class="se">\ </span><span class="s2">&quot;union&quot;</span>
+<span class="m">33</span> / Webdav
+   <span class="se">\ </span><span class="s2">&quot;webdav&quot;</span>
+<span class="m">34</span> / Yandex Disk
+   <span class="se">\ </span><span class="s2">&quot;yandex&quot;</span>
+<span class="m">35</span> / http Connection
+   <span class="se">\ </span><span class="s2">&quot;http&quot;</span>
+<span class="m">36</span> / premiumize.me
+   <span class="se">\ </span><span class="s2">&quot;premiumizeme&quot;</span>
+Storage&gt;
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li>Next, you will need to either create a Google Application ID [for best performance] or use the default internal key.  Should you choose the default internal key, just press, ‘enter.’</li>
+</ol>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">For best performance, you will need to create a Google Application ID.  If you choose to do so, please refer to the steps outlined in, <a class="reference external" href="https://rclone.org/drive/#making-your-own-client-id">https://rclone.org/drive/#making-your-own-client-id</a></p>
+</div>
+<p><strong>Your terminal should be here …</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Google Application Client Id
+Setting your own is recommended.
+See https://rclone.org/drive/#making-your-own-client-id <span class="k">for</span> how to create your own.
+If you leave this blank, it will use an internal key which is low performance.
+Enter a string value. Press Enter <span class="k">for</span> the default <span class="o">(</span><span class="s2">&quot;&quot;</span><span class="o">)</span>.
+client_id&gt;
+
+
+Google Application Client Secret
+Setting your own is recommended.
+Enter a string value. Press Enter <span class="k">for</span> the default <span class="o">(</span><span class="s2">&quot;&quot;</span><span class="o">)</span>.
+client_secret&gt;
+</pre></div>
+</div>
+<p><strong>Question: What level of access do you want to give rclone? In this example, I’ve set it to ‘1’</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Scope that rclone should use when requesting access from drive.
+Enter a string value. Press Enter <span class="k">for</span> the default <span class="o">(</span><span class="s2">&quot;&quot;</span><span class="o">)</span>.
+Choose a number from below, or <span class="nb">type</span> in your own value
+<span class="m">1</span> / Full access all files, excluding Application Data Folder.
+  <span class="se">\ </span><span class="s2">&quot;drive&quot;</span>
+<span class="m">2</span> / Read-only access to file metadata and file contents.
+  <span class="se">\ </span><span class="s2">&quot;drive.readonly&quot;</span>
+  / Access to files created by rclone only.
+<span class="m">3</span> <span class="p">|</span> These are visible in the drive website.
+  <span class="p">|</span> File authorization is revoked when the user deauthorizes the app.
+  <span class="se">\ </span><span class="s2">&quot;drive.file&quot;</span>
+  / Allows <span class="nb">read</span> and write access to the Application Data folder.
+<span class="m">4</span> <span class="p">|</span> This is not visible in the drive website.
+  <span class="se">\ </span><span class="s2">&quot;drive.appfolder&quot;</span>
+  / Allows read-only access to file metadata but
+<span class="m">5</span> <span class="p">|</span> does not allow any access to <span class="nb">read</span> or download file content.
+  <span class="se">\ </span><span class="s2">&quot;drive.metadata.readonly&quot;</span>
+
+
+scope&gt; <span class="m">1</span>
+</pre></div>
+</div>
+<p><strong>In this example, I just hit ‘enter’ to accept the default</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ID of the root folder
+Leave blank normally.
+
+Fill in to access <span class="s2">&quot;Computers&quot;</span> folders <span class="o">(</span>see docs<span class="o">)</span>, or <span class="k">for</span> rclone to use
+a non root folder as its starting point.
+
+Note that <span class="k">if</span> this is blank, the first <span class="nb">time</span> rclone runs it will fill it
+in with the ID of the root folder.
+
+
+Enter a string value. Press Enter <span class="k">for</span> the default <span class="o">(</span><span class="s2">&quot;&quot;</span><span class="o">)</span>.
+root_folder_id&gt;
+</pre></div>
+</div>
+<p><strong>In this example, I just hit ‘enter’ to accept the default</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Service Account Credentials JSON file path
+Leave blank normally.
+
+Needed only <span class="k">if</span> you want use SA instead of interactive login.
+
+Enter a string value. Press Enter <span class="k">for</span> the default <span class="o">(</span><span class="s2">&quot;&quot;</span><span class="o">)</span>.
+service_account_file&gt;
+</pre></div>
+</div>
+<p><strong>You can configure the advanced settings, in this example, I did not…</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Edit advanced config? <span class="o">(</span>y/n<span class="o">)</span>
+y<span class="o">)</span> Yes
+n<span class="o">)</span> No <span class="o">(</span>default<span class="o">)</span>
+y/n&gt; n
+</pre></div>
+</div>
+<p><strong>In this example, I’m saying ‘no’ to auto config and just copy and paste the link in my web browser</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Remote config
+Use auto config?
+ * Say Y <span class="k">if</span> not sure
+ * Say N <span class="k">if</span> you are working on a remote or headless machine
+y<span class="o">)</span> Yes <span class="o">(</span>default<span class="o">)</span>
+n<span class="o">)</span> No
+y/n&gt; n
+</pre></div>
+</div>
+<p><strong>Now copy the link provided in your configuration and paste in your web browser to give rclone access to your UCLA Google Drive</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Please go to the following link: https://PleaseFollowTheLinkOnYourConsole/
+</pre></div>
+</div>
+<p><strong>DO you approve?</strong></p>
+<img alt="../_static/rclone-gdrive-auth.png" src="../_static/rclone-gdrive-auth.png" />
+<p><strong>Copy and paste the verfication code from your browser window</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Enter verification code&gt;
+
+
+Configure this as a team drive?
+y<span class="o">)</span> Yes
+n<span class="o">)</span> No <span class="o">(</span>default<span class="o">)</span>
+y/n&gt; n
+</pre></div>
+</div>
+<p><strong>REVIEW THE REMOTE SETTINGS and type “y” to save the connection</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>--------------------
+<span class="o">[</span>gdrive<span class="o">]</span>
+<span class="nb">type</span> <span class="o">=</span> drive
+<span class="nv">client_id</span> <span class="o">=</span> <span class="o">[</span>This will list your client_id<span class="o">]</span>
+<span class="nv">client_secret</span> <span class="o">=</span> <span class="o">[</span>This will list your client_secret<span class="o">]</span>
+<span class="nv">scope</span> <span class="o">=</span> drive
+<span class="nv">token</span> <span class="o">=</span> <span class="o">[</span>This will list your token<span class="o">]</span>
+--------------------
+y<span class="o">)</span> Yes this is OK <span class="o">(</span>default<span class="o">)</span>
+e<span class="o">)</span> Edit this remote
+d<span class="o">)</span> Delete this remote
+y/e/d&gt; y
+Current remotes:
+
+Name                 <span class="nv">Type</span>
+<span class="o">====</span>                 <span class="o">====</span>
+gdrive               drive
+
+e<span class="o">)</span> Edit existing remote
+n<span class="o">)</span> New remote
+d<span class="o">)</span> Delete remote
+r<span class="o">)</span> Rename remote
+c<span class="o">)</span> Copy remote
+s<span class="o">)</span> Set configuration password
+q<span class="o">)</span> Quit config
+e/n/d/r/c/s/q&gt;
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">At this point you’re done and have the option to password protect access to rclone.  If you choose to set a password, you will need it every time you use rclone.</p>
+</div>
+<p><strong>Set a password (s) or quit (q) rclone config</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Current remotes:
+
+Name                 <span class="nv">Type</span>
+<span class="o">====</span>                 <span class="o">====</span>
+gdrive               drive
+
+e<span class="o">)</span> Edit existing remote
+n<span class="o">)</span> New remote
+d<span class="o">)</span> Delete remote
+r<span class="o">)</span> Rename remote
+c<span class="o">)</span> Copy remote
+s<span class="o">)</span> Set configuration password
+q<span class="o">)</span> Quit config
+e/n/d/r/c/s/q&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="using-rclone">
+<span id="id25"></span><h3>Using rclone<a class="headerlink" href="#using-rclone" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="rclone-command-list">
+<span id="id26"></span><h4>rclone command list<a class="headerlink" href="#rclone-command-list" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="colwidths-given docutils" id="id35">
+<caption><span class="caption-text"><a class="reference external" href="https://rclone.org/commands/rclone/">rclone commands</a></span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="38%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">command</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_about/">rclone about</a></td>
+<td><blockquote class="first last">
+<div>Get quota information from the remote.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_authorize/">rclone authorize</a></td>
+<td><blockquote class="first last">
+<div>remote authorization.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_cachestats/">rclone cachestats</a></td>
+<td><blockquote class="first last">
+<div>Print cache stats for a remote</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_cat/">rclone cat</a></td>
+<td><blockquote class="first last">
+<div>Concatenates any files and sends them to stdout.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_check/">rclone check</a></td>
+<td><blockquote class="first last">
+<div>Checks the files in the source and destination match.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_cleanup/">rclone cleanup</a></td>
+<td><blockquote class="first last">
+<div>Clean up the remote if possible</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_config/">rclone config</a></td>
+<td><blockquote class="first last">
+<div>Enter an interactive configuration session.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_copy/">rclone copy</a></td>
+<td><blockquote class="first last">
+<div>Copy files from source to dest, skipping already copied</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_copyto/">rclone copyto</a></td>
+<td><blockquote class="first last">
+<div>Copy files from source to dest, skipping already copied</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_copyurl/">rclone copyurl</a></td>
+<td><blockquote class="first last">
+<div>Copy url content to dest.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_cryptcheck/">rclone cryptcheck</a></td>
+<td><blockquote class="first last">
+<div>Cryptcheck checks the integrity of a crypted remote.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_cryptdecode/">rclone cryptdecode</a></td>
+<td><blockquote class="first last">
+<div>Cryptdecode returns unencrypted file names.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_dbhashsum/">rclone dbhashsum</a></td>
+<td><blockquote class="first last">
+<div>Produces a Dropbox hash file for all the objects in the path.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_dedupe/">rclone dedupe</a></td>
+<td><blockquote class="first last">
+<div>Interactively find duplicate files and delete/rename them.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_delete/">rclone delete</a></td>
+<td><blockquote class="first last">
+<div>Remove the contents of path.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_deletefile/">rclone deletefile</a></td>
+<td><blockquote class="first last">
+<div>Remove a single file from remote.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_genautocomplete/">rclone genautocomplete</a></td>
+<td><blockquote class="first last">
+<div>Output completion script for a given shell.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_gendocs/">rclone gendocs</a></td>
+<td><blockquote class="first last">
+<div>Output markdown docs for rclone to the directory supplied.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_hashsum/">rclone hashsum</a></td>
+<td><blockquote class="first last">
+<div>Produces an hashsum file for all the objects in the path.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_link/">rclone link</a></td>
+<td><blockquote class="first last">
+<div>Generate public link to file/folder.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_listremotes/">rclone listremotes</a></td>
+<td><blockquote class="first last">
+<div>List all the remotes in the config file.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_ls/">rclone ls</a></td>
+<td><blockquote class="first last">
+<div>List the objects in the path with size and path.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_lsd/">rclone lsd</a></td>
+<td><blockquote class="first last">
+<div>List all directories/containers/buckets in the path.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_lsf/">rclone lsf</a></td>
+<td><blockquote class="first last">
+<div>List directories and objects in remote:path formatted for parsing</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_lsjson/">rclone lsjson</a></td>
+<td><blockquote class="first last">
+<div>List directories and objects in the path in JSON format.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_lsl/">rclone lsl</a></td>
+<td><blockquote class="first last">
+<div>List the objects in path with modification time, size and path.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_md5sum/">rclone md5sum</a></td>
+<td><blockquote class="first last">
+<div>Produces an md5sum file for all the objects in the path.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_mkdir/">rclone mkdir</a></td>
+<td><blockquote class="first last">
+<div>Make the path if it doesn’t already exist.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_mount/">rclone mount</a></td>
+<td><blockquote class="first last">
+<div>Mount the remote as file system on a mountpoint.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_move/">rclone move</a></td>
+<td><blockquote class="first last">
+<div>Move files from source to dest.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_moveto/">rclone moveto</a></td>
+<td><blockquote class="first last">
+<div>Move file or directory from source to dest.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_ncdu/">rclone ncdu</a></td>
+<td><blockquote class="first last">
+<div>Explore a remote with a text based user interface.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_obscure/">rclone obscure</a></td>
+<td><blockquote class="first last">
+<div>Obscure password for use in the rclone.conf</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_purge/">rclone purge</a></td>
+<td><blockquote class="first last">
+<div>Remove the path and all of its contents.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_rc/">rclone rc</a></td>
+<td><blockquote class="first last">
+<div>Run a command against a running rclone.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_rcat/">rclone rcat</a></td>
+<td><blockquote class="first last">
+<div>Copies standard input to file on remote.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_rcd/">rclone rcd</a></td>
+<td><blockquote class="first last">
+<div>Run rclone listening to remote control commands only.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_rmdir/">rclone rmdir</a></td>
+<td><blockquote class="first last">
+<div>Remove the path if empty.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_rmdirs/">rclone rmdirs</a></td>
+<td><blockquote class="first last">
+<div>Remove empty directories under the path.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_serve/">rclone serve</a></td>
+<td><blockquote class="first last">
+<div>Serve a remote over a protocol.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_settier/">rclone settier</a></td>
+<td><blockquote class="first last">
+<div>Changes storage class/tier of objects in remote.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_sha1sum/">rclone sha1sum</a></td>
+<td><blockquote class="first last">
+<div>Produces an sha1sum file for all the objects in the path.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_size/">rclone size</a></td>
+<td><blockquote class="first last">
+<div>Prints the total size and number of objects in remote:path.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_sync/">rclone sync</a></td>
+<td><blockquote class="first last">
+<div>Make source and dest identical, modifying destination only.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_touch/">rclone touch</a></td>
+<td><blockquote class="first last">
+<div>Create new file or change file modification time.</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://rclone.org/commands/rclone_tree/">rclone tree</a></td>
+<td><blockquote class="first last">
+<div>List the contents of the remote in a tree like fashion.</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://rclone.org/commands/rclone_version/">rclone version</a></td>
+<td><blockquote class="first last">
+<div>Show the version number.</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="rclone-flag-list">
+<span id="id27"></span><h4>rclone flag list<a class="headerlink" href="#rclone-flag-list" title="Permalink to this headline">¶</a></h4>
+<p>rclone has a number of options to control its behavior.</p>
+<p>Options that take parameters can have the values passed in two ways, <code class="docutils literal notranslate"><span class="pre">--option=value</span></code> or <code class="docutils literal notranslate"><span class="pre">--option</span> <span class="pre">value.</span></code> However boolean (true/false) options behave slightly differently to the other options in that <code class="docutils literal notranslate"><span class="pre">--boolean</span></code> sets the option to <code class="docutils literal notranslate"><span class="pre">true</span></code> and the absence of the flag sets it to <code class="docutils literal notranslate"><span class="pre">false</span></code>. It is also possible to specify <code class="docutils literal notranslate"><span class="pre">--boolean=false</span></code> or <code class="docutils literal notranslate"><span class="pre">--boolean=true</span></code>. Note that <code class="docutils literal notranslate"><span class="pre">--boolean</span> <span class="pre">false</span></code> is not valid - this is parsed as <code class="docutils literal notranslate"><span class="pre">--boolean</span></code> and the false is parsed as an extra command line argument for rclone.</p>
+<p>Options which use TIME use the go time parser. A duration string is a possibly signed sequence of decimal numbers, each with optional fraction and a unit suffix, such as “300ms”, “-1.5h” or “2h45m”. Valid time units are “ns”, “us” (or “µs”), “ms”, “s”, “m”, “h”.</p>
+<p>Options which use SIZE use kByte by default. However, a suffix of b for bytes, k for kBytes, M for MBytes, G for GBytes, T for TBytes and P for PBytes may be used. These are the binary units, eg 1, 2**10, 2**20, 2**30 respectively.</p>
+<p>The rclone <a class="reference external" href="https://rclone.org/flags/">global flag list</a> is available to every rclone command and is split into two groups, non backend and backend flags.</p>
+</div>
+<div class="section" id="id28">
+<h4>rclone copy<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h4>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For more detailed information, please refer to the <a class="reference external" href="https://rclone.org/commands/rclone_copy/">rclone copy</a> page on their website.</p>
+</div>
+<p>rclone copy - copies the source to the destination, skipping already copied</p>
+<p><strong>Synopsis</strong></p>
+<p>Copy the source to the destination.  Doesn’t transfer unchanged files, testing by size and modification time or MDSUM.  Doesn’t delete files from the destination.</p>
+<p>Note that it is always the contents of the directory that is synced, not the directory.  SO when source:path is a directory, it’s the contents of source:path that are copied, not the directory name and contents.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rclone copy source:path destination:path <span class="o">[</span>flags<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> Use the <code class="docutils literal notranslate"><span class="pre">-P/--progress</span></code> flag to view real-time transfer statistics</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">See the <a class="reference external" href="https://rclone.org/docs/#no-traverse">–no-traverse</a> option for controlling whether rclone lists the destination directory or not.  Supplying this option when copying a small number of files into a large destination can speed transfers up greatly.</p>
+</div>
+<p><strong>Example:</strong> Using rclone to copy a file to Google Drive</p>
+<p>Let’s copy the rclone zip file from Hoffman2 to your Google Drive, h2xfr folder</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dtn1:~$ rclone copy rclone-current-linux-amd64.zip gdrive:h2xfr
+Enter configuration password:
+password&gt;
+<span class="m">2020</span>/04/06 <span class="m">16</span>:40:20 INFO  : rclone-current-linux-amd64.zip: Copied <span class="o">(</span>new<span class="o">)</span>
+<span class="m">2020</span>/04/06 <span class="m">16</span>:40:20 INFO  :
+Transferred:              <span class="m">11</span>.177M / <span class="m">11</span>.177 MBytes, <span class="m">100</span>%, <span class="m">3</span>.671 MBytes/s, ETA 0s
+Transferred:            <span class="m">1</span> / <span class="m">1</span>, <span class="m">100</span>%
+Elapsed time:         <span class="m">3</span>.0s
+dtn1:~$
+</pre></div>
+</div>
+<p>‘rclone-current-linux-amd64.zip’ is the file in your current working directory that you want to transfer from Hoffman2 to Google Drive.</p>
+<p>‘gdrive’ is the name of the connection you gave when you configured your rclone connection and ‘h2xfr’ is the name of the folder you created in Google Drive.</p>
+<p>If you configured a password for rclone, you will be prompted for it before the file is sent.</p>
+<p>That’s it, the file has been uploaded. You can view the remote end with the ls command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dtn1:~$ rclone ls gdrive:h2xfr
+password:
+<span class="m">11913756</span> rclone-v1.51.0-linux-amd64.zip
+</pre></div>
+</div>
+<ul class="simple">
+<li>It may be useful to view the contents of your remote connection before uploading or downloading files.  To do so without having to use a browser, use the following commands:</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rclone lsd <span class="o">[</span>remote<span class="o">]</span>:
+</pre></div>
+</div>
+<p>** Replace <code class="docutils literal notranslate"><span class="pre">remote:</span></code> with the name of your remote connection, e.g. gdrive or box</p>
+<ul class="simple">
+<li>To view the contents of a specific directory, e.g. ‘h2xfr’ in your Google Drive, use the command:</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rclone ls gdrive:h2xfr
+</pre></div>
+</div>
+<ul class="simple">
+<li>If you want to test a command, use the <code class="docutils literal notranslate"><span class="pre">--dry-run</span></code> flag.  Below assumes the name of your rclone remote connection to Google Drive is named, ‘gdrive’ and the directory you’re syncing to is named, ‘h2xfr’</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rclone <span class="o">[</span>command<span class="o">]</span> --dry-run gdrive:h2xfr
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="scp">
+<span id="id30"></span><h2>scp<a class="headerlink" href="#scp" title="Permalink to this headline">¶</a></h2>
+<p>For security reasons, Hoffman2 Cluster allows file transfer only with scp or sftp or grid-ftp. For the same reason, you should use an scp or sftp client on your local machine. You should not use the scp command on the cluster.</p>
+<p>The scp and sftp commands transfer files using the secure shell protocol (ssh) in which data is encrypted during transfer. The use of scp requires that an scp client be run on the machine that you use to initiate the transfer and that it communicate with a server run on any other machines which participate in the transfer. The Hoffman2 Cluster, like most Linux and Unix systems, runs both a client and a server.</p>
+<p>There is an scp client command on desktop Linux/Unix systems and on Macs (use Terminal). On Windows, you usually have to install an ssh client which comes with an scp program.</p>
+<p>The syntax of the Linux/Unix scp command is very similar to the cp command. For complete scp syntax, enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">man</span> <span class="n">scp</span>
+</pre></div>
+</div>
+<p>Here is a simplified scp syntax that accomplishes most transfers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span><span class="p">]</span> <span class="n">source</span> <span class="n">target</span>
+</pre></div>
+</div>
+<p>where source is the name of the file on your local machine, and target will be the name of the file on the cluster.</p>
+<p>For the source on your local machine, specify an absolute or relative file name or directory name. You can use wild cards to transfer multiple files to an existing target directory. Specify -r to transfer a whole source directory and its files.</p>
+<p>For the target on the cluster, specify your login_id and the Hoffman2 address, followed by a colon (:), followed by the file specification. You can specify the directory where the file is to be saved, or a dot “.” meaning the same name in your home directory, or an absolute or relative path including a new file name. For large files or large amounts of data, use the Hoffman2 data transfer node dtn2.hoffman2.idre.ucla.edu</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`login_id`@dtn2.hoffman2.idre.ucla.edu:filespec
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>scp myfile `login_id`@dtn2.hoffman2.idre.ucla.edu:.
+</pre></div>
+</div>
+<p>will transfer the file named myfile from your current directory on your local machine to your home directory on the Hoffman2 Cluster. Its name on the cluster will be $HOME/myfile</p>
+</div>
+<div class="section" id="sftp">
+<span id="id31"></span><h2>sftp<a class="headerlink" href="#sftp" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="first sidebar-title">If you would prefer to use a graphical SFTP client…</p>
+<p class="last">Please look under Tools for a list of SFTP GUI applications.</p>
+</div>
+<p><em>secure file transfer program</em></p>
+<p>sftp is a file transfer program, similar to ftp, which performs all operations over an encrypted ssh transport.</p>
+<p>It may also use many features of ssh, such as public key authentication and compression.</p>
+<table border="1" class="colwidths-given docutils" id="id36">
+<caption><span class="caption-text">SFTP Interactive Commands</span><a class="headerlink" href="#id36" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Command</strong></th>
+<th class="head"><strong>Function</strong></th>
+<th class="head"><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>cd</td>
+<td>Change remote directory to path</td>
+<td>cd [path]</td>
+</tr>
+<tr class="row-odd"><td>lcd</td>
+<td>Change local directory to path</td>
+<td>lcd [path]</td>
+</tr>
+<tr class="row-even"><td>ls</td>
+<td>Display remote directory listing</td>
+<td>ls</td>
+</tr>
+<tr class="row-odd"><td>lls</td>
+<td>Display local directory listing</td>
+<td>lls</td>
+</tr>
+<tr class="row-even"><td>pwd</td>
+<td>Display remote working directory</td>
+<td>pwd</td>
+</tr>
+<tr class="row-odd"><td>lpwd</td>
+<td>Print local working directory</td>
+<td>lpwd</td>
+</tr>
+<tr class="row-even"><td>mkdir</td>
+<td>Create remote directory specified by path</td>
+<td>mkdir [path]</td>
+</tr>
+<tr class="row-odd"><td>get</td>
+<td>Retrieve the remote path and store it on the local machine</td>
+<td>get remote_path [local_path]</td>
+</tr>
+<tr class="row-even"><td>put</td>
+<td>Upload local-path and store it on the remote machine</td>
+<td>put local_path [remote_path]</td>
+</tr>
+<tr class="row-odd"><td>exit</td>
+<td>Quit SFTP</td>
+<td>exit</td>
+</tr>
+<tr class="row-even"><td>quit</td>
+<td>Quit SFTP</td>
+<td>quit</td>
+</tr>
+<tr class="row-odd"><td>help</td>
+<td>Display help text</td>
+<td>sftp help</td>
+</tr>
+</tbody>
+</table>
+<p>For complete syntax, please refer to the man page.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ man scp
+</pre></div>
+</div>
+<p><strong>Let’s establish an SFTP connection</strong></p>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">login_id</span></code> with your cluster user name below.  This is an example of using the sftp client on macOS Terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sftp `login_id`@hoffman2.idre.ucla.edu
+`login_id`@hoffman2.idre.ucla.edu&#39;s password:
+Connected to `login_id`@hoffman2.idre.ucla.edu.
+sftp&gt;
+</pre></div>
+</div>
+<p><strong>Now let’s move a file from our local computer to Hoffman2</strong></p>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">login_id</span></code> with the user name on your local computer.  What is my current local working directory? and what files are listed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sftp&gt; lpwd
+Local working directory: /Users/`login_id`/share/
+sftp&gt; lls
+a.out  index.html
+</pre></div>
+</div>
+<p>What is my remote working directory?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sftp&gt; pwd
+Remote working directory: /u/home/l/`login_id`
+</pre></div>
+</div>
+<p>Let’s create a new directory on the remote computer and change our working directory to it</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sftp</span><span class="o">&gt;</span> <span class="n">mkdir</span> <span class="n">uploads</span>
+<span class="n">sftp</span><span class="o">&gt;</span> <span class="n">cd</span> <span class="n">uploads</span>
+</pre></div>
+</div>
+<p>Copy file, “a.out” from local computer to Hoffman2</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sftp&gt; put a.out
+Uploading a.out to /u/home/l/login_id`/uploads/a.out
+a.out                                                                                    100% 3125   703.0KB/s   00:00
+
+sftp&gt; ls
+a.out
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsync">
+<span id="id32"></span><h2>rsync<a class="headerlink" href="#rsync" title="Permalink to this headline">¶</a></h2>
+<p>The rsync command uses the SSH2 protocol to efficiently transfer files. It is perhaps most useful in keeping groups of files on different computers up to date with each other.</p>
+<p>Here is a 2-part example of discovering the status of files in a common directory named mydir. It is comparing files in your Hoffman2 $HOME/mydir directory with those on your local machine mydir directory. You need both parts to ensure any new files from either source are synchronized.</p>
+<p>Part 1: Run this on your local machine:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rsync -an --itemize-changes `login_id`@dtn2.hoffman2.idre.ucla.edu:mydir .
+</pre></div>
+</div>
+<p>Any files prefixed with &gt; in the ouput are different on Hoffman2 and you may want to download them from Hoffman2 (get):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rsync -av `login_id`@dtn2.hoffman2.idre.ucla.edu:mydir .
+</pre></div>
+</div>
+<p>Part 2: Run this on your local machine:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rsync -an --itemize-changes mydir `login_id`@dtn2.hoffman2.idre.ucla.edu:
+</pre></div>
+</div>
+<p>Any files prefixed with &lt; in the output are different on your local machine and you may want to upload them to Hoffman2 (put):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rsync -av mydir `login_id`@dtn2.hoffman2.idre.ucla.edu:
+</pre></div>
+</div>
+<p>For more information about the rsync command and additional options, enter <strong>man rsync</strong> at the shell prompt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ man rsync
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Rendering.html" class="btn btn-neutral float-right" title="Renderin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Unix-command-line.html" class="btn btn-neutral float-left" title="Unix command line 101" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Raffaella D&#39;Auria
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

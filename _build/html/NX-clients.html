@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>NoMachine client &mdash; H2-for-the-Arts 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> H2-for-the-Arts
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using the Hoffman2 cluster:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Connecting.html">Connecting/Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Unix-command-line.html">Unix command line 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Computing.html">Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data-transfer.html">Data transfer</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">H2-for-the-Arts</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>NoMachine client</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/NX-clients.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>NX is a free, secure, compressed protocol for remote X Window System connections for Windows, Linux, Mac OSX, and Solaris. We currently support connecting to the Hoffman2 cluster via the NoMachine client as well as the X2Go client.</p>
+<div class="section" id="nomachine-client">
+<h1>NoMachine client<a class="headerlink" href="#nomachine-client" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="download-nomachine-client-for-your-operating-system">
+<h2>Download NoMachine Client for your operating system<a class="headerlink" href="#download-nomachine-client-for-your-operating-system" title="Permalink to this headline">¶</a></h2>
+<p>A free NoMachine client is available from NoMachine for Windows, Mac OSX, and most Linux distributions.</p>
+<ul class="simple">
+<li>Download NoMachine from the <a class="reference external" href="https://www.nomachine.com/download">website</a>.</li>
+<li>Use the download link for your operating system (Windows, Mac OSX, or Linux Distributions).</li>
+</ul>
+</div>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Once downloaded, double click on the downloaded package file.</li>
+<li>Click the <code class="docutils literal notranslate"><span class="pre">Run/Install</span></code> button.</li>
+<li>When the NoMachine Client Setup Wizard starts, accept all the setup defaults.</li>
+</ul>
+</div>
+<div class="section" id="configure">
+<h2>Configure<a class="headerlink" href="#configure" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Open the NoMachine client and continue to the connection page.</li>
+<li>Click on the <code class="docutils literal notranslate"><span class="pre">New</span></code> link to create a connection to the Hoffman2 Cluster.</li>
+<li>Specify the protocol as <code class="docutils literal notranslate"><span class="pre">SSH</span></code> and press <code class="docutils literal notranslate"><span class="pre">Continue</span></code>.</li>
+<li>Provide the host name (<em>nx.hoffman2.idre.ucla.edu</em>).</li>
+<li>Leave the port field set to 22 and press the <code class="docutils literal notranslate"><span class="pre">Continue</span></code> button.</li>
+<li>Select <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">the</span> <span class="pre">system</span> <span class="pre">login</span></code> and press the <code class="docutils literal notranslate"><span class="pre">Continue</span></code> button.</li>
+<li>Select <code class="docutils literal notranslate"><span class="pre">Password</span></code> and press the <code class="docutils literal notranslate"><span class="pre">Continue</span></code> button.</li>
+<li>Select <code class="docutils literal notranslate"><span class="pre">Don’t</span> <span class="pre">use</span> <span class="pre">a</span> <span class="pre">proxy</span></code> and press the <code class="docutils literal notranslate"><span class="pre">Continue</span></code> button.</li>
+<li>Name your connection and press the <code class="docutils literal notranslate"><span class="pre">Done</span></code> button.</li>
+</ul>
+<p>Please notice that if you are planning to suspend and reconnect to an NX session, you will need to repeat the configuration steps described above for the hosts:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nx1</span><span class="o">.</span><span class="n">hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+<span class="n">nx2</span><span class="o">.</span><span class="n">hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="run">
+<h2>Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Open the NoMachine client and continue to the connection page.</li>
+<li>Click on the saved connection that you previously configured.</li>
+<li>Enter your username and password and your NX session with a virtual desktop on the cluster will start.</li>
+</ul>
+<div class="section" id="how-to-get-a-terminal-window">
+<h3>How to get a terminal window<a class="headerlink" href="#how-to-get-a-terminal-window" title="Permalink to this headline">¶</a></h3>
+<p>After you have logged into the Hoffman2 remote desktop, click on the <code class="docutils literal notranslate"><span class="pre">Applications</span></code> menu. Then select <code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">Tools</span></code> and <code class="docutils literal notranslate"><span class="pre">Terminal</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To pin the terminal to the panel, right click on the <code class="docutils literal notranslate"><span class="pre">Terminal</span></code> menu item and select <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">this</span> <span class="pre">launcher</span> <span class="pre">to</span> <span class="pre">panel</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-terminate-your-nx-session">
+<h2>How to terminate your NX session<a class="headerlink" href="#how-to-terminate-your-nx-session" title="Permalink to this headline">¶</a></h2>
+<p>From the gnome desktop, select:</p>
+<p>System -&gt; Log Out login_id …</p>
+<p>A small window will open. Click the <code class="docutils literal notranslate"><span class="pre">Log</span> <span class="pre">Out</span></code> button.</p>
+</div>
+<div class="section" id="how-to-suspend-an-nx-session">
+<h2>How to suspend an NX session<a class="headerlink" href="#how-to-suspend-an-nx-session" title="Permalink to this headline">¶</a></h2>
+<p>Make note of the actual NX node where your session is running (typically NX1 or NX2) to allow for future reconnections. To terminate the NX client on your computer, close the application or close the virtual desktop window.</p>
+</div>
+<div class="section" id="how-to-reconnect-to-a-suspended-nx-session">
+<h2>How to reconnect to a suspended NX session<a class="headerlink" href="#how-to-reconnect-to-a-suspended-nx-session" title="Permalink to this headline">¶</a></h2>
+<p>If you are planning to reconnect to a session, make note of the actual NX node where your session is running (typically NX1 or NX2). Make sure to configure your NX client for the NX node where your session is running. You will need to create a configuration using either nx1.hoffman2.idre.ucla.edu or nx2.hoffman2.idre.ucla.edu. See the Configuration section for more detailed instructions.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Reconnecting to a suspended NX session is not always possible. Lengthy computations should be run as batch jobs. We recommend terminating NX sessions (logout) instead of suspending them.</p>
+</div>
+<p>On fast networks, a preferred alternative to NX is to run an X server on your platform (e.g., X11 packages for linux platforms, XQuartz for mac OSX, XMing and Xming fonts for Windows), and connect to the cluster via a terminal (or via PuTTY on Windows platforms) by setting up X11 forwarding.</p>
+</div>
+</div>
+<div class="section" id="x2go-client">
+<h1>X2Go client<a class="headerlink" href="#x2go-client" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-x2go-client">
+<h2>Install X2Go client<a class="headerlink" href="#install-x2go-client" title="Permalink to this headline">¶</a></h2>
+<p>Follow the installation guide at <a class="reference external" href="https://wiki.x2go.org/doku.php/doc:installation:x2goclient">X2Go site</a>.
+Download the X2Go client, select the appropriate client for your operating system (Windows, Mac OS, Linux) and the correct version onto your computer.</p>
+<p>Double click on the downloaded package, accept the licensing terms, and follow the instruction on the screen.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">MacOS users will need to install the XQuartz dependency prior to installing X2Go.  It may be obtained on the <a class="reference external" href="https://www.xquartz.org/">XQuartz website</a>. You may also encounter a security warning that “x2goclient.app” is from an unidentified developer.  Simply right click on the app again and select Open.</p>
+</div>
+</div>
+<div class="section" id="configure-the-x2go-client-to-connect-to-hoffman2">
+<h2>Configure the X2Go client to connect to Hoffman2<a class="headerlink" href="#configure-the-x2go-client-to-connect-to-hoffman2" title="Permalink to this headline">¶</a></h2>
+<p>Launch the application by double clicking on the X2Go Client desktop icon, if one was created, or by searching for the application in your App folder and double clicking on the application file. If prompted by the Windows Firewall, select <code class="docutils literal notranslate"><span class="pre">Allow</span> <span class="pre">access</span></code> so that <code class="docutils literal notranslate"><span class="pre">sshd.exe</span></code> and other X2Go related programs will be able to run.</p>
+</div>
+<div class="section" id="create-a-new-session">
+<h2>Create a new session<a class="headerlink" href="#create-a-new-session" title="Permalink to this headline">¶</a></h2>
+<p>From the <code class="docutils literal notranslate"><span class="pre">Session</span></code> tab in the X2Go client select <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">session</span></code>. You can name your session with any name (e.g., <a class="reference external" href="mailto:x2go&#37;&#52;&#48;hoffman2">x2go<span>&#64;</span>hoffman2</a>). Leave the <code class="docutils literal notranslate"><span class="pre">Path</span></code> field unchanged and in the <code class="docutils literal notranslate"><span class="pre">Host</span></code> field enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x2go</span><span class="o">.</span><span class="n">hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>Leave the other fields unchanged and choose the <code class="docutils literal notranslate"><span class="pre">Session</span> <span class="pre">type</span></code> to be either the default <code class="docutils literal notranslate"><span class="pre">KDE</span></code> or <code class="docutils literal notranslate"><span class="pre">GNOME</span></code>. Save the new session by pressing the <code class="docutils literal notranslate"><span class="pre">OK</span></code> button.</p>
+<p>You can also create sessions for the specific nodes <code class="docutils literal notranslate"><span class="pre">x2go1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2go2</span></code> if you will need to reconnect to a suspended session. However, we strongly suggest you start new sessions by using the session associated with the <code class="docutils literal notranslate"><span class="pre">x2go.hoffman2.idre.ucla.edu</span></code> address. Sessions on the <code class="docutils literal notranslate"><span class="pre">x2go1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2go2</span></code> nodes can be created by using in the “Host” field respectively:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x2go1</span><span class="o">.</span><span class="n">hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+<span class="n">x2go2</span><span class="o">.</span><span class="n">hoffman2</span><span class="o">.</span><span class="n">idre</span><span class="o">.</span><span class="n">ucla</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>Name the sessions accordingly (for example: <em>x2go1&#64;hoffman2</em>, <em>x2go2&#64;hoffman2</em>).</p>
+</div>
+<div class="section" id="start-the-x2go-client">
+<h2>Start the X2Go client<a class="headerlink" href="#start-the-x2go-client" title="Permalink to this headline">¶</a></h2>
+<p>To connect to the Hoffman2 cluster open the X2Go client, double click on an already created session, and enter your Hoffman2 username and password. The first time you connect, you will be prompted to trust the host key. Do so by pressing the <code class="docutils literal notranslate"><span class="pre">Yes</span></code> button. On Windows, a few more firewalls will pop up and you will have to allow access to the X2Go Client and associated programs.</p>
+<p>You should now be connected to a remote desktop on the Hoffman2 cluster.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Raffaella D&#39;Auria
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

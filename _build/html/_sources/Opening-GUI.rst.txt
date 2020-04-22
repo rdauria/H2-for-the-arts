@@ -1,0 +1,79 @@
+Opening GUI applications on linux
+---------------------------------
+
+On UNIX-like systems, an X Window System server is generally available and running with the default installation (or can be readily installed via the OS package manager). You can enable X11 Forwarding (that is the ability to visualize, on your local computer, GUI applications running remotely on the cluster) by adding the -X flag to the ssh command you use to connect to the cluster. 
+To do so, type into your terminal window: ::
+ ssh -X login_id@hoffman2.idre.ucla.edu
+
+where ``login_id`` is replaced by your cluster user name.
+
+Alternatively, you can override the ssh default for all your sessions on the Hoffman2 cluster by creating (or adding to) a file named ``config`` in the `$HOME/.ssh`` local directory on your computer. 
+Add the option: ::
+ Host hoffman2
+ Hostname=hoffman2.idre.ucla.edu
+ User=login_id
+ ForwardX11 yes
+
+where ``login_id`` is replaced by your cluster user name. 
+You can then login on the cluster as user ``login_id`` simply issuing: ::
+ ssh hoffman2
+
+
+Opening GUI applications on a mac
+---------------------------------
+
+On Mac OS X, the X windows system is called XQuartz. Mac OS X 10.5 10.6 and 10.7 installed it by default, but as of 10.8 Apple has dropped dedicated support and directs users to the open source XQuartz page. You can install XQuartz from the OS distribution media or download it from `XQuartz page <https://www.xquartz.org/>`_.
+
+The MacOS terminal application can be used to connect to the cluster. Specify -Y, not -X, in the ssh command to enable X11 Forwarding (as by default, a mac assumes that an -X connection is untrusted). 
+Type into your terminal window: ::
+ ssh -Y login_id@hoffman2.idre.ucla.edu
+
+where ``login_id`` is replaced by your cluster user name. Alternatively, you can override the ssh default for your Hoffman2 session creating a ``$HOME/ssh/config`` file similar to the one shown for linux logins.
+
+*Notes for XQuartz users: Indirect GLX was disabled by default in Xorg 1.17, starting from XQuartz version 2.7.9.*
+
+To enable indirect GLX and to allow remote visualization on the cluster, you will have to issue at the terminal command prompt of your mac (before logging into Hoffman2): ::
+
+ defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
+
+*Note: You will need to reboot your machine before being able to open GUI applications on Hoffman2.*
+
+For more information about X11 for Mac and OS X Mountain Lion, click `here <http://support.apple.com/kb/HT5293>`_. For Mac OS X 10.4 (Tiger), X11 should be installed from the OS media and manually started.
+
+Opening GUI applications on Windows
+-----------------------------------
+
+On Windows, third-party software needs to be installed. Here is a list of possible choices:
+
+* `MobaXterm <http://mobaxterm.mobatek.net/>`_: MobaXterm is a free, enhanced terminal for Windows with X11 server, SSH client, network tools, and much more. 
+* `XMing <http://sourceforge.net/projects/xming/>`_ and `Xming fonts <http://sourceforge.net/projects/xming/files/Xming-fonts/>`_: XMing and XMing fonts are a no-cost X Window System Server for Microsoft.
+* `Cygwin <http://www.cygwin.com/>`_: Cygwin is a free Linux-like environment for Windows. To add Cygwin/X server, select the ``xinit`` package from the X11 category. 
+* `Xshell <www.netsarang.com>`_: Xshell is a commercial option.
+
+Notes for MobaXterm users:
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Download `MobaXterm Home Edition <http://mobaxterm.mobatek.net/download-home-edition.html>`_ (installer edition).
+* Double click on the installer and follow directions to install the package and start mobaxterm.
+* Click on the ``Settings`` tab. When a window pops up, select the ``SSH`` tab. Next, click on the ``SSH keepalive`` box, and then select "OK".
+* Select the ``Session`` tab, a window will pop up, select ``SSH``. 
+* Under ``Remote Host`` enter ``hoffman2.idre.ucla.edu``. You can also add your username, and then click OK. You will be prompted to log on the cluster.
+
+Notes for Xming users:
+^^^^^^^^^^^^^^^^^^^^^^
+
+* Install and launch PuTTY.
+* Enter ``hoffman2.idre.ucla.edu`` in the “Host Name (or OP address)” field.
+* Enter ``hoffman2`` in the “Saved Sessions” field.
+* Expand the “SSH” menu under the “Category” field (press + sing), select X11, and click the “Enable X11 forwarding” field.
+* Select ``Session`` in the “Category” field and click the “Save” button.
+* Double click on the Xming icon.
+* Start PuTTy, select the saved session, and login using your username and password.
+
+Notes for Cygwin users:
+^^^^^^^^^^^^^^^^^^^^^^^
+
+* Install Cygwin (including the X11 packages) on your Windows system.
+* Open a Cygwin terminal.
+* Enter the command: ``startxwin``. This starts the X11 server on your Windows computer.
+* In the (graphical) window that pops up, use the command ``ssh -X login_id@hoffman2.idre.ucla.edu`` where ``login_id`` is replaced by your cluster user name.

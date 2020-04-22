@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Renderin &mdash; H2-for-the-Arts 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> H2-for-the-Arts
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using the Hoffman2 cluster:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Connecting.html">Connecting/Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Unix-command-line.html">Unix command line 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data-transfer.html">Data transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rendering.html">Renderin</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">H2-for-the-Arts</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Renderin</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Computing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="renderin">
+<h1>Renderin<a class="headerlink" href="#renderin" title="Permalink to this headline">¶</a></h1>
+<p>Computational resources on the Hoffman2 cluster are managed by a scheduler. Any CPU or memory intensive computing
+task should be performed within either a scheduled interactive session or a batch. This section addresses how to
+request an interactive session and how to submit a non interactive job for batch execution.</p>
+<p>Upon connecting to the cluster you are on a login node (unless you are connecting to the cluster via <a class="reference external" href="../Connecting/index.html#connecting-via-jupyter-nb-lab">Jupyter Noteboks or Jupyter Lab</a>). Login nodes are meant as a gateway to the computational resources on the cluster and should be used only for light editing, interactive session requests, or batch job submission. (For more information, see <a class="reference external" href="../../Policies/Role-of-the-login-nodes.html">Role of the login nodes</a>).</p>
+<div class="section" id="getting-an-interactive-session">
+<h2>Getting an interactive-session<a class="headerlink" href="#getting-an-interactive-session" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basic-usage">
+<h3>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h3>
+<p>To request an interactive session, open your terminal/GitBash window and connect to the Cluster (see: <a class="reference external" href="../Connecting/index.html">Connecting/Logging in</a>). You can request an interactive session on one or more compute nodes.</p>
+<p>To get an interactive session with a runtime longer than the default 2 hours, you will need to specify a value for the
+scheduler complex <code class="docutils literal notranslate"><span class="pre">h_rt</span></code>. To request more memory than the default value of 1GB, you should specify a value for the
+scheduler complex <code class="docutils literal notranslate"><span class="pre">h_data</span></code>.</p>
+<p>For example, to request an interactive session with a runtime of 3 hours and a total of 4GB of mememory, issue at the Hoffman2 command prompt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">h_rt</span><span class="o">=</span><span class="mi">3</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">,</span><span class="n">h_data</span><span class="o">=</span><span class="mi">4</span><span class="n">G</span>
+</pre></div>
+</div>
+<p>If you are planning to run an application that will use more than one CPU core, you should request cores using the
+<code class="docutils literal notranslate"><span class="pre">-pe</span> <span class="pre">&lt;parallel</span> <span class="pre">environment&gt;</span> <span class="pre">&lt;n&gt;</span></code> directive (where <code class="docutils literal notranslate"><span class="pre">&lt;parallel</span> <span class="pre">environment&gt;</span></code> is the name of the parallel environment and <code class="docutils literal notranslate"><span class="pre">&lt;n&gt;</span></code>
+is the number of cores that you are plannig to use).</p>
+<p>If your application can run multiple threads, or, more generally, uses multiple cores in a shared memory paradigm, you will
+need to reqeust the number of cores you are planning to use with the <em>-pe shared &lt;n&gt;</em> directive.</p>
+<p>For example, to request 4 CPU core, a runtime of 8 hours, and 2GB of memory per core, issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">h_rt</span><span class="o">=</span><span class="mi">8</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">,</span><span class="n">h_data</span><span class="o">=</span><span class="mi">2</span><span class="n">G</span> <span class="o">-</span><span class="n">pe</span> <span class="n">shared</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Notice that <code class="docutils literal notranslate"><span class="pre">h_data</span></code> is memory per core. Since you are requesting 2GB of memory per core and 4 cores, your total memory request is: 2GB x 4 cores = 8GB.</p>
+</div>
+<p>If your job/program can run across multiple nodes (e.g. MPI), use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">h_rt</span><span class="o">=</span><span class="mi">8</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">,</span><span class="n">h_data</span><span class="o">=</span><span class="mi">2</span><span class="n">G</span> <span class="o">-</span><span class="n">pe</span> <span class="n">dc</span>\<span class="o">*</span>  <span class="mi">4</span>
+</pre></div>
+</div>
+<p>A word about <code class="docutils literal notranslate"><span class="pre">h_data</span></code>:</p>
+<p>When invoking an interactive session with <code class="docutils literal notranslate"><span class="pre">qrsh</span></code>, the proper memory size needs to be specified via <code class="docutils literal notranslate"><span class="pre">h_data</span></code>. If you are unsure of what amount of memory is appropriate for your interactive session, you could add <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">exclusive</span></code> to your <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> command. In that case, the <code class="docutils literal notranslate"><span class="pre">h_data</span></code> value is used by the scheduler to select a compute node having a total amount of memory equal or greater than what specified with <code class="docutils literal notranslate"><span class="pre">h_data</span></code>. In this case, the memory limit for the job is the compute node’s physical memory size.</p>
+<p>For example, the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">h_rt</span><span class="o">=</span><span class="mi">8</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">,</span><span class="n">h_data</span><span class="o">=</span><span class="mi">32</span><span class="n">G</span><span class="p">,</span><span class="n">exclusive</span>
+</pre></div>
+</div>
+<p>will start an interactive session on a compute node equipped with at least 32G of physical memory.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can only request as much memory as is available on nodes on the cluster. Interactive session requested via <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> without specifying an <code class="docutils literal notranslate"><span class="pre">h_data</span></code> value are automatically assigned an <code class="docutils literal notranslate"><span class="pre">h_data=1G</span></code>, which may or may not be too small for your application.</p>
+</div>
+</div>
+<div class="section" id="resource-limitation">
+<h3>Resource limitation<a class="headerlink" href="#resource-limitation" title="Permalink to this headline">¶</a></h3>
+<p>You can specify up to 24 hours in your qrsh request using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">h_rt</span><span class="o">=</span><span class="mi">24</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+</pre></div>
+</div>
+<p>Hoffman2 cluster’s compute nodes have different memory sizes. When you request more then one core (using: <code class="docutils literal notranslate"><span class="pre">-pe</span> <span class="pre">shared</span> <span class="pre">&lt;n&gt;</span></code>), the total memory requested on the node will be the product of the number of cores time the memory per core (<code class="docutils literal notranslate"><span class="pre">h_data</span></code>). In general, the larger the total memory requested, the longer the wait. Please refer to the output of the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qhost</span>
+</pre></div>
+</div>
+<p>to see what total memory is available on the various nodes on the cluster, keeping in mind that not all hosts may be accessible to you.</p>
+<p>When you request multiple cores, or a large amount of total memory, you may or may not get the interactive session immediately, depending on how busy the cluster is and the permission level of your account. To see to which class of nodes (memory, number of cores, etc.) you have access to, you can enter the following at the Hoffman2 command prompt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mygroups</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="what-is-a-node">
+<h3>What is a node?<a class="headerlink" href="#what-is-a-node" title="Permalink to this headline">¶</a></h3>
+<p>A node is a physical server comprised of mutliples cores. Hoffman2 has a number of nodes available to the entire
+UCLA community. Additionally, research groups can purchase dedicated compute nodes. Group owned nodes, allow users
+a runtime up to fourteen days, and jobs from the group are garanteed to start within twenty-four hours from submission
+(and most typically less). For more information on running jobs on owned please see:
+<a class="reference external" href="../../Policies/Job-scheduling.html#queues-with-time-limit-of-14-days-highp">Job scheduling policy</a>.
+If your group is interested in purchasing nodes please visit: <a class="reference external" href="../Purchasing-nodes.html">Purchasing nodes</a></p>
+</div>
+<div class="section" id="running-on-your-groups-nodes">
+<h3>Running on your group’s nodes<a class="headerlink" href="#running-on-your-groups-nodes" title="Permalink to this headline">¶</a></h3>
+<p><strong>The following section does not apply to you if your research group has not purchased Hoffman2 compute nodes</strong></p>
+<p>To run on your group nodes, add the <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">highp</span></code> switch to your <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> command. For example, to request an
+interacrive session with a duration of two days (48 hours), 4GB of memory (and one core), issue the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">highp</span><span class="p">,</span><span class="n">h_rt</span><span class="o">=</span><span class="mi">48</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">,</span><span class="n">h_data</span><span class="o">=</span><span class="mi">4</span><span class="n">G</span>
+</pre></div>
+</div>
+<p>You could also request multiple cores using the <code class="docutils literal notranslate"><span class="pre">-pe</span> <span class="pre">dc\*</span> <span class="pre">&lt;n&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">-pe</span> <span class="pre">shared</span> <span class="pre">&lt;n&gt;</span></code> as described above. When
+combining with <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">highp</span></code>, the amount of cores or memory size need to be compatible with your group compute nodes.
+Contact user support if you are not sure.</p>
+<p>Although you are allowed to specify <code class="docutils literal notranslate"><span class="pre">h_rt</span></code> as high as 336 hours (14 days) for an <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> session, it is not recommended. For example, if the network connection is interrupted (e.g. your laptop or desktop computer goes into sleep mode), the <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> session may be lost, possibly terminating all running programs within it.</p>
+</div>
+<div class="section" id="qrsh-examples">
+<h3>qrsh examples<a class="headerlink" href="#qrsh-examples" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The parameters associated with the <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">directive</span></code> are separated by commas without any white space in between.</p>
+</div>
+<p>Request a single processor for 2 hours.
+The default memory size depends on the queue in which your session starts. For campus users, the default memory size is 1GB. Use the <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">directive</span></code> with the <code class="docutils literal notranslate"><span class="pre">h_data</span></code> parameter to request more memory.</p>
+<p>To request a single processor for 24 hours from the interactive queues, issue the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">h_rt</span><span class="o">=</span><span class="mi">24</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">,</span><span class="n">h_data</span><span class="o">=</span><span class="mi">1</span><span class="n">G</span>
+</pre></div>
+</div>
+<p>To request 8 processors for 4 hours (total 8*1G=8GB memory) on a single node from the interactive queues, issue the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">h_data</span><span class="o">=</span><span class="mi">1</span><span class="n">G</span><span class="p">,</span><span class="n">h_rt</span><span class="o">=</span><span class="mi">4</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">,</span><span class="n">h_data</span><span class="o">=</span><span class="mi">1</span><span class="n">G</span> <span class="o">-</span><span class="n">pe</span> <span class="n">shared</span> <span class="mi">8</span>
+</pre></div>
+</div>
+<p>To request 4 processors for 3 hours (total 4*1G=4GB memory) on a single node, issue the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">h_data</span><span class="o">=</span><span class="mi">1</span><span class="n">G</span><span class="p">,</span><span class="n">h_rt</span><span class="o">=</span><span class="mi">3</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">,</span><span class="n">h_data</span><span class="o">=</span><span class="mi">1</span><span class="n">G</span> <span class="o">-</span><span class="n">pe</span> <span class="n">shared</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<p>To request 12 processors, 1GB of memory per processor, for 2 hours, issue the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">h_data</span><span class="o">=</span><span class="mi">1</span><span class="n">G</span><span class="p">,</span><span class="n">h_rt</span><span class="o">=</span><span class="mi">2</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="o">-</span><span class="n">pe</span> <span class="n">dc</span>\<span class="o">*</span> <span class="mi">12</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The 12 CPUs are distributed across multiple compute nodes. The backslash <code class="docutils literal notranslate"><span class="pre">\</span></code> in <code class="docutils literal notranslate"><span class="pre">dc\*</span></code> is significant when you issue this command in an interactive unix shell.</p>
+</div>
+</div>
+<div class="section" id="qrsh-startup-time">
+<h3>qrsh startup time<a class="headerlink" href="#qrsh-startup-time" title="Permalink to this headline">¶</a></h3>
+<p>A <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> session is scheduled along with all other jobs managed by the scheduler software. The shorter time (the <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">h_rt</span></code> option), and the fewer number of processors (the <code class="docutils literal notranslate"><span class="pre">-pe</span></code> option), the better chance you have of getting a session. Request just what you need for the best use of computing resources. Be considerate to other users by exiting your <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> session when you are done to release the computing resources to other users.</p>
+</div>
+<div class="section" id="interpreting-error-messages">
+<h3>Interpreting error messages<a class="headerlink" href="#interpreting-error-messages" title="Permalink to this headline">¶</a></h3>
+<p>Occasionally, you may encounter one of the following messages:</p>
+<p><code class="docutils literal notranslate"><span class="pre">error:</span> <span class="pre">no</span> <span class="pre">suitable</span> <span class="pre">queues</span></code></p>
+<p>or,</p>
+<p><code class="docutils literal notranslate"><span class="pre">qrsh:</span> <span class="pre">No</span> <span class="pre">match.</span></code></p>
+<p>If you see the no suitable queues message and you are requesting the interactive queues, be sure you have not requested more than 24 hours. This message may mean there is something incompatible with the various parameters you have specified and your <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> session can never start. For example, if you have requested <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">h_rt=25:00:00</span></code> but your <code class="docutils literal notranslate"><span class="pre">userid</span></code> is not authorized to run sessions or jobs for more than 24 hours.</p>
+<p>If your session could not be scheduled, first try your <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> command again in case it was a momentary problem with the scheduler.</p>
+<p>If your session still cannot be scheduled, try lowering either the value of <code class="docutils literal notranslate"><span class="pre">h_rt</span></code>,  the number of processors requested, or both, if possible.</p>
+</div>
+<div class="section" id="running-mpi-with-qrsh">
+<h3>Running MPI with qrsh<a class="headerlink" href="#running-mpi-with-qrsh" title="Permalink to this headline">¶</a></h3>
+<p>The following instructions are specific to IntelMPI library. They may not apply to other MPI implementations (see: How to run MPI for more information).</p>
+<p>There are 2 main steps to run an MPI program in a <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> session. You need to do step #1 only once per qrsh session. You can repeatedly execute step #2 within the same <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> session. The executable MPI program is named <code class="docutils literal notranslate"><span class="pre">foo</span></code> in the following example.</p>
+<p><strong>Set up the environment</strong></p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> session at the shell prompt, enter one of the following commands:</p>
+<p>If you are in <code class="docutils literal notranslate"><span class="pre">bash</span></code> shell:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">u</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">set_qrsh_env</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>If you are in <code class="docutils literal notranslate"><span class="pre">csh/tcsh</span></code> shell:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">u</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">set_qrsh_env</span><span class="o">.</span><span class="n">csh</span>
+</pre></div>
+</div>
+<p><strong>Launch your MPI program</strong></p>
+<p>Assume your MPI program is named <code class="docutils literal notranslate"><span class="pre">foo</span></code> and is located in the current directory. Run the program using all allocated processors with the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mpiexec.hydra -n $NSLOTS ./foo
+</pre></div>
+</div>
+<p>You could replace <code class="docutils literal notranslate"><span class="pre">$NSLOTS</span></code> with an integer, which is less than the number of processors you requested on your <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> command. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpiexec</span><span class="o">.</span><span class="n">hydra</span> <span class="o">-</span><span class="n">n</span> <span class="mi">4</span> <span class="o">./</span><span class="n">foo</span>
+</pre></div>
+</div>
+<p>The command to see <code class="docutils literal notranslate"><span class="pre">mpiexec</span></code> options is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpiexec</span><span class="o">.</span><span class="n">hydra</span> <span class="o">-</span><span class="n">help</span>
+</pre></div>
+</div>
+<p>You do not have to create a hostfile and pass it to <code class="docutils literal notranslate"><span class="pre">mpiexec.hydra</span></code> with its <code class="docutils literal notranslate"><span class="pre">-machinefile</span></code> or <code class="docutils literal notranslate"><span class="pre">-hostfile</span></code> option because <code class="docutils literal notranslate"><span class="pre">mpiexec.hydra</span></code> automatically retrieves that information from <code class="docutils literal notranslate"><span class="pre">UGE</span></code>.</p>
+</div>
+<div class="section" id="additional-tools">
+<h3>Additional tools<a class="headerlink" href="#additional-tools" title="Permalink to this headline">¶</a></h3>
+<p>Additional scripts are available that may help you run other parallel distributed memory software. You can enter these commands at the compute node’s shell prompt.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_pe_hostfile</span>
+</pre></div>
+</div>
+<p>Returns the contents of the <code class="docutils literal notranslate"><span class="pre">UGE</span> <span class="pre">pe_hostfile</span></code> file for the current <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> session. If you have used the <code class="docutils literal notranslate"><span class="pre">-pe</span></code> directive to request multiple processors on multiple nodes, you will probably need to tell your program the names of those nodes and how many processors have been allocated on each node. This information is unique to your current <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> session.</p>
+<p>To create an MPI-style hostfile named <code class="docutils literal notranslate"><span class="pre">hfile</span></code> in the current directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_pe_hostfile</span> <span class="o">|</span> <span class="n">awk</span> <span class="s1">&#39;{print $1&quot; slots=&quot;$2}&#39;</span> <span class="o">&gt;</span> <span class="n">hfile</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">UGE</span> <span class="pre">pe_hostfile</span></code> is located:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$SGE_ROOT/$SGE_CELL/spool/node/active_jobs/sge_jobid.1/pe_hostfile
+</pre></div>
+</div>
+<p>or,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$SGE_ROOT/$SGE_CELL/spool/node/active_jobs/sge_jobid.sge_taskid/pe_hostfile
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">node</span></code> and <code class="docutils literal notranslate"><span class="pre">sge_jobid</span></code> are the <code class="docutils literal notranslate"><span class="pre">hostname</span></code> and <code class="docutils literal notranslate"><span class="pre">UGE</span> <span class="pre">$JOB_ID</span></code>, respectively, of the current <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> session.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sge_taskid</span></code> is the task number of an array job <code class="docutils literal notranslate"><span class="pre">$SGE_TASK_ID</span></code>.</p>
+<p>To return the value of <code class="docutils literal notranslate"><span class="pre">UGE</span> <span class="pre">JOB_ID</span></code> for the current <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> session, issue the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_sge_jobid</span>
+</pre></div>
+</div>
+<p>To return the contents of the <code class="docutils literal notranslate"><span class="pre">UGE</span></code> environment file for the current <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> session, issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_sge_env</span>
+</pre></div>
+</div>
+<p>which is used by the <code class="docutils literal notranslate"><span class="pre">set_qrsh_env</span></code> scripts.</p>
+<p><code class="docutils literal notranslate"><span class="pre">UGE</span></code>-specific environment variables are defined in the file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$SGE_ROOT/$SGE_CELL/spool/node/active_jobs/sge_jobid.1/environment
+</pre></div>
+</div>
+<p>or,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$SGE_ROOT/$SGE_CELL/spool/node/active_jobs/sge_jobid.sge_taskid/environment
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">node</span></code> and <code class="docutils literal notranslate"><span class="pre">sge_jobid</span></code> are the <code class="docutils literal notranslate"><span class="pre">hostname</span></code> and <code class="docutils literal notranslate"><span class="pre">UGE</span> <span class="pre">$JOB_ID</span></code>, respectively, of the current <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> session. <code class="docutils literal notranslate"><span class="pre">sge_taskid</span></code> is the task number of a array job <code class="docutils literal notranslate"><span class="pre">$SGE_TASK_ID</span></code>.</p>
+</div>
+</div>
+<div class="section" id="submitting-batch-jobs">
+<h2>Submitting batch jobs<a class="headerlink" href="#submitting-batch-jobs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="submit-batch-jobs-from-the-cluster-nodes">
+<h3>Submit batch jobs from the cluster nodes<a class="headerlink" href="#submit-batch-jobs-from-the-cluster-nodes" title="Permalink to this headline">¶</a></h3>
+<p>In order to run a job under the Univa Grid Engine, you need to supply <code class="docutils literal notranslate"><span class="pre">UGE</span></code> directives and their arguements to the job scheduler. The easiest way to do this is to create a <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file that consists of a set of <code class="docutils literal notranslate"><span class="pre">UGE</span></code> directives along with the commands required to execute the actual job. The command file for submitting a job can either be built using queue scripts provided by IDRE, or by building an <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file yourself.</p>
+</div>
+<div class="section" id="queue-scripts">
+<h3>Queue scripts<a class="headerlink" href="#queue-scripts" title="Permalink to this headline">¶</a></h3>
+<p>Each IDRE-provided queue script is named for a type of job or application. The queue script builds a UGE command file for that particular type of job or application. A queue script can be run either as a single command to which you provide appropriate options, or as an interactive application, which presents you with a menu of choices and prompts you for the values of options.</p>
+<p>For example, if you simply enter a queue script command such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">q</span>
+</pre></div>
+</div>
+<p>without any command-line arguments, the queue script will enter its interactive mode and present you with a menu of tasks you can perform. One of these tasks is to build the command file, another is to submit a command file that has already been built, and another is to show the status of jobs you have already submitted. See <code class="docutils literal notranslate"><span class="pre">queue</span> <span class="pre">scripts</span></code> for details, or select <code class="docutils literal notranslate"><span class="pre">Info</span></code> from any queue script menu, or enter <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">queue</span></code> at a shell prompt.</p>
+<p>You can also enter <code class="docutils literal notranslate"><span class="pre">myjobs</span></code> at the shell prompt to show the status of jobs you have submitted and which have not already completed. You can also enter <code class="docutils literal notranslate"><span class="pre">groupjobs</span></code> at the shell prompt to show the status of pending jobs everyone in your group has submitted. Enter <code class="docutils literal notranslate"><span class="pre">groupjobs</span> <span class="pre">-help</span></code> for options.</p>
+<p>IDRE-provided queue scripts can be used to run the following types of jobs:</p>
+<ul class="simple">
+<li>Serial Jobs</li>
+<li>Serial Array Jobs</li>
+<li>Multi-threaded Jobs</li>
+<li>MPI Parallel Jobs</li>
+<li>Application Jobs</li>
+</ul>
+</div>
+<div class="section" id="serial-jobs">
+<h3>Serial jobs<a class="headerlink" href="#serial-jobs" title="Permalink to this headline">¶</a></h3>
+<p>A serial job runs on a single thread on a single node. It does not take advantage of multi-processor nodes or the multiple compute nodes available with a cluster.</p>
+<p>To build or submit an <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file for a serial job, you can either enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">q</span> <span class="p">[</span><span class="n">queue</span><span class="o">-</span><span class="n">script</span><span class="o">-</span><span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>or, you can provide the name of your executable on the command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">q</span> <span class="p">[</span><span class="n">queue</span><span class="o">-</span><span class="n">script</span><span class="o">-</span><span class="n">options</span><span class="p">]</span> <span class="n">name_of_executable</span> <span class="p">[</span><span class="n">executable</span><span class="o">-</span><span class="n">arguments</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>When you enter <code class="docutils literal notranslate"><span class="pre">job.q</span></code> without the name of your executable, it will interactively ask you to enter any needed memory, wall-clock time limit, and other options, and ask you if you want to submit the job. You can quit out of the queue script menu and edit the <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file, which the script built, if you want to change or add other Univa Grid Engine options before you submit your job.</p>
+<p>If you did not submit the command file at the end of the menu dialog and decided to edit the file before submitting it, you can submit your command file using either a queue script <code class="docutils literal notranslate"><span class="pre">Submit</span></code> menu item, or the <code class="docutils literal notranslate"><span class="pre">qsub</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qsub</span> <span class="n">executable</span><span class="o">.</span><span class="n">cmd</span>
+</pre></div>
+</div>
+<p>When you enter <code class="docutils literal notranslate"><span class="pre">job.q</span></code> with the name of your executable, it will by default build the command file using defaults for any queue script options that you did not specify, submit it to the job scheduler, and delete the command file that it built.</p>
+</div>
+<div class="section" id="serial-array-jobs">
+<h3>Serial array jobs<a class="headerlink" href="#serial-array-jobs" title="Permalink to this headline">¶</a></h3>
+<p>Array jobs are serial jobs or multi-threaded jobs that use the same executable but different input variables or input files, as in parametric studies. Users typically run thousands of jobs with one submission.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file for a serial array job will, at the minimum, contain the <code class="docutils literal notranslate"><span class="pre">UGE</span></code> keyword statement for a lower index value and an upper index value. By default, the index interval is one. <code class="docutils literal notranslate"><span class="pre">UGE</span></code> keeps track of the jobs using the environment variable <code class="docutils literal notranslate"><span class="pre">SGE_TASK_ID</span></code>, which varies from the lower index value to the upper index value for each job. Your program can use <code class="docutils literal notranslate"><span class="pre">SGE_TASK_ID</span></code> to select the input files to read or the options to be used for that particular run.</p>
+<p>If your program is multi-threaded, you must edit the <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file built by the <code class="docutils literal notranslate"><span class="pre">jobarray.q</span></code> script and add an <code class="docutils literal notranslate"><span class="pre">UGE</span></code> keyword statement that specifies the shared parallel environment and the number of processors your job requires. In most cases you should request no more than 8 processors because the maximum number of processors on most nodes is 8. See the <em>For a multi-threaded OpenMP job</em> section for more infromation.</p>
+<p>To build or submit an <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file for a serial array job, enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jobarray</span><span class="o">.</span><span class="n">q</span>
+</pre></div>
+</div>
+<p>For details, see the section <em>Running an Array of Jobs Using UGE</em>.</p>
+</div>
+<div class="section" id="multi-threaded-jobs">
+<h3>Multi-threaded jobs<a class="headerlink" href="#multi-threaded-jobs" title="Permalink to this headline">¶</a></h3>
+<p>Multi-threaded jobs are jobs which will run on more than one thread on the same node. Programs using the OpenMP-based threaded library are a typical example of those that can take advantage of multi-core nodes.</p>
+<p>If you know your program is multi-threaded, you need to request that <code class="docutils literal notranslate"><span class="pre">UGE</span></code> allocate multiple processors. Otherwise your job will contend for resources with other jobs that are running on the same node, and all jobs on that node may be adversely affected. The queue script will prompt you to enter the number of tasks for your job. The queue script default is 4 tasks. You should request at least as many tasks as your program has threads, but usually no more than 8 tasks because the maximum number of processors on most nodes is 8. See the <a class="reference external" href="../../Using-H2/Computing/Computing.html#how-to-specify-gpu-types">Scalability Benchmark</a> section for information on how to determine the optimal number of tasks.</p>
+<p>To build or submit an <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file for a multi-threaded job, enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">openmp</span><span class="o">.</span><span class="n">q</span>
+</pre></div>
+</div>
+<p>For details, see OpenMP programs and Multi threaded programs.</p>
+</div>
+<div class="section" id="mpi-parallel-jobs">
+<h3>MPI parallel jobs<a class="headerlink" href="#mpi-parallel-jobs" title="Permalink to this headline">¶</a></h3>
+<p>MPI parallel jobs are those executable programs that are linked with one of the message passing libraries like OpenMPI. These applications explictly send messages from one node to another using either a Gigabit Ethernet (GE) interface or Infiniband (IB) interface. IDRE recommends that everyone use the Infiniband interface because latency for message passing is short with the IB interface compared to the GE interface.</p>
+<p>When MPI jobs are submitted to the cluster, one needs to tell the UGE scheduler how many processors are needed to run the jobs. The queue script will prompt you to enter the number of tasks for your job. The queue script default for generic jobs is 4 parallel tasks. Please see the <a class="reference external" href="../../Using-H2/Computing/Computing.html#how-to-specify-gpu-types">Scalability Benchmark</a> below for information on how to determine the optimal number of tasks.</p>
+<p>To build or submit an <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file for a parallel job, enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpi</span><span class="o">.</span><span class="n">q</span>
+</pre></div>
+</div>
+<p>For details, see the <em>How to Run MPI</em> section.</p>
+</div>
+<div class="section" id="application-jobs">
+<h3>Application jobs<a class="headerlink" href="#application-jobs" title="Permalink to this headline">¶</a></h3>
+<p>An application job is one which runs software provided by a commercial vendor or is open source. It is usually installed in system directories (e.g., MATLAB).</p>
+<p>To build or submit an <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file for an application job, enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">application</span><span class="o">.</span><span class="n">q</span>
+</pre></div>
+</div>
+<p>where application is replaced with the name of the application. For example, use <code class="docutils literal notranslate"><span class="pre">matlab.q</span></code> to run MATLAB batch jobs. For details, see <a class="reference external" href="../../Using-H2/Software/Software.html">Software</a> and its subsequent links for each package or program on to how to run them.</p>
+</div>
+<div class="section" id="batch-job-output-files">
+<h3>Batch job output files<a class="headerlink" href="#batch-job-output-files" title="Permalink to this headline">¶</a></h3>
+<p>When a job has completed, <code class="docutils literal notranslate"><span class="pre">UGE</span></code> messages will be available in the <code class="docutils literal notranslate"><span class="pre">stdout</span></code> and <code class="docutils literal notranslate"><span class="pre">stderr</span></code> files that were were defined in your <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file with the <code class="docutils literal notranslate"><span class="pre">-o</span></code> and <code class="docutils literal notranslate"><span class="pre">-e</span></code> or <code class="docutils literal notranslate"><span class="pre">-j</span></code> keywords. Program output will be available in any files that your program has written.</p>
+<p>If your <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file was built using a queue script, <code class="docutils literal notranslate"><span class="pre">stdout</span></code> and <code class="docutils literal notranslate"><span class="pre">stderr</span></code> from <code class="docutils literal notranslate"><span class="pre">UGE</span></code> will be found in one of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>jobname.joblog
+jobname.joblog.$JOB_ID
+jobname.joblog.$JOB_ID.$SGE_TASK_ID (for array jobs)
+</pre></div>
+</div>
+<p>Output from your program will be found in one of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>jobname.out
+jobname.out.$JOB_ID
+jobname.output.$JOB_ID
+jobname.output.$JOB_ID.$SGE_TASK_ID (for array jobs)
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-a-uge-command-file-for-your-job-and-use-uge-commands-directly">
+<h3>Build a UGE command file for your job and use UGE commands directly<a class="headerlink" href="#build-a-uge-command-file-for-your-job-and-use-uge-commands-directly" title="Permalink to this headline">¶</a></h3>
+<p>This section describes building an <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file yourself, instead of letting a queue script build it for you. Or you may modify an <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file that a queue script has built, according to the information presented here.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">UGE</span></code> keyword statements in a command file are called active comments because they begin with <code class="docutils literal notranslate"><span class="pre">#$</span></code> and comments in a script file normally begin with <code class="docutils literal notranslate"><span class="pre">#</span></code>.</p>
+<p>Any <code class="docutils literal notranslate"><span class="pre">qsub</span></code> command line option can be used in the command file as an active comment. The <code class="docutils literal notranslate"><span class="pre">qsub</span></code> command line options are listed on the submit man page</p>
+<p>Each <code class="docutils literal notranslate"><span class="pre">UGE</span></code> keyword statement begins with <code class="docutils literal notranslate"><span class="pre">#$</span></code> followed by the <code class="docutils literal notranslate"><span class="pre">UGE</span></code> keyword and its value, if any. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#$ -cwd</span>
+<span class="c1">#$ -o jobname.joblog</span>
+<span class="c1">#$ -j y</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">jobname</span></code> is the name of your job. Here the first <code class="docutils literal notranslate"><span class="pre">UGE</span></code> statement <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-cwd</span></code> specifies that the current working directory is to be used for the job. The second <code class="docutils literal notranslate"><span class="pre">UGE</span></code> statement <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-o</span> <span class="pre">jobname.joblog</span></code> names the output file in which the <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file will write its standard out messages. The third <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-j</span> <span class="pre">y</span></code> specifies that any messages that <code class="docutils literal notranslate"><span class="pre">UGE</span></code> may write to standard error are to be merged with those it writes to standard out.</p>
+<p>After you have created the <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file, issue the appropriate <code class="docutils literal notranslate"><span class="pre">UGE</span></code> commands from a login node to submit and monitor the job. See Commonly-Used UGE Commands</p>
+</div>
+<div class="section" id="using-job-arrays">
+<h3>Using job arrays<a class="headerlink" href="#using-job-arrays" title="Permalink to this headline">¶</a></h3>
+<p>For job arrays you need to use an <code class="docutils literal notranslate"><span class="pre">UGE</span></code> keyword statement of the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#$ -t lower-upper:interval</span>
+</pre></div>
+</div>
+<p>Please see Running an Array of Jobs Using UGE for more information.</p>
+</div>
+<div class="section" id="for-a-parallel-mpi-job">
+<h3>For a parallel MPI job<a class="headerlink" href="#for-a-parallel-mpi-job" title="Permalink to this headline">¶</a></h3>
+<p>For a parallel MPI job you need to have a line that specifies a parallel environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#$ -pe dc* number_of_slots_requested</span>
+</pre></div>
+</div>
+<p>The maximum <code class="docutils literal notranslate"><span class="pre">number_of_slots_requested</span></code> value that you should use depends on your account’s access level.</p>
+</div>
+<div class="section" id="for-a-multi-threaded-openmp-job">
+<h3>For a multi-threaded/OpenMP job<a class="headerlink" href="#for-a-multi-threaded-openmp-job" title="Permalink to this headline">¶</a></h3>
+<p>For a multi-threaded OpenMP job you need to request that all processors be on the same node by using the shared parallel environment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#$ -pe shared number_of_slots_requested</span>
+</pre></div>
+</div>
+<p>where the maximum <code class="docutils literal notranslate"><span class="pre">number_of_slots_requested</span></code> no larger than the number of CPU/cores of a compute node.</p>
+</div>
+<div class="section" id="parallel-environments-pe">
+<h3>Parallel environments (PE)<a class="headerlink" href="#parallel-environments-pe" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td colspan="2"><strong>For Threaded Programs (e.g. OpenMP)</strong></td>
+</tr>
+<tr class="row-even"><td>PE</td>
+<td>Description</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">shared</span> <span class="pre">p</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">p</span></code> processors on a single node</td>
+</tr>
+<tr class="row-even"><td colspan="2"><strong>For MPI Programs</strong></td>
+</tr>
+<tr class="row-odd"><td>PE</td>
+<td>Description</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dc*</span> <span class="pre">p</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">p</span></code> processors across multiple nodes. The <code class="docutils literal notranslate"><span class="pre">*</span></code> is significant.
+significant. There is no space between <code class="docutils literal notranslate"><span class="pre">dc</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code>. There is
+space between <code class="docutils literal notranslate"><span class="pre">*</span></code> and the value of <code class="docutils literal notranslate"><span class="pre">p</span></code>.</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><strong>Requesting whole nodes</strong></td>
+</tr>
+<tr class="row-even"><td>PE</td>
+<td>Description</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">node*</span> <span class="pre">n</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">n</span></code> nodes (normally used with <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">exclusive</span></code>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="how-to-reserve-an-entire-node">
+<h3>How to reserve an entire node<a class="headerlink" href="#how-to-reserve-an-entire-node" title="Permalink to this headline">¶</a></h3>
+<p><strong>One or more whole nodes for parallel jobs</strong></p>
+<p>To get one or more entire nodes for parallel jobs, use <code class="docutils literal notranslate"><span class="pre">-pe</span> <span class="pre">node*</span> <span class="pre">n</span> <span class="pre">-l</span> <span class="pre">exclusive</span></code> in your <code class="docutils literal notranslate"><span class="pre">qsub</span></code> or <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> command or add them to your <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the number of nodes you are requesting.</p>
+<p>Example of requesting 2 whole nodes with <code class="docutils literal notranslate"><span class="pre">qsub</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qsub</span> <span class="o">-</span><span class="n">pe</span> <span class="n">node</span> <span class="mi">2</span> <span class="o">-</span><span class="n">l</span> <span class="n">exclusive</span> <span class="p">[</span><span class="n">other</span> <span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Example of requesting 3 whole nodes in a <code class="docutils literal notranslate"><span class="pre">UGE</span></code> command file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#$ -l exclusive</span>
+<span class="c1">#$ -pe node 3</span>
+</pre></div>
+</div>
+<p><strong>Submit a batch job from the UCLA Grid Portal</strong></p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">UCLA Grid Portal will be taken down in near future.</p>
+</div>
+<p>The UCLA Grid Portal provides a web portal interface to the Hoffman2 Cluster. Every Hoffman2 Cluster user can access the UCLA Grid Portal. To submit a batch job from the UCLA Grid Portal, click the <code class="docutils literal notranslate"><span class="pre">Job</span> <span class="pre">Services</span></code> tab then click one of the following: <code class="docutils literal notranslate"><span class="pre">Generic</span> <span class="pre">Jobs</span></code>, <code class="docutils literal notranslate"><span class="pre">Applications</span></code>, or <code class="docutils literal notranslate"><span class="pre">Multi-Jobs</span></code>.</p>
+<p><em>Generic Jobs</em>: Use this page to submit a job that runs a program or script that either you or a colleague have written and is usually installed in your home directory. In the fill-in form provided, supply the name of the executable, any job parameters, time request, number of processors.</p>
+<p><em>Applications</em>: Use this page to submit a commonly used application. Normally, you are required to know less about an application than a generic job, as the UCLA Grid Portal keeps track of the location of the executable and other information about the application. You normally must prepare an input file that the application will read or run. Some applications can present forms to you on the UCLA Grid Portal that you can fill in to create the input file if you are not familiar with application requirements.</p>
+<p><em>Multi-Jobs</em>: Use this page to submit multiple jobs that run a program or script that either you or a colleague have written. For details, see Running an Array of Jobs Using UGE.
+After you submit a job, click <code class="docutils literal notranslate"><span class="pre">Job</span> <span class="pre">Status</span></code> where you can monitor its progress, and view and download its output after your job completes.</p>
+</div>
+</div>
+<div class="section" id="gpu-access">
+<h2>GPU-access<a class="headerlink" href="#gpu-access" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-to-access-gpu-nodes">
+<h3>How to access GPU nodes<a class="headerlink" href="#how-to-access-gpu-nodes" title="Permalink to this headline">¶</a></h3>
+<p>In order to use a node that has a GPU, you need to request it from the job scheduler. Nodes may have two GPUs (Tesla T10) or three GPUs (Tesla M2070 nodes). To begin an interactive session, at the shell prompt, enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">gpu</span>
+</pre></div>
+</div>
+<p>On Hoffman2 there are currently four publicly available GPU nodes cuda capability of 6.1 (all other publicly available nodes have cuda capability less than 3), each of this node is equipped with one P4 card. To request one of these nodes, please use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">gpu</span><span class="p">,</span><span class="n">P4</span>
+</pre></div>
+</div>
+<p>The above <code class="docutils literal notranslate"><span class="pre">qrsh</span></code> command will reserve an entire gpu node with its 2 or 3 gpu processors. An interactive session made with the above <a href="#id2"><span class="problematic" id="id3">``</span></a>qrsh <a href="#id4"><span class="problematic" id="id5">``</span></a>command will expire in 2 hours.</p>
+<p>To specify a different time limit for your session, use the <code class="docutils literal notranslate"><span class="pre">h_rt</span></code> or time parameter. Example for requesting 9 hours:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">gpu</span><span class="p">,</span><span class="n">h_rt</span><span class="o">=</span><span class="mi">9</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+</pre></div>
+</div>
+<p>To reserve two gpu-nodes use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">gpu</span> <span class="o">-</span><span class="n">pe</span> <span class="n">dc_gpu</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>To see which node(s) were reserved, at a gpu-node shell prompt enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_pe_hostfile</span>
+</pre></div>
+</div>
+<p>To see if the gpu nodes are up and/or in use, at any shell prompt enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qhost_gpu_nodes</span>
+</pre></div>
+</div>
+<p>To see the specifics for a particular gpu node, at a g-node shell prompt enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gpu</span><span class="o">-</span><span class="n">device</span><span class="o">-</span><span class="n">query</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>To get a quick session for compiling or testing your code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">i</span><span class="p">,</span><span class="n">gpu</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-to-specify-gpu-types">
+<h3>How to specify GPU types<a class="headerlink" href="#how-to-specify-gpu-types" title="Permalink to this headline">¶</a></h3>
+<p>There are multiple GPU types available in the cluster. Each type of GPU has a different compute capability, memory size and clock speed, among other things. If your GPU program requires a specific GPU type to run, you need to specify it explicitly. Without specifying GPU type allows UGE to arbitrarily pick any available GPU for your job. You may need to compile your code on the machine that has the required type of GPU. Currently, the following GPU types are available:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="23%" />
+<col width="21%" />
+<col width="24%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">GPU type</th>
+<th class="head">Compute Capability</th>
+<th class="head">Number of cores</th>
+<th class="head">Global Memory Size</th>
+<th class="head">UGE option</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Tesla V100</td>
+<td>7.0</td>
+<td>5120</td>
+<td>32 GB</td>
+<td>-l gpu,V100</td>
+</tr>
+<tr class="row-odd"><td>Tesla P4</td>
+<td>6.1</td>
+<td>2560</td>
+<td>8 GB</td>
+<td>-l gpu,P4</td>
+</tr>
+<tr class="row-even"><td>Tesla T10</td>
+<td>1.3</td>
+<td>240</td>
+<td>4.3 GB</td>
+<td>-l gpu,T10</td>
+</tr>
+<tr class="row-odd"><td>Tesla M2070</td>
+<td>2.0</td>
+<td>448</td>
+<td>5.6 GB</td>
+<td>-l gpu,fermi</td>
+</tr>
+<tr class="row-even"><td>Tesla M2090</td>
+<td>2.0</td>
+<td>512</td>
+<td>6 GB</td>
+<td>-l gpu,fermi</td>
+</tr>
+</tbody>
+</table>
+<p>References:</p>
+<p><a class="reference external" href="http://developer.nvidia.com/cuda-gpus">http://developer.nvidia.com/cuda-gpus</a>
+<a class="reference external" href="http://www.nvidia.com/object/preconfigured-clusters.html">http://www.nvidia.com/object/preconfigured-clusters.html</a>
+The <code class="docutils literal notranslate"><span class="pre">UGE</span></code> options in the table above can be combined with other <code class="docutils literal notranslate"><span class="pre">UGE</span></code> options, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qrsh</span> <span class="o">-</span><span class="n">l</span> <span class="n">gpu</span><span class="p">,</span><span class="n">fermi</span><span class="p">,</span><span class="n">h_rt</span><span class="o">=</span><span class="mi">3</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+</pre></div>
+</div>
+<p>[1] If you specify <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">fermi</span></code> the job will go to either M2070 or M2090 GPU nodes. If you specify <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">M2070</span></code> the job will only go to M2070 and will not go to M2090 even when the later is available. If you specify <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">M2090</span></code> the job will only go to M2090 and will not go to M2070 even when the later is available. This implies potentially longer wait time.</p>
+<p>For most users, we recommend using <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">fermi</span></code> instead of <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">M2070</span></code> or <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">M2090</span></code> unless you specifically want to use either one of them (e.g., benchmarking the differences between M2070 and M2090)</p>
+</div>
+<div class="section" id="cuda">
+<h3>CUDA<a class="headerlink" href="#cuda" title="Permalink to this headline">¶</a></h3>
+<p>CUDA is installed in <code class="docutils literal notranslate"><span class="pre">/u/local/cuda/</span></code> on the Hoffman2 Cluster. There are several versions available. To see which versions of cuda are available please issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">av</span> <span class="n">cuda</span>
+</pre></div>
+</div>
+<p>to load version 10.), use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">cuda</span><span class="o">/</span><span class="mf">10.0</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You will be able to load a cuda module only when on a GPU node (either in an interactive session, requested with: <code class="docutils literal notranslate"><span class="pre">qrsh</span> <span class="pre">-l</span> <span class="pre">gpu</span></code>, or within batch jobs in which you have requested one or more GPU nodes with: <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">gpu</span></code>).</p>
+</div>
+<p>Already compiled samples of NVIDIA GPU Computing Software Development Kit are available, for example for cuda 10.0, in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">u</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">cuda</span><span class="o">/</span><span class="mf">10.0</span><span class="o">/</span><span class="n">NVIDIA_CUDA</span><span class="o">-</span><span class="mf">10.0</span><span class="n">_Samples</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">x86_64</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">releasemodule</span> <span class="n">load</span> <span class="n">cuda</span><span class="o">/</span><span class="mf">10.0</span>
+</pre></div>
+</div>
+<p>To install CUDA in your home directory, please see the instructions in the <code class="docutils literal notranslate"><span class="pre">/u/local/cuda/README_ATS</span></code> file. To install the NVIDIA GPU Computing Software Development Kit in your home directory, please see the instructions in the</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Raffaella D&#39;Auria
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

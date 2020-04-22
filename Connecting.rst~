@@ -1,0 +1,126 @@
+.. _Connecting:
+
+########################
+   Connecting/Logging in
+########################
+
+
+.. toctree::
+   :maxdepth: 2
+
+.. _Connecting-via-SSH:
+
+Connecting via SSH
+==================
+
+
+All the connections to the cluster are based on a secure protocol that
+requires authentication. One of the most powerful ways to use the
+cluster is via the UNIX command line. Depending on the operating
+system that your computer is running, you have several choices for
+which command line application to use when connecting with the
+cluster.
+
+
+.. _SSH-clients-for-Linux:
+
+SSH clients for Linux
+---------------------
+
+If you are connecting from a Linux box, you can use the standard
+SSH-client generally installed with the OS and available via any
+terminal application.  Open a terminal window and type the 
+following: :: 
+
+ ssh login_id@hoffman2.idre.ucla.edu
+
+where ``login_id`` is replaced by your cluster user name.
+
+.. _SSH-clients-for-Mac:
+
+SSH clients for Mac
+-------------------
+
+MacOS, the operating system running on a Mac computer, is just another
+flavor of UNIX, as such it comes equipped with a fully functional
+Termainal application and an SSH-client. The Terminal application can
+be located via Spotlight Search or Finder. Once you have opened a
+Terminal window, type the following: ::
+
+ ssh login_id@hoffman2.idre.ucla.edu
+
+where ``login_id`` is replaced by your cluster user name.
+
+.. _SSH-clients-for-Windows:
+
+SSH clients for Windows
+-----------------------
+
+
+Install **one** of any of the following free ssh client programs, which offer a terminal emulator for windows users. The following list, which is not exhaustive and you may opt for a different solution, is ordered from our most to least recommended applications.
+
+.. Note:: Only one of the following software is needed to connect to the cluster via SSH.
+
+- `MobaXterm <http://mobaxterm.mobatek.net/>`_ an SSH client that includes an X11 server (for running GUI applications).
+- `GitBash <https://gitforwindows.org/>`_ an emulation shell provided by `Git for Windows
+  <https://gitforwindows.org/>`_
+- `Putty <https://www.chiark.greenend.org.uk/~sgtatham/putty/>`_ an open source SSH and telnet client. 
+- `Cygwin <http://www.cygwin.com/>`_ a collection of tools that provide Linux functionalities in Windows systems. 
+
+.. Note::  MobaXterm will also supply the ability to open GUI application (see: :ref:`Opening-GUI-applications`).
+
+
+
+.. Todo:: Place here a short discussion on how to configure MobaXterm and Putty... For more information see: `How to configure Putty <http://www.hoffman2.idre.ucla.edu/access/putty/>`_
+
+
+.. _Opening-GUI-applications:
+
+Opening GUI applications
+========================
+
+Some interactive applications require the ability to open a graphical
+user interface (GUI) window (e.g., Matlab Desktop, Mathematica
+Notebooks, etc.). Anytime you may need to open applications that are
+not solely text-based, you will need to connect to the cluster and
+allow X11-Forwarding. X11-Forwarding enables users to start a
+graphical application remotely and forward the display to your local
+computer.
+
+This section, and the :ref:`Connecting-via-NX-clients` section, cover
+cases in which no direct rendering is required (and software rendering
+is performed instead). The
+:ref:`Setting-up-remote-rendering-on_Hoffman2` section covers
+instances when applications need to perform direct rendering on
+Hoffman2 and display the results on your local computer.
+
+
+.. include:: Opening-GUI.rst
+
+.. _Connecting-via-NX-clients:
+
+Connecting via NX clients
+=========================
+
+.. include:: NX-clients.rst
+
+
+.. _Setting-up-remote-rendering-on-Hoffman2:
+
+Setting up remote rendering on Hoffman2’s GPU nodes
+===================================================
+
+.. include:: Remote-rendering.rst
+
+
+.. _Connecting-via-Jupter-NB-Lab:
+
+Connecting via Jupyter NB/Lab
+=============================
+
+
+.. include:: Jupyter-NB.rst
+
+
+
+

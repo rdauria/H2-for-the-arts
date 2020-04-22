@@ -1,0 +1,1081 @@
+.. _Data-transfer:
+   
+*************  
+Data transfer
+*************
+
+.. note::  Personal information and other sensitive data, including statutory, regulatory, and contractually protected data — for example, human subjects research, restricted research, student and educational data, and PHI — are **prohibited** on Hoffman2.
+
+.. _Data-transfer-nodes:
+
+Data transfer nodes
+===================
+
+Hoffman2 has two dedicated and performance tuned data transfer nodes with advanced parallel transfer tools [#FN1]_ to support your research workflows.  For transferring large files and/or large datasets, you will need to use the DTN nodes. [#FN2]_
+
+.. code-block:: rest
+
+   dtn1.hoffman2.idre.ucla.edu
+   dtn2.hoffman2.idre.ucla.edu
+
+DTN SSH key fingerprints
+
+.. code-block:: rest
+
+   MD5:3c:9c:67:d8:c5:a4:ae:77:07:5f:10:2f:20:4a:75:0f
+
+   SHA256:kah9BJwSzrlFnVp9Tg+El2IdcCN7JgN5+Ur2RyIdvwM
+
+
+.. rubrics:: Footnotes
+
+.. [#FN1] If your research group requires additional transfer tools, please submit a request via our `helpdesk <https://support.idre.ucla.edu/helpdesk>`_
+.. [#FN2] See :ref:`Role-of-the-login-nodes`
+
+
+
+.. _Tools:
+
+Tools
+=====
+There are several methods to transfer data between a local computer and Hoffman2 and we will cover some on this page.
+
+Depending on your network connection and the amount of data to transfer between your local computer and Hoffman2, you have options under graphical or command-line interace utilities.
+
+To move large files and/or large datasets, we recommend using other parallel transfer tools, e.g. Globus_, rclone_, Aspera. Possibly, combine files into archive...
+
+Cloud resources....
+
+.. note:: Allowed Transfer Protocols
+
+
+.. _Graphical-utilities:
+
+Graphical utilities
+-------------------
+
+Many of the graphical utilities support a file manager with "drag and drop" functionality between your local and remote computers.  You may use whichever tool you prefer...
+
+.. csv-table:: Graphical Transfer Utilities
+   :header: "Application", "Transfer Protocols", "Platform"
+   :widths: 30, 40, 10
+
+   "CyberDuck", "SFTP", "Windows and MacOS" 
+   "FileZilla", "SFTP", "Windows, MacOS, Linux" 
+   "MobaXterm", "SFTP", "Windows" 
+   "WinSCP", "SFTP", "Windows" 
+
+.. _Command-line-utilities:
+
+Command-line utilities
+----------------------
+
+.. csv-table:: Command-line interface Transfer Utilities
+   :header: "Application", "Platform", "Features"
+   :widths: 20, 20, 20
+
+   "`scp`_", "MacOS, Linux, Windows [#FN3]_ ", "secure copy" 
+   "`sftp`_", "MacOS, Linux, Windows [#FN3]_ ", "secure file transfer" 
+   "`rsync`_", "MacOS and Linux", "sync files to and from" 
+   "curl", "MacOS and Linux", "xfr data using various protocols"
+   "wget", "MacOS and Linux", "download via HTTP/HTTPS" 
+   "`rclone`_", "Windows, MacOS, Linux", "rsync for cloud storage" 
+
+
+.. rubrics:: Footnotes
+
+.. [#FN3] Git for Windows provides a BASH emulation with SSH/SCP/SFTP clients. `Git for Windows <https://gitforwindows.org>`_
+
+
+.. _Cloud-storage-services:
+
+Cloud storage services
+======================
+
+.. warning:: Please review `UCLA Allowable Data Use <https://godigital.ucla.edu/sites/default/files/box-data-use-agreement.pdf>`_ - Cloud Storage Services
+
+.. topic:: If you have data use questions, please contact IT Services Client Support
+
+    Email: clientsupport@it.ucla.edu
+
+Faculty and staff use of cloud storage services must comply with applicable University policies, notably policies relating to the protection of University data and the UC Electronic Communications Policy. This includes the data use requirements in the table below [`see here <https://godigital.ucla.edu/sites/default/files/box-data-use-agreement.pdf>`_], which are based on University-negotiated agreements established to help safeguard information about individuals and other confidential information for which the campus is a steward.
+
+Always employ due care when processing, transmitting, or storing sensitive information. Violation of these data use requirements or other campus policies may result in disciplinary action up to and including termination.
+
+
+.. _Box:
+
+Box
+---
+Box is an online cloud storage and collaboration tool that provides users with the ability to easily store, access, and share files and folders anywhere on any device. 
+
+UCLA provides a free enterprise `Box <https://www.it.ucla.edu/services/email-calendaring-collaboration/box/individual-box-accounts>`_ account to all faculty, staff and students. Currently, a UCLA enterprise Box account comes with unlimited storage space for faculty, staff and students. All accounts offer a 15 gigabyte per file upload limit and other enterprise features such as version history.
+
+:NOTE: If you need assistance with your Box account, please contact the IT Support Center at help@it.ucla.edu or by phone at (310) 267-HELP (4357).
+
+** To transfer data between Hoffman2 and your Box account, please use the :ref:`rclone` application on our DTN nodes. **
+
+.. _Google-Drive:
+
+Google Drive 
+------------
+Google Drive is a file storage and synchronization service developed by Google.  Google Drive allows users to store files on their servers, synchronize files across devices, and share files.  `Google Apps <https://www.it.ucla.edu/services/email-calendaring-collaboration/google-apps>`_ is made available to UCLA as part of the UC Office of the President agreement. Google Apps is not appropriate for storing or sharing any sensitive data, including but not limited to: HIPAA regulated data, credit card information, social security numbers, and driver’s license numbers.
+
+** To transfer data between Hoffman2 and your Google Drive account, please use the :ref:`rclone` application on our DTN nodes. **
+
+.. _Dropbox:
+
+Dropbox
+-------
+
+Not permitted, all data use prohibited.
+
+.. _Globus:
+
+Globus
+======
+
+.. note::
+
+ For more information about `Globus <https://www.globus.org/what-we-do>`_ please refer to their website.
+
+Globus is a software tool to transfer files (from kilobytes to petabytes) across the web in a reliable, high-performance and secure way. It provides fault-tolerant, fire-and-forget data transfer using simple web or command line interfaces. It is approriate for transferring very large files either between your desktop machine and a remote machine like the Hoffman2 Cluster, or between two remote machines on which you have accounts; both remote machines need to be part of the Globus project. All XSEDE resources are configured as Globus endpoints.
+
+Installation
+------------
+
+If you want to transfer files to or from your personal computer, you will need to download and install the `Globus Connect Personal software <https://www.globus.org/globus-connect-personal>`_.
+
+In order to download the Globus Connect Personal software, you will need to create a Globus Connect Personal **endpoint**.  The term *endpoint* describes the different locations where data can be moved to or from using the Globus transfer, sync and sharing service.  *Endpoints* can either be personal (on a user's personal computer) or multiuser (located on a server, for use by multiple people.  
+
+**Globus Connect Personal is available,**
+ * for Mac OS 10.7 or higher (Intel only)
+ * for common x86-based Linux distributions
+ * for Windows 7, Windows 8, and Windows 10 
+
+
+1. Open your web browser and click on one of the detailed installation instruction links for the platform running on your personal computer - `macOS <https://docs.globus.org/how-to/globus-connect-personal-mac/>`_, `Linux <https://docs.globus.org/how-to/globus-connect-personal-linux/>`_, `Windows <https://docs.globus.org/how-to/globus-connect-personal-windows/>`_.
+
+2. The next step will ask you to create a personal endpoint using the Globus web app.  This will require your login to the `Globus web app <https://app.globus.org/>`_ and you can do so using your UCLA Login ID.  From the pull-down list of organizations, please select "Univeristy of California-Los Angeles".
+
+3. On the left-side of the page, you can see the navigation menu, click on ``endpoints`` 
+
+4. At the top of the page, click on ``create a personal endpoint`` 
+
+5. You will be asked to name your endpoint
+
+6. Click, "Generate a setup key" and copy it to your paste buffer/clipboard (you will be asked for this unique setup key when you install the software on your personal computer)
+
+7. Download and Install Globus Connect Personal for the running platform (macOS, Linux, Windows) on your personal computer
+
+.. important:: 
+ Windows users:  To run the installation with administrator permissions, Hold CTRL + SHIFT and click on the Globus Connect Personal installer. 
+
+ Installing as non-administrator: By default, Globus Connect Personal prompts to be installed in C:\Program Files. Regular users can not write to this folder. Instead, browse to a place you have write access to (e.g. your Desktop folder).  
+
+
+Configuration
+-------------
+
+Windows
+^^^^^^^
+
+1. Right-click the Globus Connect Personal icon in the taskbar and select, **Options...** to configure Globus Connect Personal.
+
+Configuration options are divided into four groups; the most important (and commonly used) are the *Access* and *General* options.
+
+The *Access* tab lists folders that will be accessible via Globus for file transfer and sharing.  You can add folders by clicking the "+" sign and selecting the folder you wish to make accessible.  
+
+.. important::
+
+ By default, the only folder listed is your home directory
+
+To share a folder, add it to the accessible list and check the "Shareable" box.  **Note: You must be a Globus Plus user to share files and folders.**  UCLA does not have an active subscription and therefore is unable to offer sharing on the Hoffman2 Globus multiuser endpoints - :ref:`Data-transfer-nodes`.
+
+The *General* tab allows you to specify whether you want Globus Connect Personal to run when Windows starts and whether the software should automatically check for updates.
+
+
+.. note::
+
+ Drive Mapping: Globus Connect Personal on Windows will translate a path beginning with ``/~/`` into your home directory, e.g. ``C:\Users\'login_id'\``. To access paths and drives outside of your home directory, use the syntax ``/drive_letter/path``, for example ``/C/xinfo`` lists the ``C:\xinfo`` directory. Also, as discussed above, it would be necessary for the ``C:\xinfo`` directory to be permitted in the Accessible Folders configuration as well. If the ``C:\xinfo`` directory is not permitted in the Accessible Folders configuration, then that folder will not be accessible via your endpoint.
+
+
+macOS
+^^^^^ 
+
+1. Click the Globus Connect Personal icon in the main menu bar and select **Preferences...** to configure Globus Connect Personal.
+
+The *Access* preferences tab lists accessible directories for file transfer and sharing and provides more control over what information is accessible on your Globus Connect Personal endpoint. By default, your home directory (e.g.: ``/Users/'login_id'``) is read/write accessible. The check box **Deny access to hidden (e.g. security) files in your home directory** option controls whether or not you can access hidden files (i.e. filenames beginning with "."") in your home directory. By default, Globus Connect Personal does not allow access to files like: ``~/.globusonline`` and ``~/.ssh``.
+
+Click the "+" icon and select a folder to make it accessible for transfers. To allow a folder to be shared with others, add it to the accessible list and check the "Sharable" box.
+
+.. note::
+
+ If you remove everything from the access list, no files will be accessible on your Globus Connect Personal endpoint and you will be prompted to add accessible paths. You can either click "+" and add directories and files, or click "Reset to Defaults".
+
+ You must be a `Globus Plus <https://www.globus.org/subscriptions>`_ user to share files and folders. If you are not a Globus Plus user, click the "Enable sharing" icon and follow the instructions. UCLA does not have an active subscription and therefore is unable to offer sharing on the Hoffman2 Globus multiuser endpoints - :ref:`Data-transfer-nodes`.
+
+
+Using Globus
+------------
+
+This section describes using the Globus web app to transfer files to or from a personal computer and the Hoffman2 Globus endpoints - :ref:`Data-transfer-nodes`.
+
+1. Be sure the Globus Connect Personal application is running on your personal computer
+2. Open your web browser and connect to the `Globus web app <https://app.globus.org/>`_ 
+3. Login to the Globus web app with your UCLA Login ID credentials.  To do so, from the pull-down list of organizations, please select "Univeristy of California-Los Angeles"
+4. On the left-side of the page, you can see the navigation menu, click on "File manager"
+5. Click on the text field, "Collection" and begin to type the name for your personal endpoint and click on it to select the endpoint
+6. You should see a directory listing for the path, ``/~/`` (which should list the contents of your home directory)
+7. On the right-side of the page, there are some options - click "Transfer or Sync to..."
+8. The page should now be divided with your personal endpoint on the left and now click on "Collection" text field in the right pane and search, "Official UCLA Hoffman2 Data Transfer Node 1" or "Official UCLA Hoffman2 Data Transfer Node 2"
+9. When you select a Hoffman2 Cluster endpoint, you will be prompted to enter your username and password. **Enter your Hoffman2 username and password.**  Your Hoffman2 Cluster home directory and its contents will display.
+10. To transfer a file or directory, select it and near the bottom of the window pane, click the "Start" button
+
+.. note::
+
+ You will receive an email from Globus Notification (no-reply@globus.org) when the file transfer has completed. To have Globus show you the status and history of your file transfers, click “Manage Data” from the menu and select “Activity”.
+
+
+.. _rclone: 
+
+rclone
+======
+
+**What is it?** rclone is a command line program to sync files and directories to and from cloud storage - https://rclone.org
+
+Installation
+------------
+
+1. SSH to one of our data transfer nodes, either dtn1 or dtn2, e.g 
+
+.. code-block:: bash
+
+ $ ssh -Y `login_id`@dtn1.hoffman2.idre.ucla.edu
+
+Where ``login_id`` is replace by your cluster user name. The flag, ``-Y`` is to enable trusted X11 forwarding
+
+2. Download and unzip the most recent version of rclone
+
+.. code-block:: bash
+
+ $ wget https://downloads.rclone.org/rclone-current-linux-amd64.zip
+ $ unzip rclone-current-linux-amd64.zip
+ 
+At the time of this document, rclone-v1.51.0 was the current version.  Please replace the version number below with the version you downloaded...
+
+3. You can now copy the rclone executable to your $HOME/bin directory.  If the copy fails, you need to create $HOME/bin subdirectory, e.g. "mkdir $HOME/bin"
+
+.. code-block:: bash
+
+ $ cp rclone-v1.51.0-linux-amd64/rclone $HOME/bin/.
+
+To run the software, type:
+
+.. code-block:: bash
+
+ $ rclone
+
+Configuration
+-------------
+Set-up rclone to sync with Box
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. tip::
+ More detailed instructions can be found on `rclone's website <https://rclone.org/box/>`_
+
+1. Connect to our DTN nodes, either dtn1 or dtn2 and enable trusted X11 forwarding, e.g.
+
+.. code-block:: bash
+
+ $ ssh -Y `login_id`@dtn1.hoffman2.idre.ucla.edu
+
+Where ``login_id`` is replaced by your cluster user name
+
+2. Type, rclone config
+
+.. code-block:: bash
+ 
+ $ rclone config
+ No remotes found - make a new one
+ n) New remote
+ s) Set configuration password
+ q) Quit config
+ n/s/q> 
+
+
+3. Type, "n" for new remote [connection]
+4. Enter a name for this connection, e.g. "box"
+5. Enter the type of storage from the menu - Box. Type, "box"
+
+.. code-block:: bash
+
+ Type of storage to configure.
+ Enter a string value. Press Enter for the default ("").
+ Choose a number from below, or type in your own value
+ 1 / 1Fichier
+   \ "fichier"
+ 2 / Alias for an existing remote
+   \ "alias"
+ 3 / Amazon Drive
+   \ "amazon cloud drive"
+ 4 / Amazon S3 Compliant Storage Provider (AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc)
+   \ "s3"
+ 5 / Backblaze B2
+   \ "b2"
+ 6 / Box
+   \ "box"
+ 7 / Cache a remote
+   \ "cache"
+ 8 / Citrix Sharefile
+   \ "sharefile"
+ 9 / Dropbox
+   \ "dropbox"
+ 10 / Encrypt/Decrypt a remote
+    \ "crypt"
+ 11 / FTP Connection
+    \ "ftp"
+ 12 / Google Cloud Storage (this is not Google Drive)
+    \ "google cloud storage"
+ 13 / Google Drive
+    \ "drive"
+ 14 / Google Photos
+    \ "google photos"
+ 15 / Hubic
+   \ "hubic"
+ 16 / In memory object storage system.
+    \ "memory"
+ 17 / JottaCloud
+    \ "jottacloud"
+ 18 / Koofr
+    \ "koofr"
+ 19 / Local Disk
+    \ "local"
+ 20 / Mail.ru Cloud
+    \ "mailru"
+ 21 / Mega
+    \ "mega"
+ 22 / Microsoft Azure Blob Storage
+    \ "azureblob"
+ 23 / Microsoft OneDrive
+    \ "onedrive"
+ 24 / OpenDrive
+    \ "opendrive"
+ 25 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+    \ "swift"
+ 26 / Pcloud
+    \ "pcloud"
+ 27 / Put.io
+    \ "putio"
+ 28 / QingCloud Object Storage
+    \ "qingstor"
+ 29 / SSH/SFTP Connection
+    \ "sftp"
+ 30 / Sugarsync
+    \ "sugarsync"
+ 31 / Transparently chunk/split large files
+    \ "chunker"
+ 32 / Union merges the contents of several remotes
+    \ "union"
+ 33 / Webdav
+    \ "webdav"
+ 34 / Yandex Disk
+    \ "yandex"
+ 35 / http Connection
+    \ "http"
+ 36 / premiumize.me
+    \ "premiumizeme"
+ Storage> 
+
+
+6. At the prompt for a "Box App Client Id", just hit "Enter" to accept the default
+
+.. code-block:: bash
+ Box App Client Id.
+ Leave blank normally.
+ Enter a string value. Press Enter for the default ("").
+ client_id>
+
+7. At the prompt for a "Box App Client Secret", just hit "Enter" to accept the default
+
+.. code-block:: bash
+ Box App Client Secret
+ Leave blank normally.
+ Enter a string value. Press Enter for the default ("").
+ client_secret>
+
+8. At the prompt for a "Box App config.json location", just hit "Enter" to accept the default
+
+.. code-block:: bash
+ Box App config.json location
+ Leave blank normally.
+ Enter a string value. Press Enter for the default ("").
+ box_config_file>
+
+9. Type, "1" for the box_sub_type;  Rclone should act on behalf of a user
+
+.. code-block:: bash
+
+ Enter a string value. Press Enter for the default ("user").
+  Choose a number from below, or type in your own value
+ 1 / Rclone should act on behalf of a user
+   \ "user"
+ 2 / Rclone should act on behalf of a service account
+   \ "enterprise"
+
+10. Edit Advanced Config?  Up to you; In this example I said, "No"
+
+.. code-block:: bash
+
+ Edit advanced config? (y/n)
+ y) Yes
+ n) No (default)
+ y/n> n
+
+11. Use Auto Config?  Say 'Yes' and wait for firefox to launch. You will need to authenticate with your box password and UCLA Shibboleth to authorize the application rclone's access to your UCLA Box account
+
+.. code-block:: bash
+
+ YourMagicTokenHerYourMagicTokenHere
+ your browser doesn't open automatically go to the following link: http://[FollowTheLinkInYourTerminal
+ Log in and authorize rclone for access
+ Waiting for code...
+ Got code
+ --------------------
+ [box]
+ type = box
+ box_sub_type = user
+ token = YourMagicTokenHere
+ --------------------
+
+12. Type, "Y" to accept the new settings and save the configuration
+
+.. code-block:: bash
+ y) Yes this is OK (default)
+ e) Edit this remote
+ d) Delete this remote
+ y/e/d> y
+ Current remotes:
+
+ Name                 Type
+ ====                 ====
+ box                  box
+
+ e) Edit existing remote
+ n) New remote
+ d) Delete remote
+ r) Rename remote
+ c) Copy remote
+ s) Set configuration password
+ q) Quit config
+ e/n/d/r/c/s/q>
+
+
+
+.. important::
+ At this point you're done, unless you want to password protect your rclone configuration (recommended).  If you want to password protect your configuration, hit 'p'; then 'q' to quit.
+
+
+Set-up rclone to sync with Google Drive
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In the following example we will:
+ * configure rclone for a remote connection to your UCLA Google Drive
+ * copy a file from Hoffman2 to a new folder on Google Drive
+
+STEP 1: Create a folder on Google Drive
+"""""""""""""""""""""""""""""""""""""""
+.. note:: 
+  We will be creating a new folder on your UCLA Google Drive to test a transfer later...
+
+1. Connect your web browser to `Google Drive <https://drive.google.com>`_
+2. Authenticate with your @ucla mailbox, e.g. `login_id`@g.ucla.edu; where ``login_id`` is replaced by your UCLA Logon ID
+3. Click on NEW and select FOLDER and give it a name, e.g. "h2xfr"
+
+STEP 2: Configuring an rclone connection to your Google Drive
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+.. tip::  
+ More detailed instructions can be found on `rclone's website <https://rclone.org/drive/>`_
+
+1. Connect to our DTN nodes, either dtn1 or dtn2 and enable trusted X11 forwarding, e.g.
+
+.. code-block:: bash
+
+ $ ssh -Y `login_id`@dtn1.hoffman2.idre.ucla.edu
+
+Where ``login_id`` is replaced by your cluster user name
+
+2. Type, rclone config
+
+.. code-block:: bash
+ 
+ $ rclone config
+ No remotes found - make a new one
+ n) New remote
+ s) Set configuration password
+ q) Quit config
+ n/s/q> 
+
+
+3. Type, "n" for new remote [connection]
+4. Enter a name for this connection, e.g. "gdrive"
+5. Enter the type of storage from the menu - Google Drive. Type, "drive"
+
+.. code-block:: bash
+
+ Type of storage to configure.
+ Enter a string value. Press Enter for the default ("").
+ Choose a number from below, or type in your own value
+ 1 / 1Fichier
+   \ "fichier"
+ 2 / Alias for an existing remote
+   \ "alias"
+ 3 / Amazon Drive
+   \ "amazon cloud drive"
+ 4 / Amazon S3 Compliant Storage Provider (AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc)
+   \ "s3"
+ 5 / Backblaze B2
+   \ "b2"
+ 6 / Box
+   \ "box"
+ 7 / Cache a remote
+   \ "cache"
+ 8 / Citrix Sharefile
+   \ "sharefile"
+ 9 / Dropbox
+   \ "dropbox"
+ 10 / Encrypt/Decrypt a remote
+    \ "crypt"
+ 11 / FTP Connection
+    \ "ftp"
+ 12 / Google Cloud Storage (this is not Google Drive)
+    \ "google cloud storage"
+ 13 / Google Drive
+    \ "drive"
+ 14 / Google Photos
+    \ "google photos"
+ 15 / Hubic
+   \ "hubic"
+ 16 / In memory object storage system.
+    \ "memory"
+ 17 / JottaCloud
+    \ "jottacloud"
+ 18 / Koofr
+    \ "koofr"
+ 19 / Local Disk
+    \ "local"
+ 20 / Mail.ru Cloud
+    \ "mailru"
+ 21 / Mega
+    \ "mega"
+ 22 / Microsoft Azure Blob Storage
+    \ "azureblob"
+ 23 / Microsoft OneDrive
+    \ "onedrive"
+ 24 / OpenDrive
+    \ "opendrive"
+ 25 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+    \ "swift"
+ 26 / Pcloud
+    \ "pcloud"
+ 27 / Put.io
+    \ "putio"
+ 28 / QingCloud Object Storage
+    \ "qingstor"
+ 29 / SSH/SFTP Connection
+    \ "sftp"
+ 30 / Sugarsync
+    \ "sugarsync"
+ 31 / Transparently chunk/split large files
+    \ "chunker"
+ 32 / Union merges the contents of several remotes
+    \ "union"
+ 33 / Webdav
+    \ "webdav"
+ 34 / Yandex Disk
+    \ "yandex"
+ 35 / http Connection
+    \ "http"
+ 36 / premiumize.me
+    \ "premiumizeme"
+ Storage> 
+
+6. Next, you will need to either create a Google Application ID [for best performance] or use the default internal key.  Should you choose the default internal key, just press, 'enter.'  
+
+.. important::
+ For best performance, you will need to create a Google Application ID.  If you choose to do so, please refer to the steps outlined in, https://rclone.org/drive/#making-your-own-client-id
+
+
+**Your terminal should be here ...**
+
+.. code-block:: bash
+
+ Google Application Client Id
+ Setting your own is recommended.
+ See https://rclone.org/drive/#making-your-own-client-id for how to create your own.
+ If you leave this blank, it will use an internal key which is low performance.
+ Enter a string value. Press Enter for the default ("").
+ client_id>  
+
+
+ Google Application Client Secret
+ Setting your own is recommended.
+ Enter a string value. Press Enter for the default ("").
+ client_secret>
+
+**Question: What level of access do you want to give rclone? In this example, I've set it to '1'**
+
+.. code-block:: bash
+
+ Scope that rclone should use when requesting access from drive.
+ Enter a string value. Press Enter for the default ("").
+ Choose a number from below, or type in your own value
+ 1 / Full access all files, excluding Application Data Folder.
+   \ "drive"
+ 2 / Read-only access to file metadata and file contents.
+   \ "drive.readonly"
+   / Access to files created by rclone only.
+ 3 | These are visible in the drive website.
+   | File authorization is revoked when the user deauthorizes the app.
+   \ "drive.file"
+   / Allows read and write access to the Application Data folder.
+ 4 | This is not visible in the drive website.
+   \ "drive.appfolder"
+   / Allows read-only access to file metadata but
+ 5 | does not allow any access to read or download file content.
+   \ "drive.metadata.readonly"
+
+
+ scope> 1
+
+**In this example, I just hit 'enter' to accept the default**
+
+.. code-block:: bash
+
+ ID of the root folder
+ Leave blank normally.
+
+ Fill in to access "Computers" folders (see docs), or for rclone to use
+ a non root folder as its starting point.
+
+ Note that if this is blank, the first time rclone runs it will fill it
+ in with the ID of the root folder.
+
+
+ Enter a string value. Press Enter for the default ("").
+ root_folder_id> 
+
+
+**In this example, I just hit 'enter' to accept the default**
+
+.. code-block:: bash
+
+ Service Account Credentials JSON file path 
+ Leave blank normally.
+
+ Needed only if you want use SA instead of interactive login.
+
+ Enter a string value. Press Enter for the default ("").
+ service_account_file> 
+
+**You can configure the advanced settings, in this example, I did not...**
+
+.. code-block:: bash
+
+ Edit advanced config? (y/n)
+ y) Yes
+ n) No (default)
+ y/n> n
+
+**In this example, I'm saying 'no' to auto config and just copy and paste the link in my web browser**
+
+.. code-block:: bash
+
+ Remote config
+ Use auto config?
+  * Say Y if not sure
+  * Say N if you are working on a remote or headless machine
+ y) Yes (default)
+ n) No
+ y/n> n
+
+**Now copy the link provided in your configuration and paste in your web browser to give rclone access to your UCLA Google Drive**
+
+.. code-block:: bash
+
+ Please go to the following link: https://PleaseFollowTheLinkOnYourConsole/
+
+**DO you approve?**
+
+.. image:: ../_static/rclone-gdrive-auth.png
+
+
+**Copy and paste the verfication code from your browser window**
+
+.. code-block:: bash
+
+ Enter verification code> 
+
+
+ Configure this as a team drive?
+ y) Yes
+ n) No (default)
+ y/n> n
+
+**REVIEW THE REMOTE SETTINGS and type "y" to save the connection**
+
+.. code-block:: bash
+
+ --------------------
+ [gdrive]
+ type = drive
+ client_id = [This will list your client_id]
+ client_secret = [This will list your client_secret]
+ scope = drive
+ token = [This will list your token]
+ --------------------
+ y) Yes this is OK (default)
+ e) Edit this remote
+ d) Delete this remote
+ y/e/d> y
+ Current remotes:
+
+ Name                 Type
+ ====                 ====
+ gdrive               drive
+
+ e) Edit existing remote
+ n) New remote
+ d) Delete remote
+ r) Rename remote
+ c) Copy remote
+ s) Set configuration password
+ q) Quit config
+ e/n/d/r/c/s/q> 
+
+.. important::
+ At this point you're done and have the option to password protect access to rclone.  If you choose to set a password, you will need it every time you use rclone.
+
+**Set a password (s) or quit (q) rclone config**
+
+.. code-block:: bash
+
+ Current remotes:
+ 
+ Name                 Type
+ ====                 ====
+ gdrive               drive
+
+ e) Edit existing remote
+ n) New remote
+ d) Delete remote
+ r) Rename remote
+ c) Copy remote
+ s) Set configuration password
+ q) Quit config
+ e/n/d/r/c/s/q>
+
+.. _Using-rclone:
+
+Using rclone
+------------
+
+.. _rclone-command-list:
+
+rclone command list
+^^^^^^^^^^^^^^^^^^^
+.. csv-table:: `rclone commands <https://rclone.org/commands/rclone/>`_
+   :header: "command", "description"
+   :widths: 30, 50
+
+   "`rclone about <https://rclone.org/commands/rclone_about/>`_ "," Get quota information from the remote." 
+   "`rclone authorize <https://rclone.org/commands/rclone_authorize/>`_ "," remote authorization." 
+   "`rclone cachestats <https://rclone.org/commands/rclone_cachestats/>`_ "," Print cache stats for a remote"
+   "`rclone cat <https://rclone.org/commands/rclone_cat/>`_ "," Concatenates any files and sends them to stdout."
+   "`rclone check <https://rclone.org/commands/rclone_check/>`_ "," Checks the files in the source and destination match."
+   "`rclone cleanup <https://rclone.org/commands/rclone_cleanup/>`_ "," Clean up the remote if possible"
+   "`rclone config <https://rclone.org/commands/rclone_config/>`_ "," Enter an interactive configuration session."
+   "`rclone copy <https://rclone.org/commands/rclone_copy/>`_ "," Copy files from source to dest, skipping already copied"
+   "`rclone copyto <https://rclone.org/commands/rclone_copyto/>`_ "," Copy files from source to dest, skipping already copied"
+   "`rclone copyurl <https://rclone.org/commands/rclone_copyurl/>`_ "," Copy url content to dest."
+   "`rclone cryptcheck <https://rclone.org/commands/rclone_cryptcheck/>`_ "," Cryptcheck checks the integrity of a crypted remote."
+   "`rclone cryptdecode <https://rclone.org/commands/rclone_cryptdecode/>`_"," Cryptdecode returns unencrypted file names."
+   "`rclone dbhashsum <https://rclone.org/commands/rclone_dbhashsum/>`_"," Produces a Dropbox hash file for all the objects in the path."
+   "`rclone dedupe <https://rclone.org/commands/rclone_dedupe/>`_ "," Interactively find duplicate files and delete/rename them."
+   "`rclone delete <https://rclone.org/commands/rclone_delete/>`_ "," Remove the contents of path."
+   "`rclone deletefile <https://rclone.org/commands/rclone_deletefile/>`_ "," Remove a single file from remote."
+   "`rclone genautocomplete <https://rclone.org/commands/rclone_genautocomplete/>`_ "," Output completion script for a given shell."
+   "`rclone gendocs <https://rclone.org/commands/rclone_gendocs/>`_ "," Output markdown docs for rclone to the directory supplied."
+   "`rclone hashsum <https://rclone.org/commands/rclone_hashsum/>`_ "," Produces an hashsum file for all the objects in the path."
+   "`rclone link <https://rclone.org/commands/rclone_link/>`_ "," Generate public link to file/folder."
+   "`rclone listremotes <https://rclone.org/commands/rclone_listremotes/>`_ "," List all the remotes in the config file."
+   "`rclone ls <https://rclone.org/commands/rclone_ls/>`_ "," List the objects in the path with size and path."
+   "`rclone lsd <https://rclone.org/commands/rclone_lsd/>`_ "," List all directories/containers/buckets in the path."
+   "`rclone lsf <https://rclone.org/commands/rclone_lsf/>`_ "," List directories and objects in remote:path formatted for parsing"
+   "`rclone lsjson <https://rclone.org/commands/rclone_lsjson/>`_ "," List directories and objects in the path in JSON format."
+   "`rclone lsl <https://rclone.org/commands/rclone_lsl/>`_ "," List the objects in path with modification time, size and path."
+   "`rclone md5sum <https://rclone.org/commands/rclone_md5sum/>`_ "," Produces an md5sum file for all the objects in the path."
+   "`rclone mkdir <https://rclone.org/commands/rclone_mkdir/>`_ "," Make the path if it doesn’t already exist."
+   "`rclone mount <https://rclone.org/commands/rclone_mount/>`_ "," Mount the remote as file system on a mountpoint."
+   "`rclone move <https://rclone.org/commands/rclone_move/>`_ "," Move files from source to dest."
+   "`rclone moveto <https://rclone.org/commands/rclone_moveto/>`_ "," Move file or directory from source to dest."
+   "`rclone ncdu <https://rclone.org/commands/rclone_ncdu/>`_ "," Explore a remote with a text based user interface."
+   "`rclone obscure <https://rclone.org/commands/rclone_obscure/>`_ "," Obscure password for use in the rclone.conf"
+   "`rclone purge <https://rclone.org/commands/rclone_purge/>`_ "," Remove the path and all of its contents."
+   "`rclone rc <https://rclone.org/commands/rclone_rc/>`_ "," Run a command against a running rclone."
+   "`rclone rcat <https://rclone.org/commands/rclone_rcat/>`_ "," Copies standard input to file on remote."
+   "`rclone rcd <https://rclone.org/commands/rclone_rcd/>`_ "," Run rclone listening to remote control commands only."
+   "`rclone rmdir <https://rclone.org/commands/rclone_rmdir/>`_ "," Remove the path if empty."
+   "`rclone rmdirs <https://rclone.org/commands/rclone_rmdirs/>`_ "," Remove empty directories under the path."
+   "`rclone serve <https://rclone.org/commands/rclone_serve/>`_ "," Serve a remote over a protocol."
+   "`rclone settier <https://rclone.org/commands/rclone_settier/>`_ "," Changes storage class/tier of objects in remote."
+   "`rclone sha1sum <https://rclone.org/commands/rclone_sha1sum/>`_ "," Produces an sha1sum file for all the objects in the path."
+   "`rclone size <https://rclone.org/commands/rclone_size/>`_ "," Prints the total size and number of objects in remote:path."
+   "`rclone sync <https://rclone.org/commands/rclone_sync/>`_ "," Make source and dest identical, modifying destination only."
+   "`rclone touch <https://rclone.org/commands/rclone_touch/>`_ "," Create new file or change file modification time."
+   "`rclone tree <https://rclone.org/commands/rclone_tree/>`_ "," List the contents of the remote in a tree like fashion."
+   "`rclone version <https://rclone.org/commands/rclone_version/>`_ "," Show the version number."
+
+.. _rclone-flag-list:
+
+rclone flag list
+^^^^^^^^^^^^^^^^
+
+rclone has a number of options to control its behavior.
+
+Options that take parameters can have the values passed in two ways, ``--option=value`` or ``--option value.`` However boolean (true/false) options behave slightly differently to the other options in that ``--boolean`` sets the option to ``true`` and the absence of the flag sets it to ``false``. It is also possible to specify ``--boolean=false`` or ``--boolean=true``. Note that ``--boolean false`` is not valid - this is parsed as ``--boolean`` and the false is parsed as an extra command line argument for rclone.
+
+Options which use TIME use the go time parser. A duration string is a possibly signed sequence of decimal numbers, each with optional fraction and a unit suffix, such as “300ms”, “-1.5h” or “2h45m”. Valid time units are “ns”, “us” (or “µs”), “ms”, “s”, “m”, “h”.
+
+Options which use SIZE use kByte by default. However, a suffix of b for bytes, k for kBytes, M for MBytes, G for GBytes, T for TBytes and P for PBytes may be used. These are the binary units, eg 1, 2**10, 2**20, 2**30 respectively.
+
+
+
+
+
+The rclone `global flag list <https://rclone.org/flags/>`_ is available to every rclone command and is split into two groups, non backend and backend flags.
+
+
+rclone copy
+^^^^^^^^^^^
+.. note::
+
+ For more detailed information, please refer to the `rclone copy <https://rclone.org/commands/rclone_copy/>`_ page on their website.
+
+rclone copy - copies the source to the destination, skipping already copied
+
+**Synopsis**
+
+Copy the source to the destination.  Doesn't transfer unchanged files, testing by size and modification time or MDSUM.  Doesn't delete files from the destination.
+
+Note that it is always the contents of the directory that is synced, not the directory.  SO when source:path is a directory, it's the contents of source:path that are copied, not the directory name and contents.
+
+.. code-block:: bash
+
+ $ rclone copy source:path destination:path [flags]
+
+**Note:** Use the ``-P/--progress`` flag to view real-time transfer statistics
+
+
+
+
+
+
+
+
+.. hint::
+
+ See the `--no-traverse <https://rclone.org/docs/#no-traverse>`_ option for controlling whether rclone lists the destination directory or not.  Supplying this option when copying a small number of files into a large destination can speed transfers up greatly. 
+
+
+**Example:** Using rclone to copy a file to Google Drive
+
+Let's copy the rclone zip file from Hoffman2 to your Google Drive, h2xfr folder
+
+.. code-block:: bash
+ 
+ dtn1:~$ rclone copy rclone-current-linux-amd64.zip gdrive:h2xfr
+ Enter configuration password:
+ password>
+ 2020/04/06 16:40:20 INFO  : rclone-current-linux-amd64.zip: Copied (new)
+ 2020/04/06 16:40:20 INFO  : 
+ Transferred:   	   11.177M / 11.177 MBytes, 100%, 3.671 MBytes/s, ETA 0s
+ Transferred:            1 / 1, 100%
+ Elapsed time:         3.0s
+ dtn1:~$
+
+'rclone-current-linux-amd64.zip' is the file in your current working directory that you want to transfer from Hoffman2 to Google Drive.
+
+'gdrive' is the name of the connection you gave when you configured your rclone connection and 'h2xfr' is the name of the folder you created in Google Drive.
+
+If you configured a password for rclone, you will be prompted for it before the file is sent.
+
+That's it, the file has been uploaded. You can view the remote end with the ls command. 
+
+.. code-block:: bash
+
+ dtn1:~$ rclone ls gdrive:h2xfr
+ password:
+ 11913756 rclone-v1.51.0-linux-amd64.zip
+
+
+* It may be useful to view the contents of your remote connection before uploading or downloading files.  To do so without having to use a browser, use the following commands:
+
+.. code-block:: bash
+
+ rclone lsd [remote]:
+
+** Replace ``remote:`` with the name of your remote connection, e.g. gdrive or box
+
+* To view the contents of a specific directory, e.g. 'h2xfr' in your Google Drive, use the command:
+
+.. code-block:: bash
+
+ rclone ls gdrive:h2xfr
+
+* If you want to test a command, use the ``--dry-run`` flag.  Below assumes the name of your rclone remote connection to Google Drive is named, 'gdrive' and the directory you're syncing to is named, 'h2xfr'
+
+.. code-block:: bash
+
+ rclone [command] --dry-run gdrive:h2xfr
+
+
+.. _scp:
+
+scp
+===
+For security reasons, Hoffman2 Cluster allows file transfer only with scp or sftp or grid-ftp. For the same reason, you should use an scp or sftp client on your local machine. You should not use the scp command on the cluster.
+
+The scp and sftp commands transfer files using the secure shell protocol (ssh) in which data is encrypted during transfer. The use of scp requires that an scp client be run on the machine that you use to initiate the transfer and that it communicate with a server run on any other machines which participate in the transfer. The Hoffman2 Cluster, like most Linux and Unix systems, runs both a client and a server.
+
+There is an scp client command on desktop Linux/Unix systems and on Macs (use Terminal). On Windows, you usually have to install an ssh client which comes with an scp program.
+
+The syntax of the Linux/Unix scp command is very similar to the cp command. For complete scp syntax, enter: ::
+
+ man scp
+
+Here is a simplified scp syntax that accomplishes most transfers: ::
+
+ scp [-r] source target
+
+where source is the name of the file on your local machine, and target will be the name of the file on the cluster.
+
+For the source on your local machine, specify an absolute or relative file name or directory name. You can use wild cards to transfer multiple files to an existing target directory. Specify -r to transfer a whole source directory and its files.
+
+For the target on the cluster, specify your login_id and the Hoffman2 address, followed by a colon (:), followed by the file specification. You can specify the directory where the file is to be saved, or a dot “.” meaning the same name in your home directory, or an absolute or relative path including a new file name. For large files or large amounts of data, use the Hoffman2 data transfer node dtn2.hoffman2.idre.ucla.edu ::
+
+ `login_id`@dtn2.hoffman2.idre.ucla.edu:filespec
+
+For example: ::
+
+ scp myfile `login_id`@dtn2.hoffman2.idre.ucla.edu:.
+
+will transfer the file named myfile from your current directory on your local machine to your home directory on the Hoffman2 Cluster. Its name on the cluster will be $HOME/myfile
+
+.. _sftp:
+
+sftp
+====
+.. sidebar:: If you would prefer to use a graphical SFTP client...
+   
+   Please look under Tools for a list of SFTP GUI applications.
+
+*secure file transfer program*
+
+sftp is a file transfer program, similar to ftp, which performs all operations over an encrypted ssh transport.
+
+It may also use many features of ssh, such as public key authentication and compression.
+
+
+.. csv-table:: SFTP Interactive Commands
+   :header: "**Command**", "**Function**", "**Example**"
+   :widths: 20, 20, 40
+
+   "cd", "Change remote directory to path", "cd [path]"
+   "lcd", "Change local directory to path", "lcd [path]"
+   "ls", "Display remote directory listing", "ls"
+   "lls", "Display local directory listing", "lls"
+   "pwd", "Display remote working directory", "pwd"
+   "lpwd", "Print local working directory", "lpwd"
+   "mkdir", "Create remote directory specified by path", "mkdir [path]"
+   "get", "Retrieve the remote path and store it on the local machine", "get remote_path [local_path]"
+   "put", "Upload local-path and store it on the remote machine", "put local_path [remote_path]"
+   "exit", "Quit SFTP", "exit"
+   "quit", "Quit SFTP", "quit"
+   "help", "Display help text", "sftp help"
+
+
+For complete syntax, please refer to the man page. ::
+
+   $ man scp
+
+
+
+**Let's establish an SFTP connection**
+
+Replace ``login_id`` with your cluster user name below.  This is an example of using the sftp client on macOS Terminal::
+
+   $ sftp `login_id`@hoffman2.idre.ucla.edu
+   `login_id`@hoffman2.idre.ucla.edu's password:
+   Connected to `login_id`@hoffman2.idre.ucla.edu.
+   sftp> 
+
+
+**Now let's move a file from our local computer to Hoffman2**
+
+Replace ``login_id`` with the user name on your local computer.  What is my current local working directory? and what files are listed::
+
+   sftp> lpwd
+   Local working directory: /Users/`login_id`/share/
+   sftp> lls
+   a.out  index.html
+
+What is my remote working directory? ::
+
+   sftp> pwd
+   Remote working directory: /u/home/l/`login_id`
+
+Let's create a new directory on the remote computer and change our working directory to it ::
+
+   sftp> mkdir uploads
+   sftp> cd uploads
+
+Copy file, "a.out" from local computer to Hoffman2 ::
+
+   sftp> put a.out
+   Uploading a.out to /u/home/l/login_id`/uploads/a.out
+   a.out                                                                                    100% 3125   703.0KB/s   00:00  
+   
+   sftp> ls
+   a.out
+
+   
+
+
+.. _rsync:
+
+rsync
+===== 
+The rsync command uses the SSH2 protocol to efficiently transfer files. It is perhaps most useful in keeping groups of files on different computers up to date with each other. 
+
+Here is a 2-part example of discovering the status of files in a common directory named mydir. It is comparing files in your Hoffman2 $HOME/mydir directory with those on your local machine mydir directory. You need both parts to ensure any new files from either source are synchronized.
+
+Part 1: Run this on your local machine: ::
+
+ $ rsync -an --itemize-changes `login_id`@dtn2.hoffman2.idre.ucla.edu:mydir .
+
+Any files prefixed with > in the ouput are different on Hoffman2 and you may want to download them from Hoffman2 (get): ::
+
+ $ rsync -av `login_id`@dtn2.hoffman2.idre.ucla.edu:mydir .
+
+Part 2: Run this on your local machine: ::
+
+ $ rsync -an --itemize-changes mydir `login_id`@dtn2.hoffman2.idre.ucla.edu:
+
+Any files prefixed with < in the output are different on your local machine and you may want to upload them to Hoffman2 (put): ::
+
+ $ rsync -av mydir `login_id`@dtn2.hoffman2.idre.ucla.edu:
+
+For more information about the rsync command and additional options, enter **man rsync** at the shell prompt::
+
+ $ man rsync
+
